@@ -12,6 +12,7 @@ import PageNotFound from "./containers/PageNotFound";
 
 function App() {
   const [token, setToken] = useState(null);
+  console.log(token);
 
   return (
     <Router>
