@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import Home from "./containers/Home";
 import Signup from "./containers/SignUp";
 import Login from "./containers/Login";
@@ -25,6 +26,7 @@ function App() {
         <Route path="/payment" element={<Payment />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
