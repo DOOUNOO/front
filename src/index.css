@@ -92,6 +92,12 @@ video {
   vertical-align: baseline;
 }
 
+* {
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,

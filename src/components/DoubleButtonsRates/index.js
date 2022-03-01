@@ -1,4 +1,4 @@
-import "./style.scss";
+import "./index.scss";
 import Button from "../Button.js";
 
 const DoubleButtonsRates = ({
