@@ -1,0 +1,16 @@
+.double-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .double-rates {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    .ratings {
+      margin-right: 25px;
+    }
+  }
+  .double-btn {
+    flex-direction: column;
+  }
+}
