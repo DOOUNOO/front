@@ -1,6 +1,6 @@
 button {
   width: 100%;
-  padding: 15px;
+  padding: 10px;
   cursor: pointer;
   &:hover {
     opacity: 0.8;
@@ -10,16 +10,17 @@ button {
   background: #09b1ba;
   color: #f9f9f9;
   border: 1px solid #09b1ba;
+  font-size: 1.2rem;
 }
 
-.rounded {
-  border-radius: 15px;
+.rounded,
+.noBackground {
+  border-radius: 25px;
 }
 .squared {
   border-radius: 3px;
 }
 .noBackground {
-  border-radius: 15px;
   background: none;
 
   color: #09b1ba;

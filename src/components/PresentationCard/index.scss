@@ -1,5 +1,33 @@
-.intro-paragraph-container {
-  h3 {
-    margin-bottom: 20px;
+.presentation-card-container {
+  display: flex;
+  width: 100%;
+  .presentation-img-container {
+    margin-right: 15px;
+
+    img {
+      width: 250px;
+      height: 250px;
+      border-radius: 10px;
+    }
   }
+}
+
+.presentation-name-icon,
+.presentation-category-icon {
+  display: flex;
+}
+.presentation-name-icon {
+  margin-bottom: 20px;
+}
+.presentation-category-icon {
+  margin-bottom: 15px;
+}
+
+.presentation-baseline {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.presentation-separator {
+  margin-bottom: 25px;
 }
