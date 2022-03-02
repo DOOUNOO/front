@@ -2,49 +2,49 @@ import Searchbox from "../../components/Searchbox";
 import { useState } from "react";
 import "./index.scss";
 
-import OfferCard from "../../components/OfferCard";
+import ExpertCard from "../../components/ExpertCard";
 
 import avatarImg from "../../assets/student.jpg";
 
-const FindOffers = () => {
-  const [sport, setSport] = useState("");
-  const [jetSet, setJetSet] = useState("");
-  const [specialization, setSpecialization] = useState("");
+const FindExperts = () => {
+  const [mode, setMode] = useState("");
+  const [artisanat, setArtisanat] = useState("");
+  const [miss, setMiss] = useState("");
   const [pricing, setPricing] = useState("");
   return (
     <>
-      <div className="findoffers-container">
-        <h1>Trouvez la meilleure offre</h1>
-        <form className="offer-searchbar">
+      <div className="find-experts-container">
+        <h1>Trouvez votre expert</h1>
+        <form className="expert-searchbar">
           <div className="visual-wrapper">
-            <div className="search-offers-wrapper">
+            <div className="search-experts-wrapper">
               <Searchbox
-                categoryName="Sport"
-                category={sport}
-                setCategory={setSport}
+                categoryName="Mode"
+                category={mode}
+                setCategory={setMode}
                 isFirst="true"
               />
               <Searchbox
-                categoryName="Category"
-                category={jetSet}
-                setCategory={setJetSet}
+                categoryName="Artisanat"
+                category={artisanat}
+                setCategory={setArtisanat}
               />
               <Searchbox
-                categoryName="Category"
-                category={jetSet}
-                setCategory={setJetSet}
+                categoryName="Autre"
+                category={miss}
+                setCategory={setMiss}
               />
               <Searchbox
-                categoryName="Category"
-                category={jetSet}
-                setCategory={setJetSet}
+                categoryName="Tarif"
+                category={pricing}
+                setCategory={setPricing}
               />
             </div>
           </div>
         </form>
       </div>
-      <section className="find-experts-container">
-        <OfferCard
+      <section className="find-experts-feed">
+        <ExpertCard
           expertImg={avatarImg}
           isBaseline={true}
           expertBaseline="Carpe Diem"
@@ -69,4 +69,4 @@ const FindOffers = () => {
   );
 };
 
-export default FindOffers;
+export default FindExperts;

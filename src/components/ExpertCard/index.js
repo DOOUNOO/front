@@ -2,7 +2,7 @@ import "./index.scss";
 import PresentationCard from "../PresentationCard";
 import DoubleButtonsRates from "../DoubleButtonsRates";
 
-const OfferCard = ({
+const ExpertCard = ({
   expertImg,
   isBaseline,
   expertBaseline,
@@ -22,7 +22,7 @@ const OfferCard = ({
   secondUrl,
 }) => {
   return (
-    <div className="offer-card">
+    <div className="expert-card">
       <div className="presentation-card-wrapper">
         <PresentationCard
           expertImg={expertImg}
@@ -52,4 +52,4 @@ const OfferCard = ({
   );
 };
 
-export default OfferCard;
+export default ExpertCard;
