@@ -33,50 +33,51 @@ const Home = ({data, isLoading}) => {
               <div className="category"><p>Management</p></div>
             </div>
           </div>
-          <div className="steps">
-            <div className="step">
+      </div>
+        </div>
+      <div className="blue-div">
+        <div className="steps">
+          <div className="steps-container">
+          <div className="step">
+            <div className="step-title-number">
+              <p className="step-title">Réservez</p>
+              <p className="step-number">1</p>
+            </div>
+            <p className="step-text">
+              Un appel téléphonique avec une personne compétente
+            </p>
+            <img src="https://res.cloudinary.com/dyj1ddjba/image/upload/v1646146674/doounoo/hands_tapping_ljupz6.jpg"
+                 alt="step"/>
+          </div>
+          <div className="step">
+            <div className="step-title-number">
+              <p className="step-title">Discutez</p>
+              <p className="step-number">2</p>
+            </div>
+            <p className="step-text">
+              Pour avoir les idées claires sur vos interrogations
+            </p>
+            <img src="https://res.cloudinary.com/dyj1ddjba/image/upload/v1646146674/doounoo/meeting_loia5s.jpg"
+                 alt="step"/>
+          </div>
+          <div className="last-step">
+            <div className="last-step-text">
               <div className="step-title-number">
-                <p className="step-title">Réservez</p>
-                <p className="step-number">1</p>
+                <p className="step-title">Prenez de meilleures décisions</p>
+                <p className="step-number">3</p>
               </div>
               <p className="step-text">
-                Un appel téléphonique avec une personne compétente
+                Vous pensez que les meilleures décisions viennent des meilleurs conseils ? Vous avez raison !
               </p>
-              <img src="https://res.cloudinary.com/dyj1ddjba/image/upload/v1646146674/doounoo/hands_tapping_ljupz6.jpg"
-                   alt="step"/>
+              <p className="voir-plus">VOIR PLUS</p>
             </div>
-            <div className="step">
-              <div className="step-title-number">
-                <p className="step-title">Discutez</p>
-                <p className="step-number">2</p>
-              </div>
-              <p className="step-text">
-                Pour avoir les idées claires sur vos interrogations
-              </p>
-              <img src="https://res.cloudinary.com/dyj1ddjba/image/upload/v1646146674/doounoo/meeting_loia5s.jpg"
+            <div className="last-step-img">
+              <img src="https://res.cloudinary.com/dyj1ddjba/image/upload/v1646146673/doounoo/direction_kixetc.jpg"
                    alt="step"/>
-            </div>
-            <div className="last-step">
-              <div className="last-step-text">
-                <div className="step-title-number">
-                  <p className="step-title">Prenez de meilleures décisions</p>
-                  <p className="step-number">3</p>
-                </div>
-                <p className="step-text">
-                  Vous pensez que les meilleures décisions viennent des meilleurs conseils ? Vous avez raison !
-                </p>
-                <p className="voir-plus">VOIR PLUS</p>
-              </div>
-              <div className="last-step-img">
-                <img src="https://res.cloudinary.com/dyj1ddjba/image/upload/v1646146673/doounoo/direction_kixetc.jpg"
-                     alt="step"/>
-              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="blue-div"/>
-      <div className="home-container">
       </div>
     </div>
   );

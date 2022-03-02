@@ -5,7 +5,7 @@
 
 .hero-bg-image {
   background-image: url("https://res.cloudinary.com/dyj1ddjba/image/upload/v1646146659/doounoo/redhead_smiling_la22t2.png");
-  height: 664px; /*TODO to be fitted*/
+  height: 750px; /*TODO to be fitted*/
   width: 100%;
   /*position: relative;*/
   background-position: center;
@@ -68,14 +68,26 @@
         }
       }
     }
+  }
+}
 
-    .steps {
+.blue-div {
+  height: 150px;
+  background-color: #3bb3bd;
+  box-shadow: -6px 0 white, 6px 0 white, 0 7px 5px -2px grey;
+
+  .steps {
+    margin: 0 auto;
+    max-width: 1280px;
+    height:100%;
+    position: relative;
+
+    .steps-container {
       display: flex;
       justify-content: space-between;
-      margin-top: 100px;
-      margin-left: 50px;
-      margin-right: 50px;
       gap: 20px;
+      position: absolute;
+      bottom: 75px;
 
       .step {
         flex: 1;
@@ -178,9 +190,4 @@
       }
     }
   }
-}
-
-.blue-div {
-  height: 150px;
-  background-color: #3bb3bd;
 }
