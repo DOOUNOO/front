@@ -21,6 +21,8 @@ const ExpertCard = ({
   firstUrl,
   secondUrl,
 }) => {
+  /* This component appears in FindExperts containers
+  and should appears in the dashboard too. */
   return (
     <div className="expert-card">
       <div className="presentation-card-wrapper">

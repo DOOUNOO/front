@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 const Button = ({ rounded, noBackground, squared, children, linkUrl }) => {
   return (
+    /* This button appears in : DoubleButtonsRates component */
+
     /*  This button has conditional display options depending on where it is displayed
   
 Conditional display : 
@@ -11,9 +13,8 @@ Conditional display :
 -squared (with turquoise background)
 -noBackground (without background)
 
+More option can be added, check the "classnames" package docs.
 */
-
-    /* This button appear on : DoubleButtonsRate component */
 
     <Link to={linkUrl}>
       <button

@@ -7,6 +7,8 @@ import ExpertCard from "../../components/ExpertCard";
 import avatarImg from "../../assets/student.jpg";
 
 const FindExperts = () => {
+  /* Awaiting the backend to play with datas here */
+
   const [mode, setMode] = useState("");
   const [artisanat, setArtisanat] = useState("");
   const [miss, setMiss] = useState("");
