@@ -5,7 +5,7 @@
 
 .hero-bg-image {
   background-image: url("https://res.cloudinary.com/dyj1ddjba/image/upload/v1646146659/doounoo/redhead_smiling_la22t2.png");
-  height: 600px; /*TODO to be fitted*/
+  height: 664px; /*TODO to be fitted*/
   width: 100%;
   /*position: relative;*/
   background-position: center;
@@ -18,61 +18,53 @@
     /*top: 150px;*/
     /*left: 100px;*/
     /*right: 100px;*/
-    .hero-title-search {
+    .hero-title-categories {
       margin-left: 175px;
-      padding-top: 130px;
-      width: 415px;
+      padding-top: 100px;
+      width: 490px;
 
       .hero-title {
         font-size: 57px;
         font-weight: bold;
       }
 
-      .hero-subtitle {
-        text-align: right;
-        margin-top: 25px;
-        color: #584f49
-      }
-
-      .search-title {
-        color: #584f49;
-        margin-top: 50px
-      }
-
-      .search-container {
-        position: relative;
+      .categories {
         display: flex;
-        margin-top: 15px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        border-radius: 5px;
 
-        .search-input-icon {
-          position: absolute;
-          left: 7px;
-          top: 12px;
-          color: #bbb;
-        }
+        .category {
+          flex: 1 0 21%; /* explanation below */
+          height: 50px;
+          width: 200px;
+          background-color: #f88e55;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: background-color .3s;
+          color:white;
 
-        .search-input {
-          width: 250px;
-          padding-left: 40px;
-          background-color: #f5f6f7;
-          border-bottom-left-radius: 5px;
-          border-top-left-radius: 5px;
-          height: 37px;
-          border: none;
-          outline: none;
-          font-size: 16px;
-          font-family: 'Inter', sans-serif;
-        }
+          &:nth-child(1) {
+            border-top-left-radius: 5px;
+          }
 
-        .search-button {
-          width: 125px;
-          font-family: 'Inter', sans-serif;;
-          font-size: 16px;
-          color: white;
-          background-color: #3bb3bd;
-          border: none;
-          border-top-right-radius: 5px;
-          border-bottom-right-radius: 5px;
+          &:nth-child(4) {
+            border-top-right-radius: 5px;
+          }
+
+          &:nth-child(9) {
+            border-bottom-left-radius: 5px;
+          }
+
+          &:nth-child(12) {
+            border-bottom-right-radius: 5px;
+          }
+
+          &:hover {
+            background-color: white;
+            color: #f88e55;
+          }
         }
       }
     }
@@ -80,7 +72,7 @@
     .steps {
       display: flex;
       justify-content: space-between;
-      margin-top: 70px;
+      margin-top: 100px;
       margin-left: 50px;
       margin-right: 50px;
       gap: 20px;
@@ -189,6 +181,6 @@
 }
 
 .blue-div {
-  height: 200px;
+  height: 150px;
   background-color: #3bb3bd;
 }
