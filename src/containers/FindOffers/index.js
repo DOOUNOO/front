@@ -56,6 +56,9 @@ const FindOffers = () => {
           title="Maroquinerie et savoir faire dans le marché du luxe"
           paragraph="Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum
      "
+          totalRates="6"
+          totalComments="16"
+          expertPrice="54"
           firstTextBtn="Voir profil"
           secondTextBtn="Contacter"
           firstUrl="/"

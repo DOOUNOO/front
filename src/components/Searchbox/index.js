@@ -19,9 +19,9 @@ const Searchbox = ({ categoryName, category, setCategory, isFirst }) => {
               <option defaultValue="Selected" className="option-default-value">
                 Sélectionnez une option &nbsp; &nbsp; v
               </option>
-              <option value="Foot">Foot</option>
-              <option value="Basket">Basket</option>
-              <option value="Foot Us">Foos Us</option>
+              <option value="Mode">Mode</option>
+              <option value="Travail du cuir">Travail du cuir</option>
+              <option value="Création de marque">Création de marque</option>
             </select>
           </div>
         </>

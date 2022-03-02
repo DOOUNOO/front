@@ -13,6 +13,9 @@ const OfferCard = ({
   isIntroParagraph,
   title,
   paragraph,
+  totalRates,
+  totalComments,
+  expertPrice,
   firstTextBtn,
   secondTextBtn,
   firstUrl,
@@ -36,6 +39,9 @@ const OfferCard = ({
       </div>
       <div className="double-brates-wrapper">
         <DoubleButtonsRates
+          totalRates={totalRates}
+          totalComments={totalComments}
+          expertPrice={expertPrice}
           firstTextBtn={firstTextBtn}
           secondTextBtn={secondTextBtn}
           firstUrl={firstUrl}

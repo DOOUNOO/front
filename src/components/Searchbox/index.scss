@@ -4,6 +4,7 @@
 
   label {
     color: grey;
+    margin-bottom: 15px;
   }
 
   select {
@@ -11,10 +12,13 @@
     width: 200px;
     outline: none;
     appearance: none;
-    margin: 10px 10px 0 0;
   }
   option {
     min-height: 0;
+  }
+  button {
+    width: unset;
+    padding: 0;
   }
 }
 

@@ -11,6 +11,15 @@ import FindOffers from "./containers/FindOffers";
 import Payment from "./containers/Payment";
 import PageNotFound from "./containers/PageNotFound";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faUser,
+  faStar,
+  faCommentDots,
+  faLightbulb,
+} from "@fortawesome/free-solid-svg-icons";
+library.add(faUser, faStar, faCommentDots, faLightbulb);
+
 function App() {
   const [token, setToken] = useState(null);
 

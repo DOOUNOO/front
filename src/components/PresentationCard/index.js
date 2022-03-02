@@ -1,5 +1,6 @@
 import "./index.scss";
 import IntroParagraph from "../IntroParagraph";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const PresentationCard = ({
   expertImg,
@@ -35,15 +36,21 @@ isIntroParagraph : Intro Paragraph component under the presentation block with i
             <div className="presentation-icon">@</div>
           </div>
           <div className="presentation-category-icon">
-            <div className="presentation-icon">@</div>
+            <div className="presentation-icon">
+              <FontAwesomeIcon icon="lightbulb" style={{ color: "grey" }} />
+            </div>
             <div className="presentation-category">{expertCategory}</div>
           </div>
           <div className="presentation-category-icon">
-            <div className="presentation-icon">@</div>
+            <div className="presentation-icon">
+              <FontAwesomeIcon icon="user" style={{ color: "grey" }} />
+            </div>
             <div className="presentation-total">{expertTotalRates}</div>
           </div>
           <div className="presentation-category-icon">
-            <div className="presentation-icon">@</div>
+            <div className="presentation-icon">
+              <FontAwesomeIcon icon="comment-dots" style={{ color: "grey" }} />
+            </div>
             <div className="presentation-expertise">{expertKeywords}</div>
           </div>
         </div>
