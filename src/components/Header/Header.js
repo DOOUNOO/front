@@ -2,7 +2,7 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 
 // Still needs to be modified so that logged-in user sees appropriate links based on whether business or student
-
+console.log("TEST");
 const Header = ({ token, setToken }) => {
   return (
     <div className="header-overarching-container">
