@@ -1,9 +1,21 @@
-import "./Header.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "./Header.scss";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import {
+  ButtonDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
 
 // Still needs to be modified so that logged-in user sees appropriate links based on whether business or student
-console.log("TEST");
+
 const Header = ({ token, setToken }) => {
+  const [dropdownOpen, setOpen] = useState(false);
+
+  const toggle = () => setOpen(!dropdownOpen);
+
   return (
     <div className="header-overarching-container">
       <div className="header-container">
@@ -48,10 +60,24 @@ const Header = ({ token, setToken }) => {
             >
               <div className="menu-item-container">Mes favoris</div>
             </Link>
-            <div className="menu-item-container avatar-container">
-              {/* Put first letter of logged in user's name  */}S
-              <div className="logged-in-green-circle"></div>
-            </div>
+
+            <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
+              <DropdownToggle tag="div">
+                <div className="menu-item-container avatar-container">
+                  {/* Put first letter of logged in user's name  */}S
+                  <div className="logged-in-green-circle"></div>
+                </div>
+              </DropdownToggle>
+              <DropdownMenu className="menu">
+                <DropdownItem className="menu-item" onClick={() => {}}>
+                  Tableau de bord
+                </DropdownItem>
+                <DropdownItem className="menu-item" divider />
+                <DropdownItem className="menu-item" onClick={() => {}}>
+                  Se déconnecter
+                </DropdownItem>
+              </DropdownMenu>
+            </ButtonDropdown>
           </div>
         ) : (
           <div className="header-right logged-out">

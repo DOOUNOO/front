@@ -102,6 +102,20 @@ a:hover {
       color: $white;
     }
 
+    .menu {
+      margin-top: 2.5px;
+      min-width: 10px;
+      font-size: 12px;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      .menu-item {
+        color: $lightText;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
     .avatar-container {
       height: 40px;
       width: 40px;
@@ -111,6 +125,10 @@ a:hover {
       justify-content: center;
       align-items: center;
       color: $white;
+
+      &:hover {
+        cursor: pointer;
+      }
 
       .logged-in-green-circle {
         position: absolute;

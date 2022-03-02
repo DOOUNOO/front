@@ -1,4 +1,4 @@
-import "./Subheader.css";
+import "./Subheader.scss";
 
 const Subheader = () => {
   return (

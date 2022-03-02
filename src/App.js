@@ -12,7 +12,7 @@ import Payment from "./containers/Payment";
 import PageNotFound from "./containers/PageNotFound";
 
 function App() {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(true);
 
   return (
     <Router>
