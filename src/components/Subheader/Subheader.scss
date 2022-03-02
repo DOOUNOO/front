@@ -1,0 +1,48 @@
+//Primary Color
+$orange: #ff9f66;
+$cream: #fff1e8;
+$lightOrange: #ffb081;
+$white: #ffffff;
+
+//Secondary Color
+$darkestGreen: #258675;
+$secondDarkestGreen: #45a090;
+$secondLightestGreen: #94cac0;
+$lightestGreen: #d4eee9;
+$yellow: #edc988;
+$pink: #feaea3;
+$darkPink: #ff7d6b;
+$lightPink: #ff7d6b;
+
+//Text Color
+$darkText: #1c110a;
+$lightText: #576165;
+
+//Other Color
+$lightBlueGrey: #f5f6f9;
+$darkGrey: #b0b4c0;
+$blueGrey: #e8eef0;
+$grey: #cfcfcf;
+$lightGrey: #f4f5f7;
+
+.subheader-container {
+  height: 62px;
+  width: 1280px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: $lightGrey;
+  color: $darkText;
+
+  div {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

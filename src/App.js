@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import Home from "./containers/Home";
 import Signup from "./containers/SignUp";
 import UserSignUp from "./containers/UserSignUp";
@@ -49,6 +50,7 @@ function App() {
         <Route path="/payment" element={<Payment />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
