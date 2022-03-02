@@ -5,6 +5,8 @@ import Cookies from "js-cookie";
 import Header from "./components/Header/Header";
 import Home from "./containers/Home";
 import Signup from "./containers/SignUp";
+import UserSignUp from "./containers/UserSignUp";
+import ExpertSignup from "./containers/ExpertSignUp";
 import Login from "./containers/Login";
 import Publish from "./containers/Publish";
 import Offer from "./containers/Offer";
@@ -33,6 +35,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup setUser={setUser} />} />
+        <Route
+          path="/signup/expert"
+          element={<ExpertSignup setUser={setUser} />}
+        />
+        <Route path="/signup/user" element={<UserSignUp setUser={setUser} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/publish" element={<Publish />} />
         <Route path="/offer/:id" element={<Offer />} />

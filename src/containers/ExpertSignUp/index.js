@@ -3,11 +3,14 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "./StudentSignupForm.css";
+import "./index.scss";
 
-const StudentSignupForm = ({ setUser }) => {
+const ExpertSignup = ({ setUser }) => {
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
   const [amIARobot, setAmIARobot] = useState(false);
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -19,7 +22,7 @@ const StudentSignupForm = ({ setUser }) => {
       event.preventDefault();
 
       const response = await axios.post(
-        "https://doounoo.herokuapp.com/student/signup",
+        "https://doounoo.herokuapp.com/expert/signup",
         {
           email,
           password,
@@ -31,7 +34,7 @@ const StudentSignupForm = ({ setUser }) => {
         navigate("/");
       }
     } catch (error) {
-      console.log("StudentSignup Error ===>", error.message);
+      console.log("ExpertSignup Error ===>", error.message);
       console.log("Cath error ===>", error.response);
 
       if (error.response.status === 400) {
@@ -47,6 +50,23 @@ const StudentSignupForm = ({ setUser }) => {
         Vous avez déjà un compte ? <span>Connectez-vous</span>{" "}
       </span>
       <form onSubmit={handleSubmit}>
+        <h2>Votre prénom</h2>
+        <input
+          type="text"
+          placeholder=""
+          onChange={(event) => {
+            setFirstName(event.target.value);
+          }}
+        />
+
+        <h2>Votre nom</h2>
+        <input
+          type="text"
+          placeholder=""
+          onChange={(event) => {
+            setLastName(event.target.value);
+          }}
+        />
         <h2>Votre e-mail</h2>
         <input
           type="email"
@@ -63,16 +83,24 @@ const StudentSignupForm = ({ setUser }) => {
             setPassword(event.target.value);
           }}
         />
+        <h2>Confirmez votre mot de passe</h2>
+        <input
+          type="password"
+          placeholder=""
+          onChange={(event) => {
+            setConfirmPassword(event.target.value);
+          }}
+        />
         <label>
           <input type="checkbox" />
           Se souvenir de moi
         </label>
         <span>CAPTCHA je ne suis pas un robot</span>
-        <input type="submit" value="S'inscrire" />
+        <input type="submit" value="Valider l'inscription" />
         <span>{errorMessage}</span>
       </form>
     </div>
   );
 };
 
-export default StudentSignupForm;
+export default ExpertSignup;

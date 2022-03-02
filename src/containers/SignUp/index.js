@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import StudentSignupForm from "../../components/StudentSignupForm/StudentSignupForm";
+import { useNavigate } from "react-router-dom";
 
 import "./index.css";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
   const [userType, setUserType] = useState(0);
   // state 0 : no information about the user yet
   // state 1 : the user is a Student
@@ -11,29 +13,23 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
-      {userType === 0 ? (
-        <div>
-          <h1>Êtes-vous ...</h1>
-          <button
-            onClick={() => {
-              setUserType(1);
-            }}
-          >
-            Un.e étudiant.e
-          </button>
-          <button
-            onClick={() => {
-              setUserType(2);
-            }}
-          >
-            Une entreprise
-          </button>
-        </div>
-      ) : (
-        <div>
-          {userType === 1 ? <StudentSignupForm /> : <span>is a business</span>}
-        </div>
-      )}
+      <h1>Je veux ...</h1>
+
+      <button
+        onClick={() => {
+          navigate("/signup/user");
+        }}
+      >
+        Trouver un.e expert.e
+      </button>
+
+      <button
+        onClick={() => {
+          navigate("/signup/expert");
+        }}
+      >
+        Partager et monétiser mon expertise
+      </button>
     </div>
   );
 };
