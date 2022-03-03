@@ -1,0 +1,76 @@
+$white: #ffffff;
+$darkGrey: #b0b4c0;
+$secondDarkestGreen: #45a090;
+
+.expert-signup__div {
+  background-image: url("/assets/images/smiling_boy.jpg");
+
+  width: 100%;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  height: 1000px;
+}
+.expert-signup_framed__div {
+  background-color: $white;
+  height: 900px;
+  width: 510px;
+  left: 100px;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  position: absolute;
+  gap: 30px;
+  h6 {
+    font-weight: bold;
+    color: $darkGrey;
+  }
+}
+
+.expert-signup__form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  .expert-signup_form_names__div {
+    display: flex;
+    flex-direction: row;
+
+    gap: 10px;
+    input {
+      width: 50%;
+    }
+  }
+
+  input {
+    height: 50px;
+  }
+
+  .expert-signup_form_submit__input {
+    background-color: $secondDarkestGreen;
+    border: none;
+    border-radius: 5px;
+    color: white;
+  }
+
+  label {
+    display: flex;
+    gap: 20px;
+    // justify-content: center;
+    align-items: center;
+    // border: solid 3px yellow;
+    height: 20px;
+  }
+  span {
+    color: red;
+  }
+}
+p {
+  font-size: 12px;
+  text-align: center;
+
+  span {
+    color: $secondDarkestGreen;
+  }
+}
