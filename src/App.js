@@ -16,7 +16,6 @@ import Offer from "./containers/Offer";
 import FindExperts from "./containers/FindExperts";
 import Payment from "./containers/Payment";
 import PageNotFound from "./containers/PageNotFound";
-library.add(faMagnifyingGlass);
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -24,8 +23,9 @@ import {
   faStar,
   faCommentDots,
   faLightbulb,
+  faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faUser, faStar, faCommentDots, faLightbulb);
+library.add(faUser, faStar, faCommentDots, faLightbulb, faMagnifyingGlass);
 
 function App() {
   const [token, setToken] = useState(Cookies.get("userToken") || null);
