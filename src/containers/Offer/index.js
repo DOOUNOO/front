@@ -34,7 +34,7 @@ const Offer = () => {
       setIsLoading(false);
       console.log(response.data);
 
-      if (response.data.account.description.length > 170) {
+      if (response.data.account.description.length > 179) {
         setDescIsLong(true);
       }
     };
@@ -139,7 +139,7 @@ const Offer = () => {
               </>
             ) : (
               <>
-                <p>{data.account.description.substring(0, 170)}...</p>
+                <p>{data.account.description.substring(0, 179)}...</p>
                 <div
                   className="desc-btn"
                   onClick={() => {
