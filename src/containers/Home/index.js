@@ -57,9 +57,9 @@ const Home = ({data, isLoading}) => {
     price: "28"
   }]
   let userCards = []
-  users.foreach((user, index) => {
-    userCards.push(<UserCard key={index} user={user}/>)
-  })
+  for (let i = 0; i < users.length; i++) {
+    userCards.push(<UserCard key={i} user={users[i]}/>)
+  }
 
   const advices = [{
     picture: "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646318239/doounoo/accounting_amrhbr.jpg",
@@ -77,7 +77,7 @@ const Home = ({data, isLoading}) => {
     picture: "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646318233/doounoo/career_atiac3.avif",
     smallText: "Découvrez un nouveau",
     bigText: "Métier"
-  },{
+  }, {
     picture: "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646318239/doounoo/accounting_amrhbr.jpg",
     smallText: "Améliorez votre",
     bigText: "Comptabilité"
@@ -95,9 +95,9 @@ const Home = ({data, isLoading}) => {
     bigText: "Métier"
   }]
   let adviceCards = []
-  advices.foreach((advice, index) => {
-    adviceCards.push(<AdviceCard key={index} advice={advice}/>)
-  })
+  for (let i = 0; i < advices.length; i++) {
+    adviceCards.push(<AdviceCard key={i} advice={advices[i]}/>)
+  }
 
   return isLoading ? (<>
       {/*TODO add a Spinner with react-loader-spinner?*/}
