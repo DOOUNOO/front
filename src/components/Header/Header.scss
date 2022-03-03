@@ -35,9 +35,9 @@ a:hover {
 
 .header-container {
   box-sizing: border-box;
-  width: 1280px;
+  margin: 0 auto;
+  max-width: 1280px;
   height: 90px;
-  margin: auto;
   display: flex;
   justify-content: space-between;
   border-bottom: solid 2px $lightGrey;
