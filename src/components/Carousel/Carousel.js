@@ -15,6 +15,7 @@ const Carousel = ({elements}) => {
             slidesPerGroup={4}
             navigation={true}
             modules={[Navigation]}
+            spaceBetween={20}
             className="mySwiper">
       {swiperSlides}
     </Swiper>

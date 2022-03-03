@@ -13,7 +13,7 @@ h2 {
   height: 750px; /*TODO to be fitted*/
   width: 100%;
   /*position: relative;*/
-  background-position: center;
+  //background-position: center;
   background-size: cover;
 
   .hero-content {
@@ -43,7 +43,7 @@ h2 {
           justify-content: center;
           align-items: center;
           transition: background-color .3s;
-          color:white;
+          color: white;
 
           &:nth-child(1) {
             border-top-left-radius: 5px;
@@ -79,7 +79,7 @@ h2 {
   .steps {
     margin: 0 auto;
     max-width: 1280px;
-    height:100%;
+    height: 100%;
     position: relative;
 
     .steps-container {
@@ -193,11 +193,13 @@ h2 {
 }
 
 .recently-visited {
-  margin: 100px auto;
+  margin: 0 auto;
   max-width: 1280px;
 
-  .slider {
-    display:flex;
-    align-content: center;
+  h2 {
+    margin-top: 100px;
+    margin-bottom: 75px;
   }
+
+
 }

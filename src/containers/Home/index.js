@@ -3,6 +3,7 @@ import React from "react";
 import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
 import Carousel from "../../components/Carousel/Carousel";
+import AdviceCard from "../../components/AdviceCard/AdviceCard";
 
 const Home = ({data, isLoading}) => {
   //TODO fetch this data from the server obviously
@@ -55,10 +56,47 @@ const Home = ({data, isLoading}) => {
     description: "Conseils sur la comptabilité de votre entreprise",
     price: "28"
   }]
-
-  let userCards=[]
+  let userCards = []
   users.map((user, index) => {
     userCards.push(<UserCard key={index} user={user}/>)
+  })
+
+  const advices = [{
+    picture: "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646318239/doounoo/accounting_amrhbr.jpg",
+    smallText: "Améliorez votre",
+    bigText: "Comptabilité"
+  }, {
+    picture: "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646318239/doounoo/business_bgmegi.jpg",
+    smallText: "Développez votre",
+    bigText: "Business"
+  }, {
+    picture: "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646318238/doounoo/social-media_gcj9ay.avif",
+    smallText: "Attirez plus de clients",
+    bigText: "Réseaux sociaux"
+  }, {
+    picture: "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646318233/doounoo/career_atiac3.avif",
+    smallText: "Découvrez un nouveau",
+    bigText: "Métier"
+  },{
+    picture: "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646318239/doounoo/accounting_amrhbr.jpg",
+    smallText: "Améliorez votre",
+    bigText: "Comptabilité"
+  }, {
+    picture: "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646318239/doounoo/business_bgmegi.jpg",
+    smallText: "Développez votre",
+    bigText: "Business"
+  }, {
+    picture: "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646318238/doounoo/social-media_gcj9ay.avif",
+    smallText: "Attirez plus de clients",
+    bigText: "Réseaux sociaux"
+  }, {
+    picture: "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646318233/doounoo/career_atiac3.avif",
+    smallText: "Découvrez un nouveau",
+    bigText: "Métier"
+  }]
+  let adviceCards = []
+  advices.map((advice, index) => {
+    adviceCards.push(<AdviceCard key={index} advice={advice}/>)
   })
 
   return isLoading ? (<>
@@ -137,9 +175,9 @@ const Home = ({data, isLoading}) => {
       </div>
       <div className="recently-visited">
         <h2>Récemment consultés et plus</h2>
-        <div className="slider">
-          <Carousel elements={userCards}/>
-        </div>
+        <Carousel elements={userCards}/>
+        <h2>Services les plus recherchés</h2>
+        <Carousel elements={adviceCards}/>
       </div>
     </>
   )
