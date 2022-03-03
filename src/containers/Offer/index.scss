@@ -1,0 +1,81 @@
+//Primary Color
+$orange: #ff9f66;
+$cream: #fff1e8;
+$lightOrange: #ffb081;
+$white: #ffffff;
+
+//Secondary Color
+$darkestGreen: #258675;
+$secondDarkestGreen: #45a090;
+$secondLightestGreen: #94cac0;
+$lightestGreen: #d4eee9;
+$yellow: #edc988;
+$pink: #feaea3;
+$darkPink: #ff7d6b;
+$lightPink: #ff7d6b;
+
+//Text Color
+$darkText: #1c110a;
+$lightText: #576165;
+
+//Other Color
+$lightBlueGrey: #f5f6f9;
+$darkGrey: #b0b4c0;
+$blueGrey: #e8eef0;
+$grey: #cfcfcf;
+$lightGrey: #f4f5f7;
+
+.offer-container {
+  box-sizing: border-box;
+  width: 1280px;
+  margin: auto;
+  display: flex;
+
+  .left-col {
+    width: 700px;
+    background-color: hotpink;
+
+    .main-expert-info {
+      height: 250px;
+      background-color: lightslategray;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .main-row {
+        display: flex;
+      }
+
+      .dashboard {
+        display: flex;
+      }
+    }
+
+    .description-container {
+      height: 210px;
+      background-color: khaki;
+    }
+
+    .calendar-container {
+      height: 575px;
+      background-color: lavenderblush;
+    }
+
+    .ratings-container {
+      height: 500px;
+      background-color: lightcoral;
+    }
+  }
+
+  .right-col {
+    flex: 1;
+    display: flex;
+
+    .contact-container {
+      height: 500px;
+      width: 380px;
+
+      background-color: black;
+    }
+  }
+}
