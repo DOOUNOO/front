@@ -6,7 +6,7 @@ import {Navigation} from "swiper";
 
 const Carousel = ({elements}) => {
   let swiperSlides = []
-  elements.map((element, index) => {
+  elements.foreach((element, index) => {
     swiperSlides.push(<SwiperSlide key={index}>{element}</SwiperSlide>)
   })
 

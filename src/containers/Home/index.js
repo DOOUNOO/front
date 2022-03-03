@@ -57,7 +57,7 @@ const Home = ({data, isLoading}) => {
     price: "28"
   }]
   let userCards = []
-  users.map((user, index) => {
+  users.foreach((user, index) => {
     userCards.push(<UserCard key={index} user={user}/>)
   })
 
@@ -95,7 +95,7 @@ const Home = ({data, isLoading}) => {
     bigText: "Métier"
   }]
   let adviceCards = []
-  advices.map((advice, index) => {
+  advices.foreach((advice, index) => {
     adviceCards.push(<AdviceCard key={index} advice={advice}/>)
   })
 
