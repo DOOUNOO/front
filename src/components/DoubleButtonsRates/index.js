@@ -23,7 +23,7 @@ const DoubleButtonsRates = ({
               <FontAwesomeIcon
                 className="fontawesome-star"
                 icon="star"
-                size="xs"
+                size="xxs"
                 style={{ color: "#f8d256" }}
               />
 
