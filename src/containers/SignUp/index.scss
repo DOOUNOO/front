@@ -1,0 +1,48 @@
+$secondDarkestGreen: #45a090;
+$orange: #ff9f66;
+
+.signup__div {
+  width: 100%;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  height: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: whitesmoke;
+
+  .signup_framed__div {
+    height: 300px;
+    padding: 30px;
+    background-color: white;
+    margin-top: 100px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    // border: solid blue 3px;
+    box-shadow: 10px 5px 5px rgb(213, 213, 213);
+    // box-shadow: 3px 3px rgb(213, 213, 213), -1em 0 0.4em rgb(213, 213, 213);
+  }
+}
+.signup_framed_buttons__div {
+  display: flex;
+  //   border: solid red 3px;
+  justify-content: space-around;
+}
+button {
+  border-radius: 5px;
+  width: 300px;
+  height: 100px;
+  border: none;
+  box-shadow: 10px 5px 5px rgb(213, 213, 213);
+}
+
+.expert__button {
+  background-color: $secondDarkestGreen;
+}
+
+.user__button {
+  background-color: $orange;
+}
