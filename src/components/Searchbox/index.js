@@ -1,6 +1,7 @@
 import "./index.scss";
 
 const Searchbox = ({ categoryName, category, setCategory, isFirst }) => {
+  /* This component appears in FindExperts containers*/
   return (
     <div className="search-container">
       {category === "" ? (
