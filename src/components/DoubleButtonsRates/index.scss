@@ -1,0 +1,43 @@
+.double-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .double-rates {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 25px;
+    .ratings,
+    .hourly-rate {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .ratings {
+      margin-right: 25px;
+    }
+  }
+  .double-btn {
+    flex-direction: column;
+  }
+  .first-btn-wrapper {
+    margin-bottom: 10px;
+  }
+
+  .total-rates-stars,
+  .hourly-pricing {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .comments-detail,
+  .hourly-detail {
+    color: grey;
+  }
+  .awesome-icon {
+    margin-right: 5px;
+  }
+  .fontawesome-star {
+    margin-right: 5px;
+  }
+}
