@@ -1,0 +1,194 @@
+//.home-container {
+//  width: 1280px;
+//  margin: auto;
+//}
+
+.hero-bg-image {
+  background-image: url("https://res.cloudinary.com/dyj1ddjba/image/upload/v1646146659/doounoo/redhead_smiling_la22t2.png");
+  height: 600px; /*TODO to be fitted*/
+  width: 100%;
+  /*position: relative;*/
+  background-position: center;
+  background-size: cover;
+
+  .hero-content {
+    margin: 0 auto;
+    max-width: 1280px;
+    /*position: absolute;*/
+    /*top: 150px;*/
+    /*left: 100px;*/
+    /*right: 100px;*/
+    .hero-title-search {
+      margin-left: 175px;
+      padding-top: 130px;
+      width: 415px;
+
+      .hero-title {
+        font-size: 57px;
+        font-weight: bold;
+      }
+
+      .hero-subtitle {
+        text-align: right;
+        margin-top: 25px;
+        color: #584f49
+      }
+
+      .search-title {
+        color: #584f49;
+        margin-top: 50px
+      }
+
+      .search-container {
+        position: relative;
+        display: flex;
+        margin-top: 15px;
+
+        .search-input-icon {
+          position: absolute;
+          left: 7px;
+          top: 12px;
+          color: #bbb;
+        }
+
+        .search-input {
+          width: 250px;
+          padding-left: 40px;
+          background-color: #f5f6f7;
+          border-bottom-left-radius: 5px;
+          border-top-left-radius: 5px;
+          height: 37px;
+          border: none;
+          outline: none;
+          font-size: 16px;
+          font-family: 'Inter', sans-serif;
+        }
+
+        .search-button {
+          width: 125px;
+          font-family: 'Inter', sans-serif;;
+          font-size: 16px;
+          color: white;
+          background-color: #3bb3bd;
+          border: none;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+      }
+    }
+
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 70px;
+      margin-left: 50px;
+      margin-right: 50px;
+      gap: 20px;
+
+      .step {
+        flex: 1;
+        background-color: white;
+        height: 50%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-radius: 5px;
+
+        .step-title-number {
+          display: flex;
+          align-content: center;
+          justify-content: space-between;
+
+          .step-title {
+            font-size: 20px;
+            font-weight: bold;
+            height: fit-content;
+          }
+
+          .step-number {
+            font-size: 30px;
+            font-weight: bold;
+            color: #cfcfcf
+          }
+        }
+
+        .step-text {
+          font-size: 14px;
+          color: #584f49;
+          line-height: 20px;
+        }
+
+        img {
+          width: 100%;
+          height: 57%;
+          object-fit: cover;
+          border-radius: 5px;
+        }
+      }
+
+      .last-step {
+        flex: 2;
+        background-color: #f88e55;
+        border-radius: 5px;
+        display: flex;
+
+        .last-step-text {
+          flex: 1;
+          height: 80%;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .step-title-number {
+            display: flex;
+            align-content: center;
+            justify-content: space-between;
+
+            .step-title {
+              font-size: 20px;
+              font-weight: bold;
+              height: fit-content;
+              color: white;
+            }
+
+            .step-number {
+              font-size: 30px;
+              font-weight: bold;
+              color: white;
+            }
+          }
+
+          .step-text {
+            font-size: 14px;
+            color: #584f49;
+            line-height: 20px;
+          }
+
+          .voir-plus {
+            font-size: 13px;
+            font-weight: bold;
+          }
+        }
+
+        .last-step-img {
+          flex: 1;
+          padding: 20px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.blue-div {
+  height: 200px;
+  background-color: #3bb3bd;
+}
