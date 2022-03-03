@@ -1,7 +1,12 @@
-//.home-container {
-//  width: 1280px;
-//  margin: auto;
-//}
+h1 {
+  font-size: 57px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+}
 
 .hero-bg-image {
   background-image: url("https://res.cloudinary.com/dyj1ddjba/image/upload/v1646146659/doounoo/redhead_smiling_la22t2.png");
@@ -22,11 +27,6 @@
       margin-left: 175px;
       padding-top: 100px;
       width: 490px;
-
-      .hero-title {
-        font-size: 57px;
-        font-weight: bold;
-      }
 
       .categories {
         display: flex;
@@ -189,5 +189,15 @@
         }
       }
     }
+  }
+}
+
+.recently-visited {
+  margin: 100px auto;
+  max-width: 1280px;
+
+  .slider {
+    display:flex;
+    align-content: center;
   }
 }
