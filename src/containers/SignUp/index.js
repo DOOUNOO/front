@@ -9,7 +9,7 @@ const Signup = () => {
   return (
     <div className="signup-container signup__div">
       <div className="signup_framed__div">
-        <h1>Je souhaite ...</h1>
+        <h1>Je souhaite...</h1>
         <div className="signup_framed_buttons__div">
           <div
             className="button user__button"

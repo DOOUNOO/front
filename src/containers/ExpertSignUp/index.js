@@ -55,7 +55,7 @@ const ExpertSignup = ({ setUser }) => {
     <div className="expert-signup__div">
       <div className="expert-signup_framed__div">
         <h1>Monétisez vos compétences en les partageant</h1>
-        <h6>Faites appel à votre expérience et travailler à votre rythme</h6>
+        <p>Faites appel à votre expérience et travailler à votre rythme</p>
         <form onSubmit={handleSubmit} className="expert-signup__form">
           <div className="expert-signup_form_names__div">
             <input
@@ -97,14 +97,6 @@ const ExpertSignup = ({ setUser }) => {
               setConfirmPassword(event.target.value);
             }}
           />
-          <label>
-            <input type="checkbox" />
-            Se souvenir de moi
-          </label>
-          <label>
-            <input type="checkbox" />
-            Je ne suis pas un robot
-          </label>
           <input
             type="submit"
             value="Valider l'inscription"
@@ -112,7 +104,7 @@ const ExpertSignup = ({ setUser }) => {
           />
           <span>{errorMessage}</span>
         </form>
-        <p>
+        <p className="licence-agreement">
           En vous inscrivant, vous acceptez les
           <span className="expert-signup_blue-span__span">
             {" "}

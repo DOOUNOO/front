@@ -4,16 +4,15 @@ $secondDarkestGreen: #45a090;
 
 .expert-signup__div {
   background-image: url("https://res.cloudinary.com/dyj1ddjba/image/upload/v1646388283/doounoo/smiling_boy_lyihmp.jpg");
-
   width: 100%;
   position: relative;
   background-position: center;
   background-size: cover;
   height: 1000px;
 }
+
 .expert-signup_framed__div {
   background-color: $white;
-  height: 900px;
   width: 510px;
   left: 100px;
   top: 50px;
@@ -22,10 +21,26 @@ $secondDarkestGreen: #45a090;
   padding: 50px;
   position: absolute;
   gap: 30px;
-  h6 {
+  border-radius: 5px;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+
+  h1 {
+    font-size: 40px;
+  }
+
+  p {
+    font-size: 14px;
     font-weight: bold;
     color: $darkGrey;
   }
+}
+
+input {
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #e5e5e5;
+  padding: 0 15px;
+  color: #b7b7b7;
 }
 
 .expert-signup__form {
@@ -36,8 +51,8 @@ $secondDarkestGreen: #45a090;
   .expert-signup_form_names__div {
     display: flex;
     flex-direction: row;
-
     gap: 10px;
+
     input {
       width: 50%;
     }
@@ -62,13 +77,15 @@ $secondDarkestGreen: #45a090;
     // border: solid 3px yellow;
     height: 20px;
   }
+
   span {
     color: red;
   }
 }
-p {
+
+.licence-agreement {
   font-size: 12px;
-  //text-align: center;
+  text-align: center;
 
   span {
     color: $secondDarkestGreen;
