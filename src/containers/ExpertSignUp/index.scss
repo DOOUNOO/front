@@ -4,6 +4,16 @@ $secondDarkestGreen: #45a090;
 
 .expert-signup__div {
   background-image: url("/assets/images/smiling_boy.jpg");
+  height: 600px;
+  /*TODO to be fitted*/
+  width: 100%;
+  /*position: relative;*/
+  background-position: center;
+  background-size: cover;
+}
+
+.expert-signup__div {
+  background-image: url("/assets/images/smiling_boy.jpg");
 
   width: 100%;
   position: relative;
@@ -68,7 +78,7 @@ $secondDarkestGreen: #45a090;
 }
 p {
   font-size: 12px;
-  text-align: center;
+  //text-align: center;
 
   span {
     color: $secondDarkestGreen;
