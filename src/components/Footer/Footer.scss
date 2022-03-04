@@ -43,10 +43,9 @@ $lightGrey: #f4f5f7;
 
     .main-row {
       display: flex;
-      width: min-content;
+      width: 100%;
       white-space: nowrap;
-      justify-content: center;
-      gap: 150px;
+      justify-content: space-between;
       flex-direction: row;
       font-size: 12px;
       margin: 0 auto;
