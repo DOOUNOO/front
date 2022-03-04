@@ -10,22 +10,18 @@ h2 {
 
 .hero-bg-image {
   background-image: url("https://res.cloudinary.com/dyj1ddjba/image/upload/v1646146659/doounoo/redhead_smiling_la22t2.png");
-  height: 750px; /*TODO to be fitted*/
+  height: 750px;
   width: 100%;
-  /*position: relative;*/
-  //background-position: center;
+  background-position: center;
   background-size: cover;
 
   .hero-content {
     margin: 0 auto;
     max-width: 1280px;
-    /*position: absolute;*/
-    /*top: 150px;*/
-    /*left: 100px;*/
-    /*right: 100px;*/
+
     .hero-title-categories {
       margin-left: 175px;
-      padding-top: 100px;
+      padding-top: 55px;
       width: 490px;
 
       .categories {
@@ -35,15 +31,18 @@ h2 {
         border-radius: 5px;
 
         .category {
-          flex: 1 0 21%; /* explanation below */
-          height: 50px;
-          width: 200px;
+          flex: 1 0 21%;
           background-color: #f88e55;
           display: flex;
           justify-content: center;
           align-items: center;
           transition: background-color .3s;
           color: white;
+
+          p {
+            margin-top: 15px;
+            font-size: 15px
+          }
 
           &:nth-child(1) {
             border-top-left-radius: 5px;

@@ -1,0 +1,27 @@
+button {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.cta-btn {
+  background: #09b1ba;
+  color: #f9f9f9;
+  border: 1px solid #09b1ba;
+  font-size: 1.2rem;
+}
+
+.rounded,
+.noBackground {
+  border-radius: 25px;
+}
+.squared {
+  border-radius: 3px;
+}
+.noBackground {
+  background: none;
+
+  color: #09b1ba;
+}

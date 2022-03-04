@@ -27,6 +27,7 @@ $lightGrey: #f4f5f7;
 
 .header-overarching-container {
   background-color: $white;
+  border-bottom: solid 2px $lightGrey;
 }
 
 a:hover {
@@ -35,12 +36,11 @@ a:hover {
 
 .header-container {
   box-sizing: border-box;
-  width: 1280px;
+  margin: 0 auto;
+  max-width: 1280px;
   height: 90px;
-  margin: auto;
   display: flex;
   justify-content: space-between;
-  border-bottom: solid 2px $lightGrey;
   font-family: "Inter", sans-serif;
   color: $darkText;
 
