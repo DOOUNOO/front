@@ -112,3 +112,12 @@ input {
     }
   }
 }
+
+.loader {
+  background-color: #45a090;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}

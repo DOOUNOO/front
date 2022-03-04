@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import { PulseLoader} from "react-spinners";
 
 import "./index.scss";
 
@@ -11,8 +12,8 @@ const ExpertSignup = ({setUser}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
   const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -34,10 +35,11 @@ const ExpertSignup = ({setUser}) => {
       } else if (password !== confirmPassword) {
         setErrorMessage("Les mots de passe sont différents");
       } else {
+        setIsLoading(true)
         setErrorMessage("");
         const response = await axios.post(
-          "http://localhost:3100/expert/signup",
-          // "https://doounoo.herokuapp.com/expert/signup",
+            // "http://localhost:3100/expert/signup",
+           "https://doounoo.herokuapp.com/expert/signup",
           {
             email,
             password,
@@ -53,6 +55,8 @@ const ExpertSignup = ({setUser}) => {
         }
       }
     } catch (error) {
+      setIsLoading(false);
+
       console.log("ExpertSignup Error ===>", error.message);
       console.log("Cath error ===>", error.response);
 
@@ -109,11 +113,17 @@ const ExpertSignup = ({setUser}) => {
                 setConfirmPassword(event.target.value);
               }}
             />
-            <input
-              type="submit"
-              value="Valider l'inscription"
-              className="expert-signup_form_submit__input"
-            />
+            {isLoading ? (
+              <div className="loader">
+                <PulseLoader color={"white"}/>
+              </div>
+            ) : (
+              <input
+                type="submit"
+                value="Valider l'inscription"
+                className="expert-signup_form_submit__input"
+              />
+            )}
             <span className="error-message">{errorMessage}</span>
           </form>
           <div className="licence-agreement">
