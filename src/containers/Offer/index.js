@@ -122,7 +122,15 @@ const Offer = () => {
               </div>
               <div className="main-profile-info-col">
                 <h1>
-                  {data.account.firstName} {data.account.lastName}
+                  {data.account.firstName} {data.account.lastName}{" "}
+                  <img
+                    src="https://res.cloudinary.com/dyj1ddjba/image/upload/v1646237849/doounoo/certified_fljewi.png"
+                    alt="certified"
+                    style={{
+                      height: 18,
+                      marginLeft: 6,
+                    }}
+                  ></img>
                 </h1>
                 <div>
                   <FontAwesomeIcon
