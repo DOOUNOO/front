@@ -4,7 +4,7 @@ import "./index.scss";
 
 import ExpertCard from "../../components/ExpertCard";
 
-import avatarImg from "../../assets/student.jpg";
+import avatarImg from "../../assets/images/student.jpg";
 
 const FindExperts = () => {
   /* Awaiting the backend to play with datas here */
