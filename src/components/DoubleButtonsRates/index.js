@@ -3,9 +3,8 @@ import Button from "../Button.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const DoubleButtonsRates = ({
-  totalRates,
-  totalComments,
-  expertPrice,
+  totalReview,
+  hourlyPrice,
   firstTextBtn,
   secondTextBtn,
   firstUrl,
@@ -23,17 +22,16 @@ const DoubleButtonsRates = ({
               <FontAwesomeIcon
                 className="fontawesome-star"
                 icon="star"
-                size="xxs"
+                size="xs"
                 style={{ color: "#f8d256" }}
               />
-
-              {totalRates}
+              5
             </div>
           </div>
-          <div className="comments-detail">{totalComments} avis</div>
+          <div className="comments-detail">{totalReview} avis</div>
         </div>
         <div className="hourly-rate">
-          <div className="hourly-pricing">{expertPrice} €</div>
+          <div className="hourly-pricing">{hourlyPrice} €</div>
           <div className="hourly-detail">de l'heure</div>
         </div>
       </div>

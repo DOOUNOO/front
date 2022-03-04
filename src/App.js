@@ -2,8 +2,6 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cookies from "js-cookie";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./containers/Home";
@@ -24,8 +22,18 @@ import {
   faCommentDots,
   faLightbulb,
   faMagnifyingGlass,
+  faArrowLeft,
+  faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faUser, faStar, faCommentDots, faLightbulb, faMagnifyingGlass);
+library.add(
+  faUser,
+  faStar,
+  faCommentDots,
+  faLightbulb,
+  faMagnifyingGlass,
+  faArrowLeft,
+  faArrowRight
+);
 
 function App() {
   const [token, setToken] = useState(Cookies.get("userToken") || null);

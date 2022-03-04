@@ -8,7 +8,7 @@ const PresentationCard = ({
   expertBaseline,
   expertName,
   expertCategory,
-  expertTotalRates,
+  totalOrder,
   expertKeywords,
   isIntroParagraph,
   title,
@@ -45,7 +45,12 @@ isIntroParagraph : Intro Paragraph component under the presentation block with i
             <div className="presentation-icon">
               <FontAwesomeIcon icon="user" style={{ color: "grey" }} />
             </div>
-            <div className="presentation-total">{expertTotalRates}</div>
+
+            <div className="presentation-total">
+              {totalOrder === 0
+                ? "Nouveau sur la plateforme"
+                : `${totalOrder} services`}
+            </div>
           </div>
           <div className="presentation-category-icon">
             <div className="presentation-icon">

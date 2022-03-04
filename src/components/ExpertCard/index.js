@@ -8,14 +8,13 @@ const ExpertCard = ({
   expertBaseline,
   expertName,
   expertCategory,
-  expertTotalRates,
+  expertTotalOrder,
+  expertTotalReview,
   expertKeywords,
   isIntroParagraph,
   title,
   paragraph,
-  totalRates,
-  totalComments,
-  expertPrice,
+  hourlyPrice,
   firstTextBtn,
   secondTextBtn,
   firstUrl,
@@ -32,7 +31,7 @@ const ExpertCard = ({
           expertBaseline={expertBaseline}
           expertName={expertName}
           expertCategory={expertCategory}
-          expertTotalRates={expertTotalRates}
+          totalOrder={expertTotalOrder}
           expertKeywords={expertKeywords}
           isIntroParagraph={isIntroParagraph}
           title={title}
@@ -41,9 +40,8 @@ const ExpertCard = ({
       </div>
       <div className="double-brates-wrapper">
         <DoubleButtonsRates
-          totalRates={totalRates}
-          totalComments={totalComments}
-          expertPrice={expertPrice}
+          totalReview={expertTotalReview}
+          hourlyPrice={hourlyPrice}
           firstTextBtn={firstTextBtn}
           secondTextBtn={secondTextBtn}
           firstUrl={firstUrl}

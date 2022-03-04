@@ -1,0 +1,69 @@
+[
+    {
+      "categoryName": "Mode",
+      "subcategories": [
+        "Modélisme",
+        "Couture",
+        "Stylisme",
+        "Maroquinerie",
+        "Lingerie"
+      ]
+    },
+  
+    {
+      "categoryName": "Cosmétique",
+      "subcategories": ["Maquillage", "Soin", "Parfum"]
+    },
+ 
+    {
+      "categoryName": "Art",
+      "subcategories": [
+        "Architecture",
+        "Sculpture",
+        "Arts visuels",
+        "Musique",
+        "Littérature",
+        "Théatre",
+        "Danse",
+        "Cinéma"
+      ]
+    },
+  
+    {
+      "categoryName": "Santé",
+      "subcategories": ["Physique", "Mentale", "Travail"]
+    },
+    {
+      "categoryName": "Sport",
+      "subcategories": ["Aérien", "Aquatique", "Terrestre"]
+    },
+    {
+      "categoryName": "Éducation",
+      "subcategories": ["Sciences", "Langues", "Financière", "Sexuelle"]
+    },
+    {
+      "categoryName": "Restauration",
+      "subcategories": ["Cuisine", "Patisserie", "Dessert"]
+    },
+    {
+      "categoryName": "Business",
+      "subcategories": [
+        "Immobilier",
+        "Communication",
+        "Comptabilité",
+        "Management"
+      ]
+    },
+    {
+      "categoryName": "Droit",
+      "subcategories": ["Avocat", "Juriste", "Greffier"]
+    },
+    {
+      "categoryName": "Technologie",
+      "subcategories": [
+        "Programmation & Tech",
+        "Design & Graphisme",
+        "Audiovisuel"
+      ]
+    }
+  ]
