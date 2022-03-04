@@ -2,21 +2,21 @@ $white: #ffffff;
 $darkGrey: #b0b4c0;
 $secondDarkestGreen: #45a090;
 
-.expert-signup__div {
-  background-image: url("https://res.cloudinary.com/dyj1ddjba/image/upload/v1646388283/doounoo/smiling_boy_lyihmp.jpg");
+.user-signup__div {
+  background-image: url("https://res.cloudinary.com/dyj1ddjba/image/upload/v1646406191/doounoo/smiling_girl_aotvha.jpg");
   width: 100%;
   background-position: center;
   background-size: cover;
   height: 1000px;
 }
 
-.expert-signup-content {
+.user-signup-content {
   margin: 0 auto;
   max-width: 1280px;
   position: relative;
 }
 
-.expert-signup_framed__div {
+.user-signup_framed__div {
   background-color: $white;
   width: 510px;
   left: 100px;
@@ -31,7 +31,7 @@ $secondDarkestGreen: #45a090;
 
   h1 {
     font-size: 40px;
-    width: 370px;
+    width: 380px;
   }
 
   h2 {
@@ -52,12 +52,12 @@ input {
   }
 }
 
-.expert-signup__form {
+.user-signup__form {
   display: flex;
   flex-direction: column;
   gap: 25px;
 
-  .expert-signup_form_names__div {
+  .user-signup_form_names__div {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -71,7 +71,7 @@ input {
     height: 50px;
   }
 
-  .expert-signup_form_submit__input {
+  .user-signup_form_submit__input {
     background-color: $secondDarkestGreen;
     border: none;
     border-radius: 5px;

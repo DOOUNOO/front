@@ -4,9 +4,9 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import { PulseLoader} from "react-spinners";
 
-import "./index.scss";
+import "./UserSignUp.scss";
 
-const ExpertSignup = ({setUser}) => {
+const UserSignup = ({setUser}) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -38,8 +38,8 @@ const ExpertSignup = ({setUser}) => {
         setIsLoading(true)
         setErrorMessage("");
         const response = await axios.post(
-            // "http://localhost:3100/expert/signup",
-           "https://doounoo.herokuapp.com/expert/signup",
+            // "http://localhost:3100/user/signup",
+           "https://doounoo.herokuapp.com/user/signup",
           {
             email,
             password,
@@ -57,7 +57,7 @@ const ExpertSignup = ({setUser}) => {
     } catch (error) {
       setIsLoading(false);
 
-      console.log("ExpertSignup Error ===>", error.message);
+      console.log("UserSignup Error ===>", error.message);
       console.log("Cath error ===>", error.response);
 
       if (error.response.status === 400) {
@@ -67,13 +67,13 @@ const ExpertSignup = ({setUser}) => {
   };
 
   return (
-    <div className="expert-signup__div">
-      <div className="expert-signup-content">
-        <div className="expert-signup_framed__div">
-          <h1>Monétisez vos compétences en les partageant</h1>
-          <h2>Faites appel à votre expérience et travailler à votre rythme</h2>
-          <form onSubmit={handleSubmit} className="expert-signup__form">
-            <div className="expert-signup_form_names__div">
+    <div className="user-signup__div">
+      <div className="user-signup-content">
+        <div className="user-signup_framed__div">
+          <h1>Trouvez facilement les conseils qu'il vous faut</h1>
+          <h2>Des experts sont disponibles dès à présent pour vous aider</h2>
+          <form onSubmit={handleSubmit} className="user-signup__form">
+            <div className="user-signup_form_names__div">
               <input
                 type="text"
                 placeholder="Prénom"
@@ -121,7 +121,7 @@ const ExpertSignup = ({setUser}) => {
               <input
                 type="submit"
                 value="Valider l'inscription"
-                className="expert-signup_form_submit__input"
+                className="user-signup_form_submit__input"
               />
             )}
             <span className="error-message">{errorMessage}</span>
@@ -129,7 +129,7 @@ const ExpertSignup = ({setUser}) => {
           <div className="licence-agreement">
             <p>
               En vous inscrivant, vous acceptez les
-              <span className="expert-signup_blue-span__span">
+              <span className="user-signup_blue-span__span">
             {" "}
                 Conditions Générales d'Utilisation{" "}
           </span>
@@ -142,4 +142,4 @@ const ExpertSignup = ({setUser}) => {
   );
 };
 
-export default ExpertSignup;
+export default UserSignup;
