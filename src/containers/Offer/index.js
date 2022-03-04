@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { LineWave } from "react-loader-spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,17 +13,74 @@ import {
   faStar,
   faArrowTrendUp,
 } from "@fortawesome/free-solid-svg-icons";
+import DayTimePicker from "@mooncake-dev/react-day-time-picker";
 
 import "./index.scss";
 
 const Offer = () => {
   const params = useParams();
-  const navigate = useNavigate();
 
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [descIsLong, setDescIsLong] = useState(false);
   const [seeAll, setSeeAll] = useState(false);
+
+  const handleScheduled = (dateTime) => {
+    console.log("scheduled: ", dateTime);
+  };
+
+  const timeSlotValidator = (slotTime) => {
+    const morningTime = new Date(
+      slotTime.getFullYear(),
+      slotTime.getMonth(),
+      slotTime.getDate(),
+      8,
+      0,
+      0
+    );
+
+    const eveningTime = new Date(
+      slotTime.getFullYear(),
+      slotTime.getMonth(),
+      slotTime.getDate(),
+      20,
+      0,
+      0
+    );
+
+    const isValid =
+      slotTime.getTime() > morningTime.getTime() &&
+      slotTime.getTime() < eveningTime.getTime();
+    return isValid;
+  };
+
+  const theme = {
+    primary: "#94cac0",
+    secondary: "#258675",
+    background: "white",
+    buttons: {
+      disabled: {
+        color: "#94cac0",
+        background: "#f0f0f0",
+      },
+      confirm: {
+        color: "white",
+        background: "#258675",
+        hover: {
+          color: "",
+          background: "#94cac0",
+        },
+      },
+    },
+    feedback: {
+      success: {
+        color: "#29aba4",
+      },
+      failed: {
+        color: "#eb7260",
+      },
+    },
+  };
 
   const ratings = {
     metaData: {
@@ -91,7 +148,6 @@ const Offer = () => {
       );
       setData(response.data);
       setIsLoading(false);
-      console.log(response.data);
 
       if (response.data.account.description.length > 173) setDescIsLong(true);
     };
@@ -218,6 +274,24 @@ const Offer = () => {
           </div>
           <div className="calendar-container" id="calendar">
             <h2>Agenda</h2>
+            <div
+              style={{
+                boxShadow: "none",
+                color: "black",
+                fontSize: 14,
+                maxHeight: 500,
+                overflow: "hidden",
+              }}
+            >
+              <DayTimePicker
+                timeSlotSizeMinutes={60}
+                timeSlotValidator={timeSlotValidator}
+                onConfirm={handleScheduled}
+                theme={theme}
+                confirmText="Prendre rendez-vous"
+                doneText="Rendez-vous confirmé !"
+              />
+            </div>
           </div>
           <div className="ratings-container" id="ratings">
             <h2>Avis</h2>
