@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { LineWave } from "react-loader-spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,7 +18,6 @@ import "./index.scss";
 
 const Offer = () => {
   const params = useParams();
-  const navigate = useNavigate();
 
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
