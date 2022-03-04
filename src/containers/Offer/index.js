@@ -25,6 +25,65 @@ const Offer = () => {
   const [descIsLong, setDescIsLong] = useState(false);
   const [seeAll, setSeeAll] = useState(false);
 
+  const ratings = {
+    metaData: {
+      averageRating: 5,
+      totalRatings: 41,
+    },
+    ratings: [
+      {
+        key: 1,
+        rater: {
+          firstName: "Juliette",
+          lastName: "Moreau",
+        },
+        date: "7 février, 2022",
+        rating: 5,
+        ratingText: "Son travail était vraiment super ! Je recommande.",
+      },
+      {
+        key: 2,
+        rater: {
+          firstName: "Félicia",
+          lastName: "Lopez",
+        },
+        date: "10 mars, 2022",
+        rating: 5,
+        ratingText:
+          "Wow ! C'est un gain de temps énorme dans ma recherche d'informations !",
+      },
+    ],
+  };
+
+  const numOfStars = (rating) => {
+    let arr = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < rating) {
+        arr.push(
+          <>
+            <FontAwesomeIcon
+              icon={faStar}
+              style={{
+                color: "gold",
+                width: 14,
+              }}
+            />{" "}
+          </>
+        );
+      } else {
+        arr.push(
+          <FontAwesomeIcon
+            icon={faStar}
+            style={{
+              color: "grey",
+            }}
+          />
+        );
+      }
+    }
+    return arr;
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
@@ -154,6 +213,83 @@ const Offer = () => {
           </div>
           <div className="ratings-container" id="ratings">
             <h2>Avis</h2>
+            <div className="ratings-data-row">
+              <div className="ratings-left-col">
+                <div className="avg-rating">
+                  {ratings.metaData.averageRating}
+                </div>
+                <div className="stars-container">
+                  {numOfStars(ratings.metaData.averageRating)}
+                </div>
+                <div className="total-ratings">
+                  {ratings.metaData.totalRatings} avis
+                </div>
+              </div>
+              <div className="ratings-right-col">
+                <div className="ratings-visualization-row">
+                  <div className="stars-desc">5 étoiles</div>{" "}
+                  <div
+                    className="ratings-bar"
+                    style={{
+                      backgroundColor: "gold",
+                    }}
+                  ></div>{" "}
+                  <div className="total-ratings-desc">(41)</div>
+                </div>
+                <div className="ratings-visualization-row">
+                  <div className="stars-desc">4 étoiles</div>{" "}
+                  <div className="ratings-bar"></div>{" "}
+                  <div className="total-ratings-desc">(0)</div>
+                </div>
+                <div className="ratings-visualization-row">
+                  <div className="stars-desc">3 étoiles</div>{" "}
+                  <div className="ratings-bar"></div>{" "}
+                  <div className="total-ratings-desc">(0)</div>
+                </div>
+                <div className="ratings-visualization-row">
+                  <div className="stars-desc">2 étoiles</div>{" "}
+                  <div className="ratings-bar"></div>{" "}
+                  <div className="total-ratings-desc">(0)</div>
+                </div>
+                <div className="ratings-visualization-row">
+                  <di className="stars-desc" v>
+                    1 étoile
+                  </di>{" "}
+                  <div className="ratings-bar"></div>{" "}
+                  <div className="total-ratings-desc">(0)</div>
+                </div>
+              </div>
+            </div>
+            <div className="ratings-list">
+              {ratings.ratings.map((e, i) => {
+                return (
+                  <div key={e.key} className="rating-block">
+                    <div className="rater-img-placeholder"></div>
+                    <div className="rating-info-col">
+                      <div className="name-row">
+                        {e.rater.firstName}{" "}
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          style={{
+                            color: "gold",
+                            width: 14,
+                          }}
+                        />{" "}
+                        <span
+                          style={{
+                            color: "gold",
+                          }}
+                        >
+                          5
+                        </span>
+                      </div>
+                      <div className="date-row">{e.date}</div>
+                      <div className="rating-txt">{e.ratingText}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
         <div className="right-col">
