@@ -6,13 +6,14 @@
         "Couture",
         "Stylisme",
         "Maroquinerie",
-        "Lingerie"
+        "Lingerie",
+        "Autre"
       ]
     },
   
     {
       "categoryName": "Cosmétique",
-      "subcategories": ["Maquillage", "Soin", "Parfum"]
+      "subcategories": ["Maquillage", "Soin", "Parfum", "Autre"]
     },
  
     {
@@ -25,25 +26,26 @@
         "Littérature",
         "Théatre",
         "Danse",
-        "Cinéma"
+        "Cinéma",
+        "Autre"
       ]
     },
   
     {
       "categoryName": "Santé",
-      "subcategories": ["Physique", "Mentale", "Travail"]
+      "subcategories": ["Physique", "Mentale", "Travail", "Autre"]
     },
     {
       "categoryName": "Sport",
-      "subcategories": ["Aérien", "Aquatique", "Terrestre"]
+      "subcategories": ["Aérien", "Aquatique", "Terrestre", "Autre"]
     },
     {
       "categoryName": "Éducation",
-      "subcategories": ["Sciences", "Langues", "Financière", "Sexuelle"]
+      "subcategories": ["Sciences", "Langues", "Financière", "Sexuelle", "Autre"]
     },
     {
       "categoryName": "Restauration",
-      "subcategories": ["Cuisine", "Patisserie", "Dessert"]
+      "subcategories": ["Cuisine", "Patisserie", "Dessert", "Autre"]
     },
     {
       "categoryName": "Business",
@@ -51,19 +53,21 @@
         "Immobilier",
         "Communication",
         "Comptabilité",
-        "Management"
+        "Management",
+        "Autre"
       ]
     },
     {
       "categoryName": "Droit",
-      "subcategories": ["Avocat", "Juriste", "Greffier"]
+      "subcategories": ["Avocat", "Juriste", "Greffier", "Autre"]
     },
     {
       "categoryName": "Technologie",
       "subcategories": [
         "Programmation & Tech",
         "Design & Graphisme",
-        "Audiovisuel"
+        "Audiovisuel",
+        "Autre"
       ]
     }
   ]

@@ -5,7 +5,13 @@ const Searchbox = ({
   filter,
   setFilter,
   filterReference,
+  priceFilter,
+  setPriceFilter,
+  setPriceMin,
+  setPriceMax,
   isFirst,
+  isSecond,
+  isThird,
 }) => {
   /* This component appears in Searchbar */
   let categoryIndex = null;
@@ -13,44 +19,42 @@ const Searchbox = ({
   switch (filterReference) {
     case "Mode":
       categoryIndex = 0;
-
       break;
     case "Cosmétique":
       categoryIndex = 1;
-
       break;
     case "Art":
       categoryIndex = 2;
-
       break;
     case "Santé":
       categoryIndex = 3;
-
       break;
     case "Sport":
       categoryIndex = 4;
-
+      break;
     case "Éducation":
       categoryIndex = 5;
-
       break;
     case "Restauration":
       categoryIndex = 6;
-
       break;
     case "Business":
       categoryIndex = 7;
-
       break;
     case "Droit":
       categoryIndex = 8;
-
       break;
     case "Technologie":
       categoryIndex = 9;
-
       break;
+    default:
+      categoryIndex = null;
   }
+
+  const resetPriceRange = () => {
+    setPriceMin(1);
+    setPriceMax(500);
+  };
 
   const createOptions = (numberIndex) => {
     const Options = [];
@@ -83,20 +87,33 @@ const Searchbox = ({
               name={filter}
               onChange={(event) => {
                 setFilter(event.target.value);
+                if (event.target.value === "1 € - 30 €") {
+                  setPriceMin(1);
+                  setPriceMax(30);
+                } else if (event.target.value === "1 € - 50 €") {
+                  setPriceMin(1);
+                  setPriceMax(50);
+                } else if (event.target.value === "50 € - 70 €") {
+                  setPriceMin(50);
+                  setPriceMax(70);
+                } else if (event.target.value === "70 € - 100 €") {
+                  setPriceMin(70);
+                  setPriceMax(100);
+                } else {
+                  setPriceMin(100);
+                  setPriceMax(500);
+                }
               }}
             >
               <option defaultValue="" className="option-default-value">
-                Sélectionnez une option &nbsp; &nbsp; v
+                {(isSecond && filterReference !== "") || !isSecond
+                  ? "Sélectionnez une option"
+                  : "Sélectionnez une catégorie"}
               </option>
               {categories.map((elem, index) => {
                 return (
                   isFirst && (
-                    <option
-                      id={`option${index}`}
-                      key={index}
-                      index={index}
-                      value={elem.categoryName}
-                    >
+                    <option key={index} index={index} value={elem.categoryName}>
                       {elem.categoryName}
                     </option>
                   )
@@ -106,6 +123,16 @@ const Searchbox = ({
               {!isFirst &&
                 categoryIndex !== null &&
                 createOptions(categoryIndex)}
+
+              {isThird && (
+                <>
+                  <option value="1 € - 30 €">1 € - 30 €</option>
+                  <option value="1 € - 50 €">1 € - 50 €</option>
+                  <option value="50 € - 70 €">50 € - 70 €</option>
+                  <option value="70 € - 100 €">70 € - 100 €</option>
+                  <option value="100 € & +">100 € & +</option>
+                </>
+              )}
             </select>
           </div>
         </>
@@ -120,7 +147,10 @@ const Searchbox = ({
               <div className="category-selected">{filter}</div>
               <button
                 className="close-selected-btn"
-                onClick={() => setFilter("")}
+                onClick={() => {
+                  setFilter("");
+                  resetPriceRange();
+                }}
               >
                 x
               </button>

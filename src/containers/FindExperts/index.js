@@ -13,6 +13,8 @@ const FindExperts = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
+  const [priceFilter, setPriceFilter] = useState("");
+
   const [priceMin, setPriceMin] = useState(1);
   const [priceMax, setPriceMax] = useState(500);
   const [availability, setAvailability] = useState("");
@@ -54,6 +56,8 @@ const FindExperts = () => {
           setCategory={setCategory}
           subcategory={subcategory}
           setSubcategory={setSubcategory}
+          priceFilter={priceFilter}
+          setPriceFilter={setPriceFilter}
           priceMin={priceMin}
           setPriceMin={setPriceMin}
           priceMax={priceMax}

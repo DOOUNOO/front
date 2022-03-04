@@ -8,11 +8,13 @@ const Searchbar = ({
   setCategory,
   subcategory,
   setSubcategory,
+  priceFilter,
+  setPriceFilter,
   priceMin,
   priceMax,
   availability,
   setAvailability,
-  sexPriceMin,
+  setPriceMin,
   setPriceMax,
 }) => {
   return (
@@ -23,21 +25,23 @@ const Searchbar = ({
             filterName="CATÉGORIE"
             filter={category}
             setFilter={setCategory}
-            isFirst="true"
+            isFirst={true}
           />
           <Searchbox
             filterName="SPÉCIALISATION"
             filterReference={category}
             filter={subcategory}
             setFilter={setSubcategory}
-            data={data}
+            isSecond={true}
           />
 
           <Searchbox
             filterName="TARIF HORAIRE"
-            filter={availability}
-            setFilter={setAvailability}
-            data={data}
+            filter={priceFilter}
+            setFilter={setPriceFilter}
+            setPriceMin={setPriceMin}
+            setPriceMax={setPriceMax}
+            isThird={true}
           />
           <Searchbox
             filterName="MES DISPONIBILITÉS"
