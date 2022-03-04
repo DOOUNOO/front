@@ -11,7 +11,7 @@ import {
 
 // Still needs to be modified so that logged-in user sees appropriate links based on whether business or student
 
-const Header = ({ token, setToken }) => {
+const Header = ({ token, setUser }) => {
   const [dropdownOpen, setOpen] = useState(false);
 
   const toggle = () => setOpen(!dropdownOpen);
@@ -73,7 +73,12 @@ const Header = ({ token, setToken }) => {
                   Tableau de bord
                 </DropdownItem>
                 <DropdownItem className="menu-item" divider />
-                <DropdownItem className="menu-item" onClick={() => {}}>
+                <DropdownItem
+                  className="menu-item"
+                  onClick={() => {
+                    setUser(null, null);
+                  }}
+                >
                   Se déconnecter
                 </DropdownItem>
               </DropdownMenu>

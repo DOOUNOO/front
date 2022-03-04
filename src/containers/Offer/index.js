@@ -14,7 +14,7 @@ import {
   faArrowTrendUp,
 } from "@fortawesome/free-solid-svg-icons";
 import DayTimePicker from "@mooncake-dev/react-day-time-picker";
-
+import ReservationModal from "../../components/ReservationModal/index";
 import "./index.scss";
 
 const Offer = () => {
@@ -24,9 +24,21 @@ const Offer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [descIsLong, setDescIsLong] = useState(false);
   const [seeAll, setSeeAll] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [reservationTime, setReservationTime] = useState(new Date());
+  const [month, setMonth] = useState(reservationTime.getMonth());
+  const [day, setDay] = useState(reservationTime.getDate());
+  const [year, setYear] = useState(reservationTime.getFullYear());
+  const [hour, setHour] = useState(reservationTime.getHours());
 
   const handleScheduled = (dateTime) => {
     console.log("scheduled: ", dateTime);
+    setShowModal(true);
+    setReservationTime(dateTime);
+    setMonth(dateTime.getMonth());
+    setDay(dateTime.getDate());
+    setYear(dateTime.getFullYear());
+    setHour(dateTime.getHours());
   };
 
   const timeSlotValidator = (slotTime) => {
@@ -274,6 +286,14 @@ const Offer = () => {
           </div>
           <div className="calendar-container" id="calendar">
             <h2>Agenda</h2>
+            <ReservationModal
+              display={showModal}
+              reservationTime={reservationTime}
+              month={month}
+              day={day}
+              year={year}
+              hour={hour}
+            />
             <div
               style={{
                 boxShadow: "none",

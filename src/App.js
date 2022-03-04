@@ -36,6 +36,7 @@ function App() {
     } else {
       Cookies.remove("userToken");
       Cookies.remove("userId");
+      setToken(null);
     }
 
     setToken(token);
@@ -43,7 +44,7 @@ function App() {
 
   return (
     <Router>
-      <Header token={token} setToken={setToken} />
+      <Header token={token} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup setUser={setUser} />} />
