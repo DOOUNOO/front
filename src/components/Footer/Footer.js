@@ -13,12 +13,16 @@ const Footer = () => {
         <div className="main-row">
           <div className="category-col col">
             <div>Catégorie</div>
-            <div>Ecole de mode</div>
-            <div>Programmation & Tech</div>
-            <div>Design & Graphisme</div>
-            <div>Audiovisuel</div>
-            <div>Rédaction & Traduction</div>
-            <div>Marketing digital</div>
+            <div>Mode</div>
+            <div>Cosmétique</div>
+            <div>Art</div>
+            <div>Santé</div>
+            <div>Sport</div>
+            <div>Éducation</div>
+            <div>Restaurant</div>
+            <div>Business</div>
+            <div>Droit</div>
+            <div>Loisirs</div>
           </div>
           <div className="about-col col">
             <div>À propos</div>

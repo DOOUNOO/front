@@ -32,7 +32,7 @@ $lightGrey: #f4f5f7;
     box-sizing: border-box;
     margin: 0 auto;
     max-width: 1280px;
-    height: 425px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     font-family: "Inter", sans-serif;
@@ -43,19 +43,22 @@ $lightGrey: #f4f5f7;
 
     .main-row {
       display: flex;
+      width: min-content;
+      white-space: nowrap;
       justify-content: center;
-      gap: 60px;
+      gap: 150px;
       flex-direction: row;
       font-size: 12px;
-
+      margin: 0 auto;
       .col {
         display: flex;
         flex-direction: column;
         gap: 10px;
         div:first-child {
-          font-size: 14px;
+          font-size: 16px;
           margin-bottom: 5px;
           font-weight: 500;
+          color: $grey;
         }
         div:not(:first-child) {
           cursor: pointer;
