@@ -48,7 +48,7 @@ const ReservationModal = ({
     <div className="modal">
       <div className="modal-content">
         <div className="modal-body">
-          blablabla {year} {month} {day} {hour} {minutes}
+          blablabla {year} {month} {day} {hour}
         </div>
       </div>
     </div>
