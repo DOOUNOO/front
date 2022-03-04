@@ -1,19 +1,16 @@
 import React from "react";
 import axios from "axios";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-// import smillingBoy from "/Users/emilieleury/08-leReacteur/6-doounoo/doounoo-front/src/assets/images/smiling_boy.jpg";
+import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 import "./index.scss";
 
-const ExpertSignup = ({ setUser }) => {
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-  const [confirmPassword, setConfirmPassword] = useState();
-  const [rememberMe, setRememberMe] = useState(false);
-  const [isRobot, setIsRobot] = useState(false);
+const ExpertSignup = ({setUser}) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -22,9 +19,25 @@ const ExpertSignup = ({ setUser }) => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      if (password === confirmPassword) {
+
+      const validEmailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!firstName) {
+        setErrorMessage("Veuillez saisir votre prénom");
+      } else if (!lastName) {
+        setErrorMessage("Veuillez saisir votre nom");
+      } else if (!email.match(validEmailRegex)) {
+        setErrorMessage("Veuillez saisir une addresse email valide");
+      } else if (!password) {
+        setErrorMessage("Veuillez saisir un mot de passe");
+      } else if (!confirmPassword) {
+        setErrorMessage("Veuillez confirmer votre mot de passe");
+      } else if (password !== confirmPassword) {
+        setErrorMessage("Les mots de passe sont différents");
+      } else {
+        setErrorMessage("");
         const response = await axios.post(
-          "https://doounoo.herokuapp.com/expert/signup",
+          "http://localhost:3100/expert/signup",
+          // "https://doounoo.herokuapp.com/expert/signup",
           {
             email,
             password,
@@ -38,80 +51,82 @@ const ExpertSignup = ({ setUser }) => {
           setUser(response.data.token, response.data._id);
           navigate("/");
         }
-      } else {
-        setErrorMessage("Vos mot-de-passes ne concordent pas");
       }
     } catch (error) {
       console.log("ExpertSignup Error ===>", error.message);
       console.log("Cath error ===>", error.response);
 
       if (error.response.status === 400) {
-        setErrorMessage("Cet email a déjà un compte");
+        setErrorMessage("Cet email est déjà associé à un compte");
       }
     }
   };
 
   return (
     <div className="expert-signup__div">
-      <div className="expert-signup_framed__div">
-        <h1>Monétisez vos compétences en les partageant</h1>
-        <p>Faites appel à votre expérience et travailler à votre rythme</p>
-        <form onSubmit={handleSubmit} className="expert-signup__form">
-          <div className="expert-signup_form_names__div">
+      <div className="expert-signup-content">
+        <div className="expert-signup_framed__div">
+          <h1>Monétisez vos compétences en les partageant</h1>
+          <h2>Faites appel à votre expérience et travailler à votre rythme</h2>
+          <form onSubmit={handleSubmit} className="expert-signup__form">
+            <div className="expert-signup_form_names__div">
+              <input
+                type="text"
+                placeholder="Prénom"
+                onChange={(event) => {
+                  setFirstName(event.target.value);
+                }}
+              />
+              <input
+                type="text"
+                placeholder="Nom"
+                onChange={(event) => {
+                  setLastName(event.target.value);
+                }}
+              />
+            </div>
+
             <input
-              type="text"
-              placeholder="Nom"
+              type="email"
+              placeholder="Email"
               onChange={(event) => {
-                setFirstName(event.target.value);
+                setEmail(event.target.value);
+              }}
+            />
+
+            <input
+              type="password"
+              placeholder="Mot de passe"
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+            />
+
+            <input
+              type="password"
+              placeholder="Confirmer le mot de passe"
+              onChange={(event) => {
+                setConfirmPassword(event.target.value);
               }}
             />
             <input
-              type="text"
-              placeholder="Prénom"
-              onChange={(event) => {
-                setLastName(event.target.value);
-              }}
+              type="submit"
+              value="Valider l'inscription"
+              className="expert-signup_form_submit__input"
             />
-          </div>
-
-          <input
-            type="email"
-            placeholder="Email"
-            onChange={(event) => {
-              setEmail(event.target.value);
-            }}
-          />
-
-          <input
-            type="password"
-            placeholder="Mot de passe"
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
-          />
-
-          <input
-            type="password"
-            placeholder="Confirmer le mot de passe"
-            onChange={(event) => {
-              setConfirmPassword(event.target.value);
-            }}
-          />
-          <input
-            type="submit"
-            value="Valider l'inscription"
-            className="expert-signup_form_submit__input"
-          />
-          <span>{errorMessage}</span>
-        </form>
-        <p className="licence-agreement">
-          En vous inscrivant, vous acceptez les
-          <span className="expert-signup_blue-span__span">
+            <span className="error-message">{errorMessage}</span>
+          </form>
+          <div className="licence-agreement">
+            <p>
+              En vous inscrivant, vous acceptez les
+              <span className="expert-signup_blue-span__span">
             {" "}
-            Conditions Générales d'Utilisation{" "}
+                Conditions Générales d'Utilisation{" "}
           </span>
-          et <span> la Politique de Confidentialité de Doounoo</span>
-        </p>
+              et <span> la Politique de Confidentialité de Doounoo</span>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
