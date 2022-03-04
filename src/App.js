@@ -52,7 +52,7 @@ function App() {
           element={<ExpertSignup setUser={setUser} />}
         />
         <Route path="/signup/user" element={<UserSignUp setUser={setUser} />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/publish" element={<Publish />} />
         <Route path="/offer/:id" element={<Offer />} />
         <Route path="/findexperts" element={<FindExperts />} />
