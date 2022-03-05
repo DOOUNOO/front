@@ -35,18 +35,19 @@ const FindExperts = () => {
           `http://localhost:3000/findexperts?page=${page}&category=${category}&subcategory=${subcategory}&priceMin=${priceMin}&priceMax=${priceMax}`
         );
         const limit = response.data.limit;
+
         setPageCount(Math.ceil(response.data.count / limit));
         setData(response.data);
         setIsLoading(false);
-        console.log(limit);
       } catch (error) {
         console.log(error.response);
       }
     };
 
     fetchData();
-  }, [category, subcategory, priceMin, priceMax, page]);
+  }, [category, subcategory, priceMin, priceMax, page, pageCount]);
 
+  console.log(data);
   return isLoading ? (
     <LoadingSpinner />
   ) : (
@@ -69,24 +70,33 @@ const FindExperts = () => {
           setPriceMax={setPriceMax}
           availability={availability}
           setAvailability={setAvailability}
+          setPage={setPage}
         />
       </div>
       <section className="find-experts-feed">
-        <h2>{data.count} profils disponibles</h2>
+        {data.count < 2 ? (
+          <h2>{data.count} profil disponible</h2>
+        ) : (
+          <h2>{data.count} profils disponibles</h2>
+        )}
+
         <ExpertsFeed data={data} avatarImg={avatarImg} />
       </section>
 
-      {data.count < 8 ? null : (
+      {data.count === 0 || pageCount === 1 ? null : (
         <ReactPaginate
           containerClassName={"page-navigation"}
           activeClassName={"active"}
-          nextLabel={<FontAwesomeIcon icon="arrow-right" />}
+          nextLabel={
+            page === pageCount ? null : <FontAwesomeIcon icon="angle-right" />
+          }
           previousLabel={
-            page === 1 ? null : <FontAwesomeIcon icon="arrow-left" />
+            page === 1 ? null : <FontAwesomeIcon icon="angle-left" />
           }
           onPageChange={handlePageClick}
           pageRangeDisplayed={5}
           pageCount={pageCount}
+          forcePage={page - 1}
         />
       )}
     </>

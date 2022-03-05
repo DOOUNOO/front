@@ -12,6 +12,7 @@ const Searchbox = ({
   isFirst,
   isSecond,
   isThird,
+  setPage,
 }) => {
   /* This component appears in Searchbar */
   let categoryIndex = null;
@@ -54,6 +55,7 @@ const Searchbox = ({
   const resetPriceRange = () => {
     setPriceMin(1);
     setPriceMax(500);
+    setPage(1);
   };
 
   const createOptions = (numberIndex) => {
@@ -87,21 +89,24 @@ const Searchbox = ({
               name={filter}
               onChange={(event) => {
                 setFilter(event.target.value);
-                if (event.target.value === "1 € - 30 €") {
-                  setPriceMin(1);
-                  setPriceMax(30);
-                } else if (event.target.value === "1 € - 50 €") {
-                  setPriceMin(1);
-                  setPriceMax(50);
-                } else if (event.target.value === "50 € - 70 €") {
-                  setPriceMin(50);
-                  setPriceMax(70);
-                } else if (event.target.value === "70 € - 100 €") {
-                  setPriceMin(70);
-                  setPriceMax(100);
-                } else {
-                  setPriceMin(100);
-                  setPriceMax(500);
+                setPage(1);
+                if (isThird) {
+                  if (event.target.value === "1 € - 30 €") {
+                    setPriceMin(1);
+                    setPriceMax(30);
+                  } else if (event.target.value === "1 € - 50 €") {
+                    setPriceMin(1);
+                    setPriceMax(50);
+                  } else if (event.target.value === "50 € - 70 €") {
+                    setPriceMin(50);
+                    setPriceMax(70);
+                  } else if (event.target.value === "70 € - 100 €") {
+                    setPriceMin(70);
+                    setPriceMax(100);
+                  } else {
+                    setPriceMin(100);
+                    setPriceMax(500);
+                  }
                 }
               }}
             >
@@ -149,7 +154,10 @@ const Searchbox = ({
                 className="close-selected-btn"
                 onClick={() => {
                   setFilter("");
-                  resetPriceRange();
+                  setPage(1);
+                  if (isThird) {
+                    resetPriceRange();
+                  }
                 }}
               >
                 x

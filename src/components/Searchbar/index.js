@@ -3,7 +3,6 @@ import "./index.scss";
 import Searchbox from "../Searchbox";
 
 const Searchbar = ({
-  data,
   category,
   setCategory,
   subcategory,
@@ -16,6 +15,7 @@ const Searchbar = ({
   setAvailability,
   setPriceMin,
   setPriceMax,
+  setPage,
 }) => {
   return (
     <form className="expert-searchbar">
@@ -26,6 +26,7 @@ const Searchbar = ({
             filter={category}
             setFilter={setCategory}
             isFirst={true}
+            setPage={setPage}
           />
           <Searchbox
             filterName="SPÉCIALISATION"
@@ -33,6 +34,7 @@ const Searchbar = ({
             filter={subcategory}
             setFilter={setSubcategory}
             isSecond={true}
+            setPage={setPage}
           />
 
           <Searchbox
@@ -42,12 +44,13 @@ const Searchbar = ({
             setPriceMin={setPriceMin}
             setPriceMax={setPriceMax}
             isThird={true}
+            setPage={setPage}
           />
           <Searchbox
             filterName="MES DISPONIBILITÉS"
             filter={availability}
             setFilter={setAvailability}
-            data={data}
+            setPage={setPage}
           />
         </div>
       </div>

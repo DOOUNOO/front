@@ -177,6 +177,6 @@ footer {
   background-color: #09b1ba;
 }
 
-.page-navigation li.active a {
+.page-navigation li.active {
   color: #f9f9f9;
 }

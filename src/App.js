@@ -22,9 +22,9 @@ import {
   faCommentDots,
   faLightbulb,
   faMagnifyingGlass,
-  faArrowLeft,
-  faArrowRight,
   faCheckCircle,
+  faAngleRight,
+  faAngleLeft,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
   faUser,
@@ -32,8 +32,8 @@ library.add(
   faCommentDots,
   faLightbulb,
   faMagnifyingGlass,
-  faArrowLeft,
-  faArrowRight,
+  faAngleRight,
+  faAngleLeft,
   faCheckCircle
 );
 
