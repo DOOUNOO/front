@@ -24,6 +24,7 @@ import {
   faMagnifyingGlass,
   faArrowLeft,
   faArrowRight,
+  faCheckCircle,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
   faUser,
@@ -32,7 +33,8 @@ library.add(
   faLightbulb,
   faMagnifyingGlass,
   faArrowLeft,
-  faArrowRight
+  faArrowRight,
+  faCheckCircle
 );
 
 function App() {

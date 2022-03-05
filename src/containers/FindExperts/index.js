@@ -7,16 +7,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Searchbar from "../../components/Searchbar";
 import avatarImg from "../../assets/images/student.jpg";
 import ExpertsFeed from "../../components/ExpertsFeed";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const FindExperts = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
-  const [priceFilter, setPriceFilter] = useState("");
 
+  const [priceFilter, setPriceFilter] = useState("");
   const [priceMin, setPriceMin] = useState(1);
   const [priceMax, setPriceMax] = useState(500);
+
   const [availability, setAvailability] = useState("");
 
   const [page, setPage] = useState(1);
@@ -36,20 +38,23 @@ const FindExperts = () => {
         setPageCount(Math.ceil(response.data.count / limit));
         setData(response.data);
         setIsLoading(false);
+        console.log(limit);
       } catch (error) {
         console.log(error.response);
       }
     };
 
     fetchData();
-  }, [category, subcategory, priceMin, priceMax]);
+  }, [category, subcategory, priceMin, priceMax, page]);
 
   return isLoading ? (
-    <div></div>
+    <LoadingSpinner />
   ) : (
     <>
       <div className="find-experts-container">
         <h1>Trouvez votre expert</h1>
+        <div className="loading-container"></div>
+
         <Searchbar
           data={data}
           category={category}
@@ -70,15 +75,20 @@ const FindExperts = () => {
         <h2>{data.count} profils disponibles</h2>
         <ExpertsFeed data={data} avatarImg={avatarImg} />
       </section>
-      <ReactPaginate
-        containerClassName={"page-navigation"}
-        activeClassName={"active"}
-        nextLabel={<FontAwesomeIcon icon="arrow-right" />}
-        previousLabel={<FontAwesomeIcon icon="arrow-left" />}
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-      />
+
+      {data.count < 8 ? null : (
+        <ReactPaginate
+          containerClassName={"page-navigation"}
+          activeClassName={"active"}
+          nextLabel={<FontAwesomeIcon icon="arrow-right" />}
+          previousLabel={
+            page === 1 ? null : <FontAwesomeIcon icon="arrow-left" />
+          }
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={pageCount}
+        />
+      )}
     </>
   );
 };

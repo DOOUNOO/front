@@ -33,7 +33,13 @@ isIntroParagraph : Intro Paragraph component under the presentation block with i
         <div className="presentation-separator">
           <div className="presentation-name-icon">
             <h3 className="presentation-name">{expertName}</h3>
-            <div className="presentation-icon">@</div>
+            <div className="presentation-icon verify">
+              <FontAwesomeIcon
+                icon="fa-check-circle"
+                size="xl"
+                style={{ color: "#09b1ba" }}
+              />
+            </div>
           </div>
           <div className="presentation-category-icon">
             <div className="presentation-icon">
