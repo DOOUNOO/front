@@ -1,13 +1,13 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cookies from "js-cookie";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./containers/Home";
 import Signup from "./containers/SignUp";
-import UserSignUp from "./containers/UserSignUp";
-import ExpertSignup from "./containers/ExpertSignUp";
+import UserSignUp from "./containers/UserSignUp/UserSignUp";
+import ExpertSignup from "./containers/ExpertSignUp/ExpertSignUp";
 import Login from "./containers/Login";
 import Publish from "./containers/Publish";
 import Offer from "./containers/Offer";

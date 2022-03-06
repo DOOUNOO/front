@@ -1,0 +1,59 @@
+.user-card {
+  height: 400px;
+  width: 275px;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .picture-details {
+    .picture {
+      width: 100%;
+      object-fit: cover;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    .details {
+      .name-avatar {
+        padding: 10px 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .avatar {
+          height: 25px;
+          width: 25px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+
+        .certified {
+          height: 20px;
+          width: 20px;
+        }
+      }
+
+      .description {
+        padding:10px 15px;
+        line-height:20px
+      }
+    }
+  }
+
+  .price {
+    border-top:1px solid #e5e5e5;
+    padding: 10px 15px;
+    height: 70px;
+
+    .a-partir {
+      font-size:10px;
+    }
+  }
+}

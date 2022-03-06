@@ -1,0 +1,23 @@
+.advice-card {
+  height: 400px;
+  width: 275px;
+  border-radius: 5px;
+  background-position: center;
+  background-size: cover;
+
+  p {
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .small-text {
+    margin-top: 20px;
+  }
+
+  .big-text {
+    margin-top: 5px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+}
