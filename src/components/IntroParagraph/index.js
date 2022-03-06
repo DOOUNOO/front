@@ -15,7 +15,6 @@ Else, you will get the same component with a redirect button to the expert profi
   const handleReadMore = () => {
     setReadMore(!readMore);
   };
-  //  Page avec readmore, page sans readmores
 
   return (
     <div className="intro-paragraph-container">

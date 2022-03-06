@@ -43,13 +43,21 @@ isIntroParagraph : Intro Paragraph component under the presentation block with i
           </div>
           <div className="presentation-category-icon">
             <div className="presentation-icon">
-              <FontAwesomeIcon icon="lightbulb" style={{ color: "grey" }} />
+              <FontAwesomeIcon
+                icon="lightbulb"
+                size="lg"
+                style={{ color: "grey" }}
+              />
             </div>
             <div className="presentation-category">{expertCategory}</div>
           </div>
           <div className="presentation-category-icon">
             <div className="presentation-icon">
-              <FontAwesomeIcon icon="user" style={{ color: "grey" }} />
+              <FontAwesomeIcon
+                icon="user"
+                size="lg"
+                style={{ color: "grey" }}
+              />
             </div>
 
             <div className="presentation-total">
@@ -60,7 +68,11 @@ isIntroParagraph : Intro Paragraph component under the presentation block with i
           </div>
           <div className="presentation-category-icon">
             <div className="presentation-icon">
-              <FontAwesomeIcon icon="comment-dots" style={{ color: "grey" }} />
+              <FontAwesomeIcon
+                icon="comment-dots"
+                size="lg"
+                style={{ color: "grey" }}
+              />
             </div>
             <div className="presentation-expertise">{expertKeywords}</div>
           </div>

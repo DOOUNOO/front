@@ -1,4 +1,5 @@
 import "./index.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import categories from "../../assets/categories.json";
 const Searchbox = ({
   filterName,
@@ -85,7 +86,13 @@ const Searchbox = ({
           ></div>
           <div className="search-content-wrapper">
             <label htmlFor={filterName}>{filterName}</label>
+
             <select
+              className={
+                (isSecond && filterReference !== "") || !isSecond
+                  ? "option-select"
+                  : "category-select"
+              }
               name={filter}
               onChange={(event) => {
                 setFilter(event.target.value);
@@ -110,7 +117,7 @@ const Searchbox = ({
                 }
               }}
             >
-              <option defaultValue="" className="option-default-value">
+              <option defaultValue="">
                 {(isSecond && filterReference !== "") || !isSecond
                   ? "Sélectionnez une option"
                   : "Sélectionnez une catégorie"}

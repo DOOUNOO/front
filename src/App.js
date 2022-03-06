@@ -25,6 +25,7 @@ import {
   faCheckCircle,
   faAngleRight,
   faAngleLeft,
+  faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
   faUser,
@@ -34,6 +35,7 @@ library.add(
   faMagnifyingGlass,
   faAngleRight,
   faAngleLeft,
+  faAngleDown,
   faCheckCircle
 );
 

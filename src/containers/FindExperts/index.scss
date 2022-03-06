@@ -12,3 +12,33 @@
     font-size: 1.4rem;
   }
 }
+
+@media (max-width: 1208px) {
+  .find-experts-container {
+    h1 {
+      margin: 30px;
+      text-align: right;
+    }
+  }
+  .find-experts-feed {
+    h2 {
+      margin: 15px;
+      text-align: right;
+    }
+  }
+}
+
+@media (max-width: 625px) {
+  .find-experts-container {
+    h1 {
+      margin: 30 0 0 0;
+      text-align: center;
+    }
+  }
+  .find-experts-feed {
+    h2 {
+      margin-top: 80px;
+      text-align: center;
+    }
+  }
+}
