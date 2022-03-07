@@ -17,10 +17,12 @@ import DayTimePicker from "@mooncake-dev/react-day-time-picker";
 import ReservationModal from "../../components/ReservationModal/index";
 import "./index.scss";
 
-const Offer = () => {
+const Offer = ({ token }) => {
   const params = useParams();
 
   const [data, setData] = useState({});
+  const [userData, setUserData] = useState({});
+
   const [isLoading, setIsLoading] = useState(true);
   const [descIsLong, setDescIsLong] = useState(false);
   const [seeAll, setSeeAll] = useState(false);
@@ -155,7 +157,24 @@ const Offer = () => {
       const response = await axios.get(
         `https://doounoo.herokuapp.com/findexperts/${params.id}`
       );
+      console.log(params.id);
+      console.log(response.data);
       setData(response.data);
+
+      if (token) {
+        const fetchUserData = async () => {
+          const res = await axios.get(
+            `https://doounoo.herokuapp.com/users/${token}`
+          );
+          console.log(token);
+          console.log(res.data);
+          setUserData(res.data);
+        };
+        fetchUserData();
+      } else {
+        console.log("no token");
+      }
+
       setIsLoading(false);
 
       if (response.data.account.description.length > 173) setDescIsLong(true);
@@ -304,7 +323,8 @@ const Offer = () => {
                 onConfirm={handleScheduled}
                 theme={theme}
                 confirmText="Prendre rendez-vous"
-                doneText="Rendez-vous confirmé !"
+                isLoading={false}
+                isDone={false}
               />
             </div>
           </div>

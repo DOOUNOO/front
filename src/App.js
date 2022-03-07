@@ -69,7 +69,7 @@ function App() {
         <Route path="/signup/user" element={<UserSignUp setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/publish" element={<Publish />} />
-        <Route path="/offer/:id" element={<Offer />} />
+        <Route path="/offer/:id" element={<Offer token={token} />} />
         <Route path="/findexperts" element={<FindExperts />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="*" element={<PageNotFound />} />
