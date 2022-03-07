@@ -184,7 +184,7 @@ const Offer = ({ token }) => {
       if (response.data.account.description.length > 173) setDescIsLong(true);
     };
     fetchData();
-  }, [params.id]);
+  }, [params.id, token]);
 
   return isLoading ? (
     <div className="offer-container">
