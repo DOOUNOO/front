@@ -35,7 +35,6 @@ const ReservationModal = ({
     //     setMonth("novembre");
     //   case 11:
     //     setMonth("décembre");
-    //
     // }
   }, [reservationTime]);
 
