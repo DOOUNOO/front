@@ -77,7 +77,7 @@ const ReservationModal = ({
               <div className="total-sum">
                 {(data.account.hourlyPrice + 0.99)
                   .toString()
-                  .replaceAll(".", ",")}
+                  .replaceAll(".", ",")}{" "}
                 €
               </div>
             </div>
