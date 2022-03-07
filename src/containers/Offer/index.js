@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { LineWave } from "react-loader-spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,7 +19,7 @@ import "./index.scss";
 
 const Offer = ({ token }) => {
   const params = useParams();
-
+  const navigate = useNavigate();
   const [data, setData] = useState({});
   const [userData, setUserData] = useState({});
 
@@ -30,9 +30,13 @@ const Offer = ({ token }) => {
   const [reservationTime, setReservationTime] = useState(new Date());
 
   const handleScheduled = (dateTime) => {
-    console.log("scheduled: ", dateTime);
-    setShowModal(true);
-    setReservationTime(dateTime);
+    if (token) {
+      console.log("scheduled: ", dateTime);
+      setShowModal(true);
+      setReservationTime(dateTime);
+    } else {
+      navigate("/login");
+    }
   };
 
   const timeSlotValidator = (slotTime) => {

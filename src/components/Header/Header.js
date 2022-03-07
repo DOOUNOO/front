@@ -48,8 +48,7 @@ const Header = ({ token, setUser }) => {
         {token ? (
           <div className="header-right logged-in">
             <Link
-              // Update when route known
-              to="/"
+              to="/findexperts"
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <div className="menu-item-container find-a-service">
@@ -107,8 +106,7 @@ const Header = ({ token, setUser }) => {
         ) : (
           <div className="header-right logged-out">
             <Link
-              // Update when route known
-              to="/"
+              to="/findexperts"
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <div className="menu-item-container find-a-service">
