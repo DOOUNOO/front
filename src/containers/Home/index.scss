@@ -1,3 +1,6 @@
+$lightGrey: #f4f5f7;
+$lightText: #576165;
+
 h1 {
   font-size: 57px;
   font-weight: bold;
@@ -36,12 +39,12 @@ h2 {
           display: flex;
           justify-content: center;
           align-items: center;
-          transition: background-color .3s;
+          transition: background-color 0.3s;
           color: white;
 
           p {
             margin-top: 15px;
-            font-size: 15px
+            font-size: 15px;
           }
 
           &:nth-child(1) {
@@ -112,7 +115,7 @@ h2 {
           .step-number {
             font-size: 30px;
             font-weight: bold;
-            color: #cfcfcf
+            color: #cfcfcf;
           }
         }
 
@@ -199,5 +202,124 @@ h2 {
   h2 {
     margin-top: 100px;
     margin-bottom: 75px;
+  }
+}
+
+.expert-profiles__div {
+  height: 910px;
+  background-color: $lightGrey;
+  box-shadow: -6px 0 white, 6px 0 white, 0 7px 5px -2px grey;
+  border: $lightGrey solid 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  justify-content: center;
+
+  .titles__div {
+    // border: red solid 3px;
+    text-align: center;
+
+    h3 {
+      font-size: 20px;
+      color: $lightText;
+      font-weight: 600;
+      margin-top: 30px;
+    }
+  }
+
+  .icons__div {
+    display: flex;
+    // border: blue solid 3px;
+    width: 80%;
+    .icons-section__div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // border: red solid 3px;
+      flex: 1;
+      text-align: center;
+      h4,
+      h5 {
+        font-size: 14px;
+        color: $lightText;
+      }
+      h4 {
+        font-weight: bold;
+      }
+    }
+    img {
+      height: 100px;
+      width: 100px;
+    }
+  }
+  .video__div {
+    width: 511.29px;
+    height: 341px;
+    position: relative;
+    // border: red solid 3px;
+    .picture__img {
+      height: 100%;
+      width: 100%;
+      border-radius: 5px;
+    }
+    .play-icon__img {
+      position: absolute;
+      height: 100px;
+      width: 100px;
+      // border: red solid 3px;
+      top: 40%;
+      left: 40%;
+    }
+  }
+}
+
+.discover-offers__div {
+  height: 730px;
+  background-color: white;
+  box-shadow: -6px 0 white, 6px 0 white, 0 7px 5px -2px grey;
+  border: $lightGrey solid 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  justify-content: center;
+
+  .titles__div {
+    // border: red solid 3px;
+    text-align: start;
+
+    h3 {
+      font-size: 20px;
+      color: $lightText;
+      font-weight: 600;
+      margin-top: 30px;
+    }
+  }
+
+  .icons__div {
+    display: flex;
+    // border: blue solid 3px;
+    width: 80%;
+    .icons-section__div {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      align-items: center;
+      // border: red solid 3px;
+      flex: 1;
+      text-align: center;
+      h4 {
+        font-size: 24px;
+        color: $lightText;
+      }
+      h5 {
+        font-size: 9px;
+      }
+    }
+    img {
+      height: 90px;
+      width: 90px;
+    }
   }
 }
