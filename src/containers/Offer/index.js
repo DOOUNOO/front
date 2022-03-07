@@ -26,19 +26,11 @@ const Offer = () => {
   const [seeAll, setSeeAll] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [reservationTime, setReservationTime] = useState(new Date());
-  const [month, setMonth] = useState(reservationTime.getMonth());
-  const [day, setDay] = useState(reservationTime.getDate());
-  const [year, setYear] = useState(reservationTime.getFullYear());
-  const [hour, setHour] = useState(reservationTime.getHours());
 
   const handleScheduled = (dateTime) => {
     console.log("scheduled: ", dateTime);
     setShowModal(true);
     setReservationTime(dateTime);
-    setMonth(dateTime.getMonth());
-    setDay(dateTime.getDate());
-    setYear(dateTime.getFullYear());
-    setHour(dateTime.getHours());
   };
 
   const timeSlotValidator = (slotTime) => {
@@ -289,10 +281,6 @@ const Offer = () => {
             <ReservationModal
               display={showModal}
               reservationTime={reservationTime}
-              month={month}
-              day={day}
-              year={year}
-              hour={hour}
             />
             <div
               style={{

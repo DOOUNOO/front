@@ -1,14 +1,30 @@
 import { useEffect } from "react";
 import "./index.scss";
 
-const ReservationModal = ({
-  display,
-  reservationTime,
-  day,
-  month,
-  year,
-  hour,
-}) => {
+const weekdaysFrench = new Array(7);
+weekdaysFrench[0] = "dimanche";
+weekdaysFrench[1] = "lundi";
+weekdaysFrench[2] = "mardi";
+weekdaysFrench[3] = "mercredi";
+weekdaysFrench[4] = "jeudi";
+weekdaysFrench[5] = "vendredi";
+weekdaysFrench[6] = "samedi";
+
+const monthsFrench = new Array(12);
+monthsFrench[0] = "janvier";
+monthsFrench[1] = "février";
+monthsFrench[2] = "mars";
+monthsFrench[3] = "avril";
+monthsFrench[4] = "mai";
+monthsFrench[5] = "juin";
+monthsFrench[6] = "juillet";
+monthsFrench[7] = "août";
+monthsFrench[8] = "septembre";
+monthsFrench[9] = "octobre";
+monthsFrench[10] = "novembre";
+monthsFrench[11] = "décembre";
+
+const ReservationModal = ({ display, reservationTime }) => {
   useEffect(() => {
     // switch (month) {
     //   case 0:
@@ -48,7 +64,11 @@ const ReservationModal = ({
     <div className="modal">
       <div className="modal-content">
         <div className="modal-body">
-          blablabla {year} {month} {day} {hour}
+          Year: {reservationTime.getFullYear()}
+          Day: {weekdaysFrench[reservationTime.getDay()]}
+          Hour: {reservationTime.getHours()}
+          Month: {monthsFrench[reservationTime.getMonth()]}
+          Date: {reservationTime.getDate()}
         </div>
       </div>
     </div>
