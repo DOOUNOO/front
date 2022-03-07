@@ -16,7 +16,7 @@ const Payment = () => {
     console.log(state);
   }
 
-  return !state ? <Navigate to="/login" /> : <div>hi</div>;
+  return !state ? <Navigate to="/login" /> : <div>PAYMENT STUFF</div>;
 };
 
 export default Payment;
