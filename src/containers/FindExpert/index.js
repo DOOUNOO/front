@@ -51,17 +51,7 @@ const Offer = () => {
         <div className="left-col">
           <div className="main-expert-info">
             <div className="main-row">
-              <div className="photo-col">
-                <div
-                  style={{
-                    height: 160,
-                    width: 160,
-                    borderRadius: 10,
-                    marginRight: 25,
-                    backgroundColor: "#258675",
-                  }}
-                ></div>
-              </div>
+              <div className="photo-col"></div>
               <div className="main-profile-info-col">
                 <h1>
                   {data.account.firstName} {data.account.lastName}
