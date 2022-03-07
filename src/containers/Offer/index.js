@@ -38,7 +38,7 @@ const Offer = () => {
       slotTime.getFullYear(),
       slotTime.getMonth(),
       slotTime.getDate(),
-      8,
+      7,
       0,
       0
     );
@@ -52,9 +52,14 @@ const Offer = () => {
       0
     );
 
-    const isValid =
+    let isValid =
       slotTime.getTime() > morningTime.getTime() &&
       slotTime.getTime() < eveningTime.getTime();
+
+    // if (slotTime.getDay() === 0) {
+    //   isValid = false;
+    // }
+
     return isValid;
   };
 
@@ -279,8 +284,10 @@ const Offer = () => {
           <div className="calendar-container" id="calendar">
             <h2>Agenda</h2>
             <ReservationModal
-              display={showModal}
+              showModal={showModal}
+              setShowModal={setShowModal}
               reservationTime={reservationTime}
+              data={data}
             />
             <div
               style={{

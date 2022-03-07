@@ -1,3 +1,30 @@
+//Primary Color
+$orange: #ff9f66;
+$cream: #fff1e8;
+$lightOrange: #ffb081;
+$white: #ffffff;
+
+//Secondary Color
+$darkestGreen: #258675;
+$secondDarkestGreen: #45a090;
+$secondLightestGreen: #94cac0;
+$lightestGreen: #d4eee9;
+$yellow: #edc988;
+$pink: #feaea3;
+$darkPink: #ff7d6b;
+$lightPink: #ff7d6b;
+
+//Text Color
+$darkText: #1c110a;
+$lightText: #576165;
+
+//Other Color
+$lightBlueGrey: #f5f6f9;
+$darkGrey: #b0b4c0;
+$blueGrey: #e8eef0;
+$grey: #cfcfcf;
+$lightGrey: #f4f5f7;
+
 .modal {
   position: fixed;
   left: 0;
@@ -10,9 +37,107 @@
   justify-content: center;
 
   .modal-content {
-    width: 750px;
-    height: 500px;
+    width: 700px;
+    height: 425px;
     background-color: white;
     border-radius: 10px;
+    padding: 15px;
+
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        font-size: 20px;
+        font-weight: 500;
+        border-bottom: 1.5px solid $grey;
+        padding-bottom: 15px;
+      }
+
+      .date-time-section {
+        border-bottom: 1.5px solid $grey;
+        padding: 10px 0 15px 0;
+        h2 {
+          color: $darkestGreen;
+          font-weight: 500;
+          font-size: 15px;
+        }
+
+        .date-time-details {
+          font-weight: 600;
+          font-size: 16px;
+        }
+      }
+
+      .pricing-section {
+        .pricing-breakdown {
+          display: flex;
+          justify-content: flex-start;
+          margin-top: 22px;
+          font-size: 14px;
+          font-weight: 500;
+
+          .left-col {
+            display: flex;
+            flex-direction: column;
+            width: 225px;
+            gap: 5px;
+          }
+
+          .right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            div {
+              width: 100px;
+            }
+          }
+        }
+
+        .total-price-row {
+          display: flex;
+          margin: 22px 0;
+          font-size: 16px;
+          font-weight: 600;
+
+          .total-key {
+            width: 225px;
+          }
+
+          .total-sum {
+            width: 100px;
+          }
+        }
+      }
+
+      .buttons {
+        display: flex;
+        gap: 15px;
+      }
+
+      button,
+      button:hover {
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 600;
+        height: 40px;
+        box-shadow: none;
+      }
+
+      .confirm-btn {
+        width: 325px;
+        background-color: $darkestGreen;
+      }
+
+      .cancel-btn {
+        width: 150px;
+        background-color: #ff6961;
+      }
+    }
   }
 }

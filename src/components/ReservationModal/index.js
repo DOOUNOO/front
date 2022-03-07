@@ -24,51 +24,75 @@ monthsFrench[9] = "octobre";
 monthsFrench[10] = "novembre";
 monthsFrench[11] = "décembre";
 
-const ReservationModal = ({ display, reservationTime }) => {
-  useEffect(() => {
-    // switch (month) {
-    //   case 0:
-    //     setMonth("janvier");
-    //   case 1:
-    //     setMonth("février");
-    //   case 2:
-    //     setMonth("mars");
-    //   case 3:
-    //     setMonth("avril");
-    //   case 4:
-    //     setMonth("mai");
-    //   case 5:
-    //     setMonth("juin");
-    //   case 6:
-    //     setMonth("juillet");
-    //   case 7:
-    //     setMonth("août");
-    //   case 8:
-    //     setMonth("septembre");
-    //   case 9:
-    //     setMonth("octobre");
-    //   case 10:
-    //     setMonth("novembre");
-    //   case 11:
-    //     setMonth("décembre");
-    // }
-  }, [reservationTime]);
-
-  if (!display) {
+const ReservationModal = ({
+  showModal,
+  setShowModal,
+  reservationTime,
+  data,
+}) => {
+  if (!showModal) {
     return null;
   }
 
-  console.log(reservationTime);
+  console.log(data.account.hourlyPrice);
 
   return (
     <div className="modal">
       <div className="modal-content">
         <div className="modal-body">
-          Year: {reservationTime.getFullYear()}
-          Day: {weekdaysFrench[reservationTime.getDay()]}
-          Hour: {reservationTime.getHours()}
-          Month: {monthsFrench[reservationTime.getMonth()]}
-          Date: {reservationTime.getDate()}
+          <h1>Confirmation de prise de rendez-vous</h1>
+          <div className="date-time-section">
+            <h2>Date et heure</h2>
+            <div className="date-time-details">
+              {weekdaysFrench[reservationTime.getDay()]}{" "}
+              {reservationTime.getDate()}{" "}
+              {monthsFrench[reservationTime.getMonth()]}{" "}
+              {reservationTime.getFullYear()}, {reservationTime.getHours()}:00
+            </div>
+          </div>
+          <div className="pricing-section">
+            <div className="pricing-breakdown">
+              <div className="left-col">
+                <div>Informations</div>
+                <div>1 heure de conseil</div>
+                <div>Frais de transaction</div>
+                <div>Annulation du rendez-vous</div>
+              </div>
+              <div className="right-col">
+                <div>Tarif horaire</div>
+                {/* Needs to include the real price */}
+                <div>{data.account.hourlyPrice},00 €</div>
+                <div>0,99 €</div>
+                <div
+                  style={{
+                    color: "green",
+                  }}
+                >
+                  Gratuite
+                </div>
+              </div>
+            </div>
+            <div className="total-price-row">
+              <div className="total-key">TOTAL</div>
+              <div className="total-sum">
+                {(data.account.hourlyPrice + 0.99)
+                  .toString()
+                  .replaceAll(".", ",")}
+                €
+              </div>
+            </div>
+          </div>
+          <div className="buttons">
+            <button className="confirm-btn">Confirmer mon rendez-vous</button>
+            <button
+              className="cancel-btn"
+              onClick={() => {
+                setShowModal(false);
+              }}
+            >
+              Annuler
+            </button>
+          </div>
         </div>
       </div>
     </div>
