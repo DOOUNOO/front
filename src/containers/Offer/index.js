@@ -311,6 +311,7 @@ const Offer = ({ token }) => {
               setShowModal={setShowModal}
               reservationTime={reservationTime}
               data={data}
+              userData={userData}
             />
             <div
               style={{

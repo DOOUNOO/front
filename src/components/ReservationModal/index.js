@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./index.scss";
 
 const weekdaysFrench = new Array(7);
@@ -29,7 +29,10 @@ const ReservationModal = ({
   setShowModal,
   reservationTime,
   data,
+  userData,
 }) => {
+  const navigate = useNavigate();
+
   if (!showModal) {
     return null;
   }
@@ -83,7 +86,19 @@ const ReservationModal = ({
             </div>
           </div>
           <div className="buttons">
-            <button className="confirm-btn">Confirmer mon rendez-vous</button>
+            <button
+              className="confirm-btn"
+              onClick={() => {
+                navigate("/payment", {
+                  state: {
+                    userData: userData,
+                    expertData: data,
+                  },
+                });
+              }}
+            >
+              Confirmer mon rendez-vous
+            </button>
             <button
               className="cancel-btn"
               onClick={() => {
