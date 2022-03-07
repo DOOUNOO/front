@@ -10,8 +10,6 @@ import {
 } from "reactstrap";
 import axios from "axios";
 
-// Still needs to be modified so that logged-in user sees appropriate links based on whether business or student
-
 const Header = ({ token, setUser }) => {
   const [dropdownOpen, setOpen] = useState(false);
   const [userFirstName, setUserFirstName] = useState(null);
