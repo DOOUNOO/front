@@ -5,47 +5,52 @@
   border: 1px solid #e5e5e5;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
 
-  .picture {
-    flex:5;
-    width: 100%;
-    object-fit: cover;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+  p {
+    margin-bottom: 0;
   }
 
-  .details {
-    flex:5;
-    border-bottom:1px solid #e5e5e5;
-
-    .name-avatar {
-      padding: 10px 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      .avatar {
-        height: 25px;
-        width: 25px;
-        object-fit: cover;
-        border-radius: 50%;
-      }
-
-      .certified {
-        height: 20px;
-        width: 20px;
-      }
+  .picture-details {
+    .picture {
+      width: 100%;
+      object-fit: cover;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
     }
 
-    .description {
-      padding:10px 15px;
-      line-height:20px
+    .details {
+      .name-avatar {
+        padding: 10px 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .avatar {
+          height: 25px;
+          width: 25px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+
+        .certified {
+          height: 20px;
+          width: 20px;
+        }
+      }
+
+      .description {
+        padding:10px 15px;
+        line-height:20px
+      }
     }
   }
 
   .price {
-    flex:1;
+    border-top:1px solid #e5e5e5;
     padding: 10px 15px;
+    height: 70px;
 
     .a-partir {
       font-size:10px;

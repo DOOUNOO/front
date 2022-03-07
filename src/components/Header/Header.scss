@@ -100,6 +100,13 @@ a:hover {
       border-radius: 6px;
       background-color: $secondDarkestGreen;
       color: $white;
+      transition: background-color .3s;
+
+      &:hover {
+        color: $secondDarkestGreen;
+        background-color: $white;
+        border: 1px solid $secondDarkestGreen;
+      }
     }
 
     .menu {

@@ -1,7 +1,6 @@
 .expert-card {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 60%;
   margin: 0 auto;
   padding: 15px;
@@ -15,4 +14,31 @@
 
 .double-brates-wrapper {
   width: 25%;
+  margin-top: 50px;
+}
+
+@media (max-width: 1597px) {
+  .expert-card {
+    width: 90%;
+  }
+}
+@media (max-width: 1208px) {
+  .expert-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1025px) {
+  .expert-card {
+    flex-direction: column;
+    align-items: center;
+  }
+  .presentation-card-wrapper {
+    width: 100%;
+  }
+
+  .double-brates-wrapper {
+    margin-top: 15px;
+    width: 100%;
+  }
 }

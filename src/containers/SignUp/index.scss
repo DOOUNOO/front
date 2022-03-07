@@ -17,32 +17,56 @@ $orange: #ff9f66;
     padding: 30px;
     background-color: white;
     margin-top: 100px;
-    width: 700px;
+    //width: 700px;
     display: flex;
     flex-direction: column;
     gap: 50px;
-    // border: solid blue 3px;
     box-shadow: 10px 5px 5px rgb(213, 213, 213);
-    // box-shadow: 3px 3px rgb(213, 213, 213), -1em 0 0.4em rgb(213, 213, 213);
   }
 }
+
 .signup_framed_buttons__div {
   display: flex;
-  //   border: solid red 3px;
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: 20px
 }
-button {
+
+.button {
   border-radius: 5px;
-  width: 300px;
-  height: 100px;
+  width: 350px;
+  height: 75px;
   border: none;
-  box-shadow: 10px 5px 5px rgb(213, 213, 213);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color .3s;
+
+  p {
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
 }
 
 .expert__button {
   background-color: $secondDarkestGreen;
+  color: white;
+
+  &:hover {
+    background-color: white;
+    color: $secondDarkestGreen;
+    border: 1px solid $secondDarkestGreen;
+  }
 }
 
 .user__button {
   background-color: $orange;
+  color: white;
+
+  &:hover {
+    background-color: white;
+    color: $orange;
+    border: 1px solid $orange;
+  }
 }

@@ -1,0 +1,51 @@
+.search-experts-wrapper {
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 15px 15px -11px rgba(0, 0, 0, 0.94);
+  padding: 10px;
+  border-radius: 20px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.visual-wrapper {
+  display: flex;
+  align-items: center;
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0px 15px 15px -11px rgba(0, 0, 0, 0.94);
+  border-radius: 5px;
+  height: 125px;
+}
+
+@media (max-width: 1597px) {
+  .search-experts-wrapper {
+    width: 90%;
+  }
+  .visual-wrapper {
+    width: 100%;
+  }
+}
+@media (max-width: 1208px) {
+  .search-experts-wrapper {
+    width: 100%;
+  }
+  .visual-wrapper {
+    box-shadow: none;
+  }
+}
+@media (max-width: 1208px) {
+  .search-experts-wrapper {
+    display: block;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 625px) {
+  .search-experts-wrapper {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
