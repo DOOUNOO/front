@@ -27,6 +27,7 @@ import {
   faAngleRight,
   faAngleLeft,
   faAngleDown,
+  faCloudUpload,
 } from "@fortawesome/free-solid-svg-icons";
 library.add(
   faUser,
@@ -37,7 +38,8 @@ library.add(
   faAngleRight,
   faAngleLeft,
   faAngleDown,
-  faCheckCircle
+  faCheckCircle,
+  faCloudUpload
 );
 
 function App() {

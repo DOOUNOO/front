@@ -1,0 +1,109 @@
+.edit-category-subcategory {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.my-account-container {
+  .account-update-title {
+    margin-bottom: 40px;
+  }
+
+  .update-img-container {
+    margin-right: 40px;
+
+    .img-specifications {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 200px;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .custom-file-upload {
+      border: 1px solid #ccc;
+      display: inline-block;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+
+    .account-to-update-wrapper {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid lightgrey;
+    }
+
+    .firstname-to-update,
+    .lastname-to-update,
+    .phonenumber-to-update,
+    .social-media-connect {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .firstname-to-update,
+    .lastname-to-update,
+    .phonenumber-to-update,
+    .social-media-connect {
+      margin-bottom: 20px;
+    }
+
+    .firstname-to-update,
+    .lastname-to-update,
+    .phonenumber-to-update {
+      input {
+        width: 60%;
+      }
+
+      .social-media-connect {
+        input {
+          width: 100%;
+        }
+      }
+    }
+
+    label {
+      margin-right: 20px;
+    }
+    .linkedin-link,
+    .instagram-link {
+      display: flex;
+    }
+
+    .linkedin-link {
+      margin-bottom: 20px;
+    }
+    .edit-profil {
+      width: 100%;
+    }
+  }
+
+  .edit-title-description {
+    display: flex;
+    flex-direction: column;
+
+    .offer-title,
+    .offer-description {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .offer-title,
+    .offer-description {
+      margin-bottom: 20px;
+      margin-left: 15px;
+    }
+    input {
+      width: 47.5%;
+    }
+    textarea {
+      width: 47.5%;
+    }
+  }
+}
