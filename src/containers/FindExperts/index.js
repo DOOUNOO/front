@@ -26,6 +26,7 @@ const FindExperts = () => {
 
   const handlePageClick = (event) => {
     setPage(event.selected + 1);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
