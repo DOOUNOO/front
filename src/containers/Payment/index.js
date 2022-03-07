@@ -1,4 +1,5 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
+import { useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../../components/CheckoutForm/index";
@@ -8,14 +9,14 @@ const stripePromise = loadStripe("pk_test_5z9rSB8XwuAOihoBixCMfL6X");
 
 const Payment = () => {
   const { state } = useLocation();
-  const { userData, expertData } = state;
+  try {
+    const { userData, expertData } = state;
+  } catch (error) {
+    console.log(error);
+    console.log(state);
+  }
 
-  return (
-    <div className="payment-container">
-      user: {userData.account.firstName}
-      expert: {expertData.account.firstName}
-    </div>
-  );
+  return !state ? <Navigate to="/login" /> : <div>hi</div>;
 };
 
 export default Payment;
