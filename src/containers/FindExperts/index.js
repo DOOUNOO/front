@@ -1,72 +1,104 @@
-import Searchbox from "../../components/Searchbox";
-import { useState } from "react";
 import "./index.scss";
+import { useState, useEffect } from "react";
+import ReactPaginate from "react-paginate";
+import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import ExpertCard from "../../components/ExpertCard";
-
-import avatarImg from "../../assets/student.jpg";
+import Searchbar from "../../components/Searchbar";
+import avatarImg from "../../assets/images/student.jpg";
+import ExpertsFeed from "../../components/ExpertsFeed";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const FindExperts = () => {
-  /* Awaiting the backend to play with datas here */
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const [category, setCategory] = useState("");
+  const [subcategory, setSubcategory] = useState("");
 
-  const [mode, setMode] = useState("");
-  const [artisanat, setArtisanat] = useState("");
-  const [miss, setMiss] = useState("");
-  const [pricing, setPricing] = useState("");
-  return (
+  const [priceFilter, setPriceFilter] = useState("");
+  const [priceMin, setPriceMin] = useState(1);
+  const [priceMax, setPriceMax] = useState(500);
+
+  const [availability, setAvailability] = useState("");
+
+  const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(0);
+
+  const handlePageClick = (event) => {
+    setPage(event.selected + 1);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/findexperts?page=${page}&category=${category}&subcategory=${subcategory}&priceMin=${priceMin}&priceMax=${priceMax}`
+        );
+        const limit = response.data.limit;
+
+        setPageCount(Math.ceil(response.data.count / limit));
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+
+    fetchData();
+  }, [category, subcategory, priceMin, priceMax, page, pageCount]);
+
+  console.log(data);
+  return isLoading ? (
+    <LoadingSpinner />
+  ) : (
     <>
       <div className="find-experts-container">
         <h1>Trouvez votre expert</h1>
-        <form className="expert-searchbar">
-          <div className="visual-wrapper">
-            <div className="search-experts-wrapper">
-              <Searchbox
-                categoryName="Mode"
-                category={mode}
-                setCategory={setMode}
-                isFirst="true"
-              />
-              <Searchbox
-                categoryName="Artisanat"
-                category={artisanat}
-                setCategory={setArtisanat}
-              />
-              <Searchbox
-                categoryName="Autre"
-                category={miss}
-                setCategory={setMiss}
-              />
-              <Searchbox
-                categoryName="Tarif"
-                category={pricing}
-                setCategory={setPricing}
-              />
-            </div>
-          </div>
-        </form>
+        <div className="loading-container"></div>
+
+        <Searchbar
+          data={data}
+          category={category}
+          setCategory={setCategory}
+          subcategory={subcategory}
+          setSubcategory={setSubcategory}
+          priceFilter={priceFilter}
+          setPriceFilter={setPriceFilter}
+          priceMin={priceMin}
+          setPriceMin={setPriceMin}
+          priceMax={priceMax}
+          setPriceMax={setPriceMax}
+          availability={availability}
+          setAvailability={setAvailability}
+          setPage={setPage}
+        />
       </div>
       <section className="find-experts-feed">
-        <ExpertCard
-          expertImg={avatarImg}
-          isBaseline={true}
-          expertBaseline="Carpe Diem"
-          expertName="Yoko Ono"
-          expertCategory="Mode"
-          expertTotalRates="131 entrepreneurs aidés"
-          expertKeywords="Couture, haute couture, patronnage, sourcing, etc..."
-          isIntroParagraph={true}
-          title="Maroquinerie et savoir faire dans le marché du luxe"
-          paragraph="Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum Lorem ipsum lorem ipsum lorem ipsum
-     "
-          totalRates="6"
-          totalComments="16"
-          expertPrice="54"
-          firstTextBtn="Voir profil"
-          secondTextBtn="Contacter"
-          firstUrl="/"
-          secondUrl="/"
-        />
+        {data.count < 2 ? (
+          <h2>{data.count} profil disponible</h2>
+        ) : (
+          <h2>{data.count} profils disponibles</h2>
+        )}
+
+        <ExpertsFeed data={data} avatarImg={avatarImg} />
       </section>
+
+      {data.count === 0 || pageCount === 1 ? null : (
+        <ReactPaginate
+          containerClassName={"page-navigation"}
+          activeClassName={"active"}
+          nextLabel={
+            page === pageCount ? null : <FontAwesomeIcon icon="angle-right" />
+          }
+          previousLabel={
+            page === 1 ? null : <FontAwesomeIcon icon="angle-left" />
+          }
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={pageCount}
+          forcePage={page - 1}
+        />
+      )}
     </>
   );
 };

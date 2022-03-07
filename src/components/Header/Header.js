@@ -98,7 +98,7 @@ const Header = ({ token, setUser }) => {
             </Link>
 
             <Link
-              to="/publish"
+              to={token ? "/publish" : "/signup/expert"}
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <div className="menu-item-container offer-a-service">

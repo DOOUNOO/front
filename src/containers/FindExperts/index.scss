@@ -5,25 +5,40 @@
   }
 }
 .find-experts-feed {
-  margin-top: 20px;
+  margin-top: 50px;
+  h2 {
+    margin: 0 0 30px 13%;
+    color: #258675;
+    font-size: 1.4rem;
+  }
 }
 
-.search-experts-wrapper {
-  display: flex;
-  justify-content: center;
-  box-shadow: 0px 15px 15px -11px rgba(0, 0, 0, 0.94);
-  padding: 10px;
-  border-radius: 20px;
-  width: 80%;
-  margin: 0 auto;
+@media (max-width: 1208px) {
+  .find-experts-container {
+    h1 {
+      margin: 30px;
+      text-align: right;
+    }
+  }
+  .find-experts-feed {
+    h2 {
+      margin: 15px;
+      text-align: right;
+    }
+  }
 }
 
-.visual-wrapper {
-  display: flex;
-  align-items: center;
-  width: 75%;
-  margin: 0 auto;
-  box-shadow: 0px 15px 15px -11px rgba(0, 0, 0, 0.94);
-  border-radius: 5px;
-  height: 125px;
+@media (max-width: 625px) {
+  .find-experts-container {
+    h1 {
+      margin: 30 0 0 0;
+      text-align: center;
+    }
+  }
+  .find-experts-feed {
+    h2 {
+      margin-top: 80px;
+      text-align: center;
+    }
+  }
 }

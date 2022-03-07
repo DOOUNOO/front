@@ -6,9 +6,9 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./containers/Home";
 import Signup from "./containers/SignUp";
-import UserSignUp from "./containers/UserSignUp";
-import ExpertSignup from "./containers/ExpertSignUp";
-import Login from "./containers/Login";
+import UserSignUp from "./containers/UserSignUp/UserSignUp";
+import ExpertSignup from "./containers/ExpertSignUp/ExpertSignUp";
+import Login from "./containers/Login/Login";
 import Publish from "./containers/Publish";
 import Offer from "./containers/Offer";
 import FindExperts from "./containers/FindExperts";
@@ -22,8 +22,22 @@ import {
   faCommentDots,
   faLightbulb,
   faMagnifyingGlass,
+  faCheckCircle,
+  faAngleRight,
+  faAngleLeft,
+  faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faUser, faStar, faCommentDots, faLightbulb, faMagnifyingGlass);
+library.add(
+  faUser,
+  faStar,
+  faCommentDots,
+  faLightbulb,
+  faMagnifyingGlass,
+  faAngleRight,
+  faAngleLeft,
+  faAngleDown,
+  faCheckCircle
+);
 
 function App() {
   const [token, setToken] = useState(Cookies.get("userToken") || null);
@@ -53,7 +67,7 @@ function App() {
           element={<ExpertSignup setUser={setUser} />}
         />
         <Route path="/signup/user" element={<UserSignUp setUser={setUser} />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/publish" element={<Publish />} />
         <Route path="/offer/:id" element={<Offer />} />
         <Route path="/findexperts" element={<FindExperts />} />

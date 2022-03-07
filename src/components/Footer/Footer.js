@@ -8,6 +8,7 @@ import {
 
 const Footer = () => {
   return (
+  <footer>
     <div className="footer-overarching-container">
       <div className="footer-container">
         <div className="main-row">
@@ -59,16 +60,55 @@ const Footer = () => {
             <div className="social-media-link-container">
               <FontAwesomeIcon icon={faFacebookF} />
             </div>
-            <div className="social-media-link-container">
-              <FontAwesomeIcon icon={faInstagram} />
+            <div className="about-col col">
+              <div>À propos</div>
+              <div>Presse & Infos</div>
+              <div>Partenariats</div>
+              <div>Politique de confidentialité</div>
+              <div>Conditions d'utilisation</div>
+              <div>Propriété intellectuelle</div>
+              <div>Relations investisseurs</div>
             </div>
-            <div className="social-media-link-container">
-              <FontAwesomeIcon icon={faTwitter} />
+            <div className="help-col col">
+              <div>Aide</div>
+              <div>Aide & Assistance</div>
+              <div>Confiance & Sécurité</div>
+              <div>Vendre un service sur DOOUNOO</div>
+              <div>Acheter un service sur DOOUNOO</div>
+            </div>
+            <div className="community-col col">
+              <div>Communauté</div>
+              <div>Événements</div>
+              <div>Blog</div>
+              <div>Forum</div>
+              <div>Normes de la communauté</div>
+              <div>Podcast</div>
+              <div>Affiliés</div>
+              <div>Inviter un ami</div>
+              <div>Donner des conseils</div>
+            </div>
+          </div>
+          <div className="bottom-row">
+            <div className="logo-div">DOOUNOO.</div>
+            <div className="copyright">
+              ©2022 DOOUNOO. Tous droits réservés.
+            </div>
+            <div className="social-media-links">
+              <div className="social-media-link-container">
+                <FontAwesomeIcon icon={faFacebookF} />
+              </div>
+              <div className="social-media-link-container">
+                <FontAwesomeIcon icon={faInstagram} />
+              </div>
+              <div className="social-media-link-container">
+                <FontAwesomeIcon icon={faTwitter} />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </footer>
   );
 };
 
