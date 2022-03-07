@@ -6,16 +6,15 @@ import "./Login.scss";
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [isRobot, setIsRobot] = useState(true);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
-    if (email && password && isRobot === false) {
+    event.preventDefault();
+    if (email && password) {
       try {
-        event.preventDefault();
         const response = await axios.post(
           "https://doounoo.herokuapp.com/login",
           // "http://localhost:3100/login", // adresse locale !
@@ -49,7 +48,7 @@ const Login = ({ setUser }) => {
           <p className="title__p">Connectez-vous</p>
           <p>
             Pas encore membre ?{" "}
-            <span
+            <span className="link"
               onClick={() => {
                 navigate("/signup");
               }}
@@ -62,14 +61,11 @@ const Login = ({ setUser }) => {
         <form onSubmit={handleSubmit} className="login__form">
           <div className="email__div">
             <p>Votre e-mail</p>
-            <div className="email_input__div">
               <input
                 type="email"
                 onChange={(event) => setEmail(event.target.value)}
               />
-            </div>
-
-            <br />
+            <div className="empty"/>
           </div>
 
           <div className="password__div">
@@ -78,12 +74,12 @@ const Login = ({ setUser }) => {
               type="password"
               onChange={(event) => setPassword(event.target.value)}
             />
-            <span>Oublié ?</span>
-            <br />
+            <span className="link">Oublié ?</span>
           </div>
 
           <div className="checkboxs__div">
-            <label>
+            <div className="empty"/>
+            <div className="checkbox-div">
               <input
                 type="checkbox"
                 onClick={() => {
@@ -95,30 +91,22 @@ const Login = ({ setUser }) => {
                 }}
               />
               Se souvenir de moi
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                onClick={() => {
-                  if (isRobot === false) {
-                    setIsRobot(true);
-                  } else {
-                    setIsRobot(false);
-                  }
-                }}
-              />
-              Je ne suis pas un robot
-            </label>
+            </div>
+            <div className="empty"/>
           </div>
 
           <div className="submit__div">
-            <input
+            <div className="empty"/>
+            <button
               type="submit"
-              value="Se connecter"
               className="login_form_submit__input"
-            />
-            <br />
-            <span>{errorMessage}</span>
+            >Se connecter</button>
+            <div className="empty"/>
+          </div>
+          <div className="error-message-div">
+            <div className="empty"/>
+            <span className="error-message">{errorMessage}</span>
+            <div className="empty"/>
           </div>
         </form>
       </div>

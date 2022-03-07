@@ -1,5 +1,5 @@
 $white: #ffffff;
-$darkGrey: #b0b4c0;
+$darkGrey: #e5e5e5;
 $lightGrey: #f4f5f7;
 $secondDarkestGreen: #45a090;
 
@@ -11,26 +11,44 @@ $secondDarkestGreen: #45a090;
   justify-content: center;
   background-color: #E8EEF0;
 
+  p {
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+
+  input {
+    padding: 0 0;
+    font-size: 12px;
+  }
+
+  .link {
+    color: $secondDarkestGreen;
+  }
+
+  .empty {
+    flex :1;
+  }
+
   .framed__div {
-    // border: solid 3px red;
     background-color: $white;
-    height: 400px;
     width: 520px;
     display: flex;
     flex-direction: column;
-    padding: 50px;
+    padding: 15px 20px;
     gap: 40px;
-    // justify-content: center;
+    box-shadow: 10px 5px 5px #d5d5d5;
 
     .title__div {
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: $darkGrey 1px solid;
+
       .title__p {
         font-size: 18px;
         font-weight: 500;
       }
+
       span:hover {
         cursor: pointer;
         text-decoration: underline;
@@ -39,75 +57,47 @@ $secondDarkestGreen: #45a090;
   }
 
   .login__form {
-    // border: solid 3px red;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 20px;
 
-    .email__div {
-      //   border: solid 3px black;
-      width: 400px;
-      p {
-        width: 100px;
-        // border: solid 3px red;
-        display: flex;
-        justify-content: flex-end;
-      }
-      .email_input__div {
-        // border: solid 3px blue;
-        width: 200px;
-      }
-    }
-
-    .password__div {
-      //   border: solid 3px black;
-      width: 400px;
-      p {
-        width: 100px;
-        // border: solid 3px red;
-        display: flex;
-        justify-content: flex-end;
-      }
-      span {
-        color: $secondDarkestGreen;
-      }
-    }
-
+    .submit__div,
+    .checkboxs__div,
     .email__div,
     .password__div {
+      width: 100%;
       display: flex;
       gap: 10px;
+      align-items: center;
+      font-size: 12px;
+
+      p {
+        flex: 1;
+        text-align: right;
+      }
+
       input {
-        height: 20px;
+        flex: 2;
+        padding: 5px;
         border: $darkGrey 1px solid;
         border-radius: 5px;
       }
-    }
 
-    .checkboxs__div {
-      //   border: solid 3px black;
-      width: 400px;
-      display: flex;
-      flex-direction: column;
-      padding-left: 110px;
-      font-size: 12px;
-      gap: 10px;
-
-      label {
-        display: flex;
-        align-items: center;
-        height: 20px;
-        gap: 10px;
+      span {
+        flex: 1;
+        color: $secondDarkestGreen;
       }
-    }
 
-    .submit__div {
-      display: flex;
-      flex-direction: column;
-      //   border: solid yellow 3px;
+      .checkbox-div {
+        flex: 2;
 
-      input {
+        input {
+          margin-right: 10px;
+        }
+      }
+
+      button {
         background-color: $secondDarkestGreen;
         border: none;
         border-radius: 5px;
@@ -115,9 +105,11 @@ $secondDarkestGreen: #45a090;
         font-size: 12px;
         color: white;
         height: 35px;
-        width: 210px;
+        flex: 2;
       }
     }
+
+
 
     span {
       font-size: 12px;
