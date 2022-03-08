@@ -21,7 +21,7 @@ const ExpertsFeed = ({ data, avatarImg }) => {
         hourlyPrice={elem?.account?.hourlyPrice}
         firstTextBtn="Voir profil"
         secondTextBtn="Contacter"
-        firstUrl={`/findexperts/${elem._id}`}
+        firstUrl={`/findexpert/${elem._id}`}
         secondUrl="/"
       />
     );
