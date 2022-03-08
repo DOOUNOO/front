@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 
 const Header = ({ token, setUser }) => {
-  const [dropdownOpen, setOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [userFirstName, setUserFirstName] = useState(null);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Header = ({ token, setUser }) => {
     }
   }, [token]);
 
-  const toggle = () => setOpen(!dropdownOpen);
+  const toggle = () => setDropdownOpen(!dropdownOpen);
 
   return (
     <div className="header-overarching-container">
@@ -50,7 +50,7 @@ const Header = ({ token, setUser }) => {
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <div className="menu-item-container find-a-service">
-                <div className="find-a-service">Trouver un service</div>
+                <div className="find-a-service">Trouver un conseil</div>
                 <div className="underline"></div>
               </div>
             </Link>
@@ -59,7 +59,7 @@ const Header = ({ token, setUser }) => {
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <div className="menu-item-container offer-a-service">
-                <div className="offer-a-service">Proposer un service</div>
+                <div className="offer-a-service">Proposer un conseil</div>
                 <div className="underline"></div>
               </div>
             </Link>
@@ -108,7 +108,7 @@ const Header = ({ token, setUser }) => {
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <div className="menu-item-container find-a-service">
-                <div className="find-a-service">Trouver un service</div>
+                <div className="find-a-service">Trouver un conseil</div>
                 <div className="underline"></div>
               </div>
             </Link>
@@ -118,7 +118,7 @@ const Header = ({ token, setUser }) => {
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <div className="menu-item-container offer-a-service">
-                <div className="offer-a-service">Proposer un service</div>
+                <div className="offer-a-service">Proposer un conseil</div>
                 <div className="underline"></div>
               </div>
             </Link>
