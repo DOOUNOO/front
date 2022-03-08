@@ -4,6 +4,7 @@ import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
 import Carousel from "../../components/Carousel/Carousel";
 import AdviceCard from "../../components/AdviceCard/AdviceCard";
+import {Link} from "react-router-dom";
 
 const Home = ({ data, isLoading }) => {
   //TODO fetch this data from the server obviously
@@ -150,16 +151,16 @@ const Home = ({ data, isLoading }) => {
   ) : (
     <>
       <div className="categories">
-        <p>Mode</p>
-        <p>Cosmétique</p>
-        <p>Art</p>
-        <p>Santé</p>
-        <p>Sport</p>
-        <p>Éducation</p>
-        <p>Restauration</p>
-        <p>Business</p>
-        <p>Droit</p>
-        <p>Loisirs</p>
+        <Link className="link" to="/findexperts/Mode">Mode</Link>
+        <Link className="link" to="/findexperts/Cosmétique">Cosmétique</Link>
+        <Link className="link" to="/findexperts/Art">Art</Link>
+        <Link className="link" to="/findexperts/Santé">Santé</Link>
+        <Link className="link" to="/findexperts/Sport">Sport</Link>
+        <Link className="link" to="/findexperts/Éducation">Éducation</Link>
+        <Link className="link" to="/findexperts/Restauration">Restauration</Link>
+        <Link className="link" to="/findexperts/Business">Business</Link>
+        <Link className="link" to="/findexperts/Droit">Droit</Link>
+        <Link className="link" to="/findexperts/Loisirs">Loisirs</Link>
       </div>
       <div className="hero-bg-image">
         <div className="hero-content">

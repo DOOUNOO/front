@@ -24,12 +24,14 @@ h2 {
   font-size: 14px;
   font-weight: bold;
 
-  p {
+  .link {
     padding: 10px;
     transition: background-color .3s;
+    color: black;
+    text-decoration: none;
   }
 
-  p:hover {
+  .link:hover {
     background-color: #45a090;
     color: white;
   }
