@@ -153,9 +153,10 @@ const Home = ({ data, isLoading }) => {
         <div className="hero-content">
           <div className="hero-title-categories">
             <h1 className="hero-title">
-              Trouvez
+              Salut,
               <br />
-              <span style={{ color: "#ff9f66" }}>conseil.</span>
+              moi c'est {""}
+              <span style={{ color: "#ff9f66" }}>Julie.</span>
             </h1>
             <div className="categories">
               {/*TODO links to find advice*/}
@@ -308,7 +309,7 @@ const Home = ({ data, isLoading }) => {
           />
           <img
             className="play-icon__img"
-            src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646674736/Doounoo/Bouton_play_video_d0xpsx.png"
+            src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646730290/Doounoo/play_xoirlx.png"
             alt="video"
           />
         </div>
