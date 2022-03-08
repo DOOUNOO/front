@@ -499,6 +499,24 @@ const Home = ({ data, isLoading }) => {
           />
         </div>
       </div>
+      <div className="discover-offers__div">
+        <div className="titles__div container">
+          <h1>Besoin d'un conseil ?</h1>
+          <br />
+          <h1>Contactez-nous !</h1>
+          <p>
+            Prenez contact avec nous pour tout type d'aide. Nous sommes là pour
+            vous donner le meilleur et aussi pour vous aider à trouver le
+            conseil dont vous avez besoin
+          </p>
+        </div>
+        <form action="">
+          <input type="text" placeholder="Prénom" />
+          <input type="text" placeholder="Nom" />
+          <input type="text" placeholder="Adresse mail" />
+          <input type="text" placeholder="Message" />
+        </form>
+      </div>
     </>
   );
 };
