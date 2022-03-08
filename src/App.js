@@ -73,7 +73,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/account" element={<Account />} />
         <Route path="/publish" element={<Publish />} />
-        <Route path="/findexperts/:id" element={<FindExpert />} />
+        <Route path="/findexperts/:id" element={<FindExpert token={token} />} />
         <Route path="/findexperts" element={<FindExperts />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="*" element={<PageNotFound />} />

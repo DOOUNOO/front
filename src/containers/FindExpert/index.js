@@ -17,7 +17,7 @@ import DayTimePicker from "@mooncake-dev/react-day-time-picker";
 import ReservationModal from "../../components/ReservationModal/index";
 import "./index.scss";
 
-const Offer = ({ token }) => {
+const FindExpert = ({ token }) => {
   const params = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState({});
@@ -247,7 +247,9 @@ const Offer = ({ token }) => {
               <div
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.replace(`/offer/${params.id}/#description`);
+                  window.location.replace(
+                    `/findexperts/${params.id}/#description`
+                  );
                 }}
               >
                 Présentation
@@ -255,7 +257,9 @@ const Offer = ({ token }) => {
               <div
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.replace(`/offer/${params.id}/#calendar`);
+                  window.location.replace(
+                    `/findexperts/${params.id}/#calendar`
+                  );
                 }}
               >
                 Agenda
@@ -263,7 +267,7 @@ const Offer = ({ token }) => {
               <div
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.replace(`/offer/${params.id}/#ratings`);
+                  window.location.replace(`/findexperts/${params.id}/#ratings`);
                 }}
               >
                 Avis (41)
@@ -464,4 +468,4 @@ const Offer = ({ token }) => {
   );
 };
 
-export default Offer;
+export default FindExpert;
