@@ -261,7 +261,9 @@ const FindExpert = ({ token }) => {
                     icon={faUser}
                     className="main-profile-icons"
                   />
-                  131 conseils
+                  {data.account.totalOrder === 0 || !data.account.totalOrder
+                    ? "Nouveau sur le site"
+                    : data.account.totalOrder + " conseils "}
                 </div>
                 <div>
                   <FontAwesomeIcon
