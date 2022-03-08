@@ -34,6 +34,10 @@ $lightGrey: #f4f5f7;
   display: flex;
   flex-direction: column;
 
+  .payment-logo {
+    height: 20px;
+  }
+
   h1 {
     font-size: 20px;
     font-weight: 600;
@@ -47,6 +51,11 @@ $lightGrey: #f4f5f7;
     font-size: 14px;
     font-weight: 500;
     gap: 10px;
+
+    .payment-logo-row {
+      display: flex;
+      gap: 10px;
+    }
   }
 
   .paypal-row {
@@ -71,6 +80,9 @@ $lightGrey: #f4f5f7;
       input {
         flex: 1;
         background-color: $blueGrey;
+        font-size: 12px;
+        padding: 5px 10px;
+        color: #36454f;
       }
     }
 

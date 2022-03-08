@@ -3,8 +3,8 @@ import { useState } from "react";
 import "./index.scss";
 
 const CheckoutForm = ({ paymentValidated, setPaymentValidated }) => {
-  const [paypal, setPaypal] = useState(true);
-  const [creditcard, setCreditcard] = useState(false);
+  const [paypal, setPaypal] = useState(false);
+  const [creditcard, setCreditcard] = useState(true);
   const [name, setName] = useState();
   const [missingInfo, setMissingInfo] = useState(false);
 
@@ -27,24 +27,45 @@ const CheckoutForm = ({ paymentValidated, setPaymentValidated }) => {
             <input
               type="radio"
               checked={paypal}
-              onClick={() => {
+              onChange={() => {
                 setPaypal(true);
                 setCreditcard(false);
               }}
             />
-            <div>Paypal</div> <div>LOGO</div>
+            <div>Paypal</div>{" "}
+            <img
+              src="https://res.cloudinary.com/dxdxmd9mf/image/upload/v1646748838/doounoo/paypal-logo.png"
+              alt="paypal-logo"
+              className="payment-logo"
+            />
           </div>
           <div className="payment-row">
             <input
               type="radio"
               checked={creditcard}
-              onClick={() => {
+              onChange={() => {
                 setPaypal(false);
                 setCreditcard(true);
               }}
             />{" "}
             <div>Carte de crédit</div>
-            <div>LOGOS</div>
+            <div className="payment-logo-row">
+              <img
+                src="https://res.cloudinary.com/dxdxmd9mf/image/upload/v1646748823/doounoo/cb-logo.png"
+                alt="cb-logo"
+                className="payment-logo"
+              />
+              <img
+                src="https://res.cloudinary.com/dxdxmd9mf/image/upload/v1646748858/doounoo/visa-logo.png"
+                alt="visa-logo"
+                className="payment-logo"
+              />
+              <img
+                src="https://res.cloudinary.com/dxdxmd9mf/image/upload/v1646748848/doounoo/mastercard-logo.png"
+                alt="mastercard-logo"
+                className="payment-logo"
+              />
+            </div>
           </div>
           <form onSubmit={handleSubmit}>
             <div className="cardholder-row">
@@ -60,13 +81,24 @@ const CheckoutForm = ({ paymentValidated, setPaymentValidated }) => {
               />
             </div>
 
-            <CardElement />
-            <button type="submit">Valider</button>
+            <CardElement
+              options={{
+                style: {
+                  base: {
+                    color: "#36454F",
+                    fontSize: 12,
+                  },
+                },
+                placeholder: "text",
+              }}
+            />
+            {creditcard && <button type="submit">Valider</button>}
             {missingInfo && (
               <div
                 className="payment-warning"
                 style={{
                   color: "red",
+                  fontSize: 12,
                 }}
               >
                 Veuillez spécifier votre nom complet
