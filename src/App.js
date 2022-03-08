@@ -50,6 +50,7 @@ function App() {
     } else {
       Cookies.remove("userToken");
       Cookies.remove("userId");
+      setToken(null);
     }
 
     setToken(token);
@@ -57,7 +58,7 @@ function App() {
 
   return (
     <Router>
-      <Header token={token} setToken={setToken} />
+      <Header token={token} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup setUser={setUser} />} />
@@ -68,7 +69,7 @@ function App() {
         <Route path="/signup/user" element={<UserSignUp setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/publish" element={<Publish />} />
-        <Route path="/offer/:id" element={<Offer />} />
+        <Route path="/offer/:id" element={<Offer token={token} />} />
         <Route path="/findexperts" element={<FindExperts />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="*" element={<PageNotFound />} />

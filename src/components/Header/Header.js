@@ -1,18 +1,36 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./Header.scss";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   ButtonDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
+import axios from "axios";
 
-// Still needs to be modified so that logged-in user sees appropriate links based on whether business or student
-
-const Header = ({ token, setToken }) => {
+const Header = ({ token, setUser }) => {
   const [dropdownOpen, setOpen] = useState(false);
+  const [userFirstName, setUserFirstName] = useState(null);
+
+  useEffect(() => {
+    try {
+      if (token) {
+        const fetchUserData = async () => {
+          const res = await axios.get(
+            `https://doounoo.herokuapp.com/users/${token}`
+          );
+          console.log(token);
+          console.log(res.data);
+          setUserFirstName(res.data.account.firstName);
+        };
+        fetchUserData();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [token]);
 
   const toggle = () => setOpen(!dropdownOpen);
 
@@ -28,8 +46,7 @@ const Header = ({ token, setToken }) => {
         {token ? (
           <div className="header-right logged-in">
             <Link
-              // Update when route known
-              to="/"
+              to="/findexperts"
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <div className="menu-item-container find-a-service">
@@ -64,7 +81,7 @@ const Header = ({ token, setToken }) => {
             <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
               <DropdownToggle tag="div">
                 <div className="menu-item-container avatar-container">
-                  {/* Put first letter of logged in user's name  */}S
+                  {userFirstName ? userFirstName.charAt(0).toUpperCase() : ""}
                   <div className="logged-in-green-circle"></div>
                 </div>
               </DropdownToggle>
@@ -73,7 +90,12 @@ const Header = ({ token, setToken }) => {
                   Tableau de bord
                 </DropdownItem>
                 <DropdownItem className="menu-item" divider />
-                <DropdownItem className="menu-item" onClick={() => {}}>
+                <DropdownItem
+                  className="menu-item"
+                  onClick={() => {
+                    setUser(null, null);
+                  }}
+                >
                   Se déconnecter
                 </DropdownItem>
               </DropdownMenu>
@@ -82,8 +104,7 @@ const Header = ({ token, setToken }) => {
         ) : (
           <div className="header-right logged-out">
             <Link
-              // Update when route known
-              to="/"
+              to="/findexperts"
               style={{ color: "inherit", textDecoration: "inherit" }}
             >
               <div className="menu-item-container find-a-service">

@@ -110,6 +110,7 @@ $lightGrey: #f4f5f7;
 
       p {
         font-size: 14px;
+        text-align: left;
       }
 
       .desc-btn {
@@ -123,7 +124,7 @@ $lightGrey: #f4f5f7;
     }
 
     .calendar-container {
-      height: 575px;
+      min-height: 575px;
       background-color: white;
       border-radius: 10px;
       margin-top: 15px;
@@ -131,11 +132,96 @@ $lightGrey: #f4f5f7;
     }
 
     .ratings-container {
-      height: 500px;
+      min-height: 150px;
       border-radius: 10px;
       background-color: white;
       margin: 15px 0;
       padding: 20px 30px;
+
+      .ratings-data-row {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        border-top: solid 1.5px $grey;
+        border-bottom: solid 1.5px $grey;
+        padding: 25px 0;
+        margin: 20px 0;
+
+        .ratings-left-col {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          .avg-rating {
+            font-size: 50px;
+            font-weight: bold;
+            line-height: 50px;
+          }
+
+          .total-ratings {
+            font-size: 12px;
+          }
+        }
+
+        .ratings-right-col {
+          display: flex;
+          flex-direction: column;
+
+          .ratings-visualization-row {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            gap: 8px;
+
+            .stars-desc {
+              width: 60px;
+            }
+
+            .ratings-bar {
+              width: 250px;
+              height: 6px;
+              background-color: $grey;
+              border-radius: 10px;
+            }
+
+            .total-ratings-desc {
+              display: flex;
+              justify-content: center;
+              width: 30px;
+            }
+          }
+        }
+      }
+
+      .ratings-list {
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        .rating-block {
+          display: flex;
+          gap: 20px;
+
+          .rater-img-placeholder {
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            background-color: $grey;
+          }
+
+          .rating-info-col {
+            .date-row {
+              color: $grey;
+              font-size: 12px;
+            }
+
+            .rating-txt {
+              margin-top: 5px;
+            }
+          }
+        }
+      }
     }
   }
 
