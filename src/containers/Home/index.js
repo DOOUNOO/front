@@ -5,6 +5,7 @@ import UserCard from "../../components/UserCard/UserCard";
 import Carousel from "../../components/Carousel/Carousel";
 import AdviceCard from "../../components/AdviceCard/AdviceCard";
 import {Link} from "react-router-dom";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const Home = ({ data, isLoading }) => {
   //TODO fetch this data from the server obviously
@@ -147,7 +148,7 @@ const Home = ({ data, isLoading }) => {
   }
 
   return isLoading ? (
-    <>{/*TODO add a Spinner with react-loader-spinner?*/}</>
+    <LoadingSpinner />
   ) : (
     <>
       <div className="categories">
