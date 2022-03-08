@@ -246,6 +246,22 @@ $lightGrey: #f4f5f7;
         height: 210px;
         border-radius: 10px;
         background-color: $darkestGreen;
+        position: relative;
+
+        .video-img {
+          width: 100%;
+          height: 210px;
+          border-radius: 10px;
+          position: absolute;
+        }
+
+        .play-icon-img {
+          width: 20%;
+          border-radius: 10px;
+          position: absolute;
+          top: 40%;
+          left: 40%;
+        }
       }
 
       .details-row {

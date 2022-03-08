@@ -449,7 +449,18 @@ const FindExpert = ({ token }) => {
         </div>
         <div className="right-col">
           <div className="contact-container">
-            <div className="video"></div>
+            <div className="video">
+              <img
+                className="video-img"
+                src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646672553/Doounoo/happy_dream_team_jd1dvp.jpg"
+                alt="video"
+              />
+              <img
+                className="play-icon-img"
+                src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646674736/Doounoo/Bouton_play_video_d0xpsx.png"
+                alt="video"
+              />
+            </div>
             <div className="details-row">
               <div className="contact-ratings-block">
                 <div className="top-line">
