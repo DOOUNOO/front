@@ -22,7 +22,6 @@ const FindExpert = ({ token }) => {
   const navigate = useNavigate();
   const [data, setData] = useState({});
   const [userData, setUserData] = useState({});
-
   const [isLoading, setIsLoading] = useState(true);
   const [descIsLong, setDescIsLong] = useState(false);
   const [seeAll, setSeeAll] = useState(false);
@@ -44,7 +43,7 @@ const FindExpert = ({ token }) => {
       slotTime.getFullYear(),
       slotTime.getMonth(),
       slotTime.getDate(),
-      7,
+      8,
       0,
       0
     );
@@ -58,13 +57,43 @@ const FindExpert = ({ token }) => {
       0
     );
 
+    const unavailableDaysArr = new Array();
+    if (!data.account.availabilities.sunday) {
+      unavailableDaysArr.push(0);
+    }
+    if (!data.account.availabilities.monday) {
+      unavailableDaysArr.push(1);
+    }
+
+    if (!data.account.availabilities.tuesday) {
+      unavailableDaysArr.push(2);
+    }
+
+    if (!data.account.availabilities.wednesday) {
+      unavailableDaysArr.push(3);
+    }
+
+    if (!data.account.availabilities.thursday) {
+      unavailableDaysArr.push(4);
+    }
+
+    if (!data.account.availabilities.friday) {
+      unavailableDaysArr.push(5);
+    }
+
+    if (!data.account.availabilities.saturday) {
+      unavailableDaysArr.push(6);
+    }
+
+    console.log(unavailableDaysArr);
+
     let isValid =
       slotTime.getTime() > morningTime.getTime() &&
       slotTime.getTime() < eveningTime.getTime();
 
-    // if (slotTime.getDay() === 0) {
-    //   isValid = false;
-    // }
+    if (unavailableDaysArr.indexOf(slotTime.getDay() > -1)) {
+      isValid = false;
+    }
 
     return isValid;
   };
