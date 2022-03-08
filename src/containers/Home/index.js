@@ -499,18 +499,24 @@ const Home = ({ data, isLoading }) => {
           />
         </div>
       </div>
-      <div className="discover-offers__div">
+      <div className="contact__div">
+        <img
+          src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646759190/Doounoo/Sans_titre_hpyktn.png"
+          alt="form"
+        />
         <div className="titles__div container">
-          <h1>Besoin d'un conseil ?</h1>
-          <br />
-          <h1>Contactez-nous !</h1>
+          <h1>
+            Besoin d'un conseil ? <br />
+            Contactez-nous !
+          </h1>
+
           <p>
             Prenez contact avec nous pour tout type d'aide. Nous sommes là pour
             vous donner le meilleur et aussi pour vous aider à trouver le
-            conseil dont vous avez besoin
+            conseil dont vous avez besoin.
           </p>
         </div>
-        <form action="">
+        <form>
           <input type="text" placeholder="Prénom" />
           <input type="text" placeholder="Nom" />
           <input type="text" placeholder="Adresse mail" />

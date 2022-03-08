@@ -401,3 +401,46 @@ h2 {
     }
   }
 }
+
+.contact__div {
+  height: 910px;
+  background-color: white;
+  border: $lightGrey solid 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  justify-content: center;
+  border: red solid 3px;
+  position: relative;
+  img {
+    bottom: 100px;
+    height: 605px;
+    margin-top: 200px;
+  }
+  h1 {
+    position: absolute;
+    top: 400px;
+    left: 350px;
+    font-size: 50px;
+  }
+  p {
+    position: absolute;
+    top: 550px;
+    left: 350px;
+    width: 467px;
+    text-align: justify;
+    font-size: 18px;
+  }
+  form {
+    position: absolute;
+    top: 0;
+    background-color: yellow;
+    width: 564px;
+    height: 620px;
+    right: 200px;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+  }
+}
