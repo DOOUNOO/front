@@ -27,6 +27,7 @@ const FindExpert = ({ token }) => {
   const [seeAll, setSeeAll] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [reservationTime, setReservationTime] = useState(new Date());
+  const [unavailableDaysArr, setUnavailableDaysArr] = useState([]);
 
   const handleScheduled = (dateTime) => {
     if (token) {
@@ -57,42 +58,14 @@ const FindExpert = ({ token }) => {
       0
     );
 
-    const unavailableDaysArr = new Array();
-    if (!data.account.availabilities.sunday) {
-      unavailableDaysArr.push(0);
-    }
-    if (!data.account.availabilities.monday) {
-      unavailableDaysArr.push(1);
-    }
-
-    if (!data.account.availabilities.tuesday) {
-      unavailableDaysArr.push(2);
-    }
-
-    if (!data.account.availabilities.wednesday) {
-      unavailableDaysArr.push(3);
-    }
-
-    if (!data.account.availabilities.thursday) {
-      unavailableDaysArr.push(4);
-    }
-
-    if (!data.account.availabilities.friday) {
-      unavailableDaysArr.push(5);
-    }
-
-    if (!data.account.availabilities.saturday) {
-      unavailableDaysArr.push(6);
-    }
-
-    console.log(unavailableDaysArr);
-
     let isValid =
       slotTime.getTime() > morningTime.getTime() &&
       slotTime.getTime() < eveningTime.getTime();
 
-    if (unavailableDaysArr.indexOf(slotTime.getDay() > -1)) {
-      isValid = false;
+    let placeholderArr = [...unavailableDaysArr];
+
+    for (let i = 0; i < placeholderArr.length; i++) {
+      if (slotTime.getDay() === placeholderArr[i]) isValid = false;
     }
 
     return isValid;
@@ -193,6 +166,36 @@ const FindExpert = ({ token }) => {
       console.log(params.id);
       console.log(response.data);
       setData(response.data);
+
+      let placeholderArr = [];
+      if (!response.data.account.availabilities.sunday) {
+        placeholderArr.push(0);
+      }
+      if (!response.data.account.availabilities.monday) {
+        placeholderArr.push(1);
+      }
+
+      if (!response.data.account.availabilities.tuesday) {
+        placeholderArr.push(2);
+      }
+
+      if (!response.data.account.availabilities.wednesday) {
+        placeholderArr.push(3);
+      }
+
+      if (!response.data.account.availabilities.thursday) {
+        placeholderArr.push(4);
+      }
+
+      if (!response.data.account.availabilities.friday) {
+        placeholderArr.push(5);
+      }
+
+      if (!response.data.account.availabilities.saturday) {
+        placeholderArr.push(6);
+      }
+
+      setUnavailableDaysArr(placeholderArr);
 
       if (token) {
         const fetchUserData = async () => {
