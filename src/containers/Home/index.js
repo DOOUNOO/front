@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
@@ -145,6 +146,44 @@ const Home = ({ data, isLoading }) => {
   for (let i = 0; i < advices.length; i++) {
     adviceCards.push(<AdviceCard key={i} advice={advices[i]} />);
   }
+
+  const [review, setReview] = useState(2);
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [email, setEmail] = useState();
+  const [message, setMessage] = useState();
+  const [acceptsConditions, setAcceptsConditions] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(0);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (email && firstName && lastName && message) {
+      setErrorMessage(0);
+      try {
+        const response = await axios.post(
+          // "adresse backend",
+          {
+            email,
+            firstName,
+            lastName,
+            message,
+          }
+        );
+        console.log(response.data);
+      } catch (error) {
+        // console.log(error.response.data);
+        if (error.response.data.error === "This email has already been used") {
+          setErrorMessage(3);
+        } else if (
+          error.response.data.error === "This username has already been used"
+        ) {
+          setErrorMessage(4);
+        }
+      }
+    } else {
+      setErrorMessage(1);
+    }
+  };
 
   return isLoading ? (
     <>{/*TODO add a Spinner with react-loader-spinner?*/}</>
@@ -397,6 +436,169 @@ const Home = ({ data, isLoading }) => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="reviews__div">
+        <div className="titles__div">
+          <h1>Ce que les clients disent de nous</h1>
+        </div>
+
+        {review === 1 ? (
+          <div className="review__div">
+            <img
+              src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/2_pikejx.jpg"
+              alt="reviewer's"
+            />
+            <p>
+              "J'ai trouvé ici des conseils pertinents pour la comptabilité de
+              mon entreprise. Sur cette plateforme, j'ai pu économiser temps et
+              argent par la digitalisation de ce service."
+            </p>
+            <h3>Sofia Maoudi</h3>
+            <h4>Entrepreneuse | HostPost</h4>
+          </div>
+        ) : review === 2 ? (
+          <div className="review__div">
+            <img
+              src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736571/Doounoo/1_fvhjhp.png"
+              alt="reviewer's"
+            />
+            <p>
+              "Je souhaitais créer une ruche connectée, mais je n'y connaissais
+              rien. Sur Doounoo, j'ai pu contacter un apiculteur expérimenté
+              m'ayant donner des conseils et son retour d'expérience."
+            </p>
+            <h3>Steven Maccocini</h3>
+            <h4>Entrepreneur | La Beeruche</h4>
+          </div>
+        ) : (
+          <div className="review__div">
+            <img
+              src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/3_vga5bj.jpg"
+              alt="reviewer's"
+            />
+            <p>
+              "J'avais énormement de questions concernant la création d'un
+              restaurant en terme de budget et de travail. Ici, j'ai pu trouver
+              les réponses à mes questions via le retour des meilleurs
+              restaurateurs."
+            </p>
+            <h3>Mathilde Vanier</h3>
+            <h4>Entrepreneuse | MamaMia(m)</h4>
+          </div>
+        )}
+        <img
+          src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646677465/Doounoo/Vector_1894_Stroke_n5nxct.png"
+          alt="zigzag"
+          className="zigzag"
+        />
+        <img
+          src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646677465/Doounoo/Ellipse_753_Stroke_jnvdmo.png"
+          alt="zigzag"
+          className="ring"
+        />
+        <img
+          src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646677433/Doounoo/Pattern_dfohly.png"
+          alt="zigzag"
+          className="triangle"
+        />
+
+        <div className="checkboxs__div">
+          <input
+            type="radio"
+            name="reviews"
+            onClick={() => {
+              setReview(1);
+            }}
+          />
+          <input
+            type="radio"
+            name="reviews"
+            checked={true}
+            onClick={() => {
+              setReview(2);
+            }}
+          />
+          <input
+            type="radio"
+            name="reviews"
+            onClick={() => {
+              setReview(3);
+            }}
+          />
+        </div>
+      </div>
+      <div className="contact__div">
+        <img
+          src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646759190/Doounoo/Sans_titre_hpyktn.png"
+          alt="form"
+        />
+        <div className="titles__div container">
+          <h1>
+            Besoin d'un conseil ? <br />
+            Contactez-nous !
+          </h1>
+
+          <p>
+            Prenez contact avec nous pour tout type d'aide. Nous sommes là pour
+            vous donner le meilleur et aussi pour vous aider à trouver le
+            conseil dont vous avez besoin.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Prénom"
+            onChange={(event) => {
+              setFirstName(event.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Nom"
+            onChange={(event) => {
+              setLastName(event.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Adresse mail"
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+          />
+          <textarea
+            type="text"
+            placeholder="Message"
+            rows="5"
+            cols="30"
+            minLength="10"
+            maxLength="30"
+            onChange={(event) => {
+              setMessage(event.target.value);
+            }}
+          />
+          <div className="condition__div">
+            <input
+              type="checkbox"
+              onClick={() => {
+                acceptsConditions
+                  ? setAcceptsConditions(false)
+                  : setAcceptsConditions(true);
+              }}
+            />
+            <label>
+              en cliquant sur ce bouton j'accepte les{" "}
+              <span>conditions générales d'utilisation</span>.
+            </label>
+          </div>
+          <div className="validation__div">
+            <input className="valid__input" type="submit" value="Envoyer" />
+            {errorMessage === 1 ? (
+              <span>Merci d'entrer tous les champs</span>
+            ) : null}
+          </div>
+        </form>
       </div>
     </>
   );
