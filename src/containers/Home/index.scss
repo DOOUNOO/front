@@ -1,6 +1,10 @@
 $lightGrey: #f4f5f7;
 $lightText: #576165;
 
+p {
+  margin-bottom: 0;
+}
+
 h1 {
   font-size: 57px;
   font-weight: bold;
@@ -9,6 +13,26 @@ h1 {
 h2 {
   font-size: 28px;
   font-weight: bold;
+}
+
+.categories {
+  width: 100%;
+  background-color: #fdfdfd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+
+  p {
+    padding: 10px;
+    transition: background-color .3s;
+  }
+
+  p:hover {
+    background-color: #45a090;
+    color: white;
+  }
 }
 
 .hero-bg-image {

@@ -149,6 +149,18 @@ const Home = ({ data, isLoading }) => {
     <>{/*TODO add a Spinner with react-loader-spinner?*/}</>
   ) : (
     <>
+      <div className="categories">
+        <p>Mode</p>
+        <p>Cosmétique</p>
+        <p>Art</p>
+        <p>Santé</p>
+        <p>Sport</p>
+        <p>Éducation</p>
+        <p>Restauration</p>
+        <p>Business</p>
+        <p>Droit</p>
+        <p>Loisirs</p>
+      </div>
       <div className="hero-bg-image">
         <div className="hero-content">
           <div className="hero-title-subtitle">
