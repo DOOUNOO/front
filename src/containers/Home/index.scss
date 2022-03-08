@@ -1,5 +1,6 @@
 $lightGrey: #f4f5f7;
 $lightText: #576165;
+$lightOrange: #ffb081;
 
 h1 {
   font-size: 57px;
@@ -320,6 +321,83 @@ h2 {
     img {
       height: 90px;
       width: 90px;
+    }
+  }
+}
+
+.reviews__div {
+  height: 910px;
+  background-color: $lightGrey;
+  box-shadow: -6px 0 white, 6px 0 white, 0 7px 5px -2px grey;
+  border: $lightGrey solid 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 150px;
+  justify-content: center;
+  // border: red solid 3px;
+
+  .titles__div {
+    // border: red solid 3px;
+    text-align: center;
+    width: 458px;
+
+    h1 {
+      font-size: 50px;
+      font-weight: 600;
+      margin-top: 30px;
+    }
+  }
+
+  .review__div {
+    background-color: white;
+    width: 738px;
+    height: 300px;
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // border: blue solid 3px;
+
+    img {
+      height: 108px;
+      width: 108px;
+      object-fit: cover;
+      border-radius: 50%;
+      position: absolute;
+      top: -50px;
+    }
+    p {
+      margin: 50px 0;
+      font-size: 18px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+    h4 {
+      font-size: 14px;
+      color: $lightText;
+    }
+  }
+
+  .checkboxs__div {
+    display: flex;
+    gap: 5px;
+    input {
+      height: 30px;
+      width: 10x;
+      background-color: white;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      // -webkit-appearance: none;
+      cursor: pointer;
+    }
+    input:checked {
+      background-color: $lightOrange;
     }
   }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
@@ -144,6 +144,8 @@ const Home = ({ data, isLoading }) => {
   for (let i = 0; i < advices.length; i++) {
     adviceCards.push(<AdviceCard key={i} advice={advices[i]} />);
   }
+
+  const [review, setReview] = useState(2);
 
   return isLoading ? (
     <>{/*TODO add a Spinner with react-loader-spinner?*/}</>
@@ -421,6 +423,80 @@ const Home = ({ data, isLoading }) => {
               <h5>_____</h5>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="reviews__div">
+        <div className="titles__div">
+          <h1>Ce que les clients disent de nous</h1>
+        </div>
+
+        {review === 1 ? (
+          <div className="review__div">
+            <img
+              src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/2_pikejx.jpg"
+              alt="reviewer's"
+            />
+            <p>
+              "J'ai trouvé ici des conseils pertinents pour la comptabilité de
+              mon entreprise. Sur cette plateforme, j'ai pu économiser temps et
+              argent par la digitalisation de ce service."
+            </p>
+            <h3>Sofia Maoudi</h3>
+            <h4>Entrepreneuse | HostPost</h4>
+          </div>
+        ) : review === 2 ? (
+          <div className="review__div">
+            <img
+              src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736571/Doounoo/1_fvhjhp.png"
+              alt="reviewer's"
+            />
+            <p>
+              "Je souhaitais créer une ruche connectée, mais je n'y connaissais
+              rien. Sur Doounoo, j'ai pu contacter un apiculteur expérimenté
+              m'ayant donner des conseils et son retour d'expérience."
+            </p>
+            <h3>Steven Maccocini</h3>
+            <h4>Entrepreneur | La Beeruche</h4>
+          </div>
+        ) : (
+          <div className="review__div">
+            <img
+              src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/3_vga5bj.jpg"
+              alt="reviewer's"
+            />
+            <p>
+              "J'avais énormement de questions concernant la création d'un
+              restaurant en terme de budget et de travail. Ici, j'ai pu trouver
+              les réponses à mes questions via le retour des meilleurs
+              restaurateurs."
+            </p>
+            <h3>Mathilde Vanier</h3>
+            <h4>Entrepreneuse | MamaMia(m)</h4>
+          </div>
+        )}
+
+        <div className="checkboxs__div">
+          <input
+            type="radio"
+            name="reviews"
+            onClick={() => {
+              setReview(1);
+            }}
+          />
+          <input
+            type="radio"
+            name="reviews"
+            onClick={() => {
+              setReview(2);
+            }}
+          />
+          <input
+            type="radio"
+            name="reviews"
+            onClick={() => {
+              setReview(3);
+            }}
+          />
         </div>
       </div>
     </>
