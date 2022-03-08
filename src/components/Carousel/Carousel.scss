@@ -3,12 +3,13 @@
 }
 
 .swiper-button-next {
-  background-image: url(https://res.cloudinary.com/dyj1ddjba/image/upload/v1646314925/doounoo/next_dumsko.png);
+  background-image: url(https://res.cloudinary.com/dyj1ddjba/image/upload/v1646670818/doounoo/next_eu0wey.png);
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: center;
   min-width: 60px;
   min-height: 60px;
+  filter: drop-shadow(5px 5px 5px #222);
 }
 
 .swiper-button-next::after {
@@ -16,12 +17,13 @@
 }
 
 .swiper-button-prev {
-  background-image: url(https://res.cloudinary.com/dyj1ddjba/image/upload/v1646314925/doounoo/previous_uhao5o.png);
+  background-image: url(https://res.cloudinary.com/dyj1ddjba/image/upload/v1646670818/doounoo/previous_w6xntr.png);
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: center;
   min-width: 60px;
   min-height: 60px;
+  filter: drop-shadow(5px 5px 5px #222);
 }
 
 .swiper-button-prev::after {

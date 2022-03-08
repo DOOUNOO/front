@@ -31,8 +31,8 @@ $lightGrey: #f4f5f7;
   .footer-container {
     box-sizing: border-box;
     margin: 0 auto;
+    gap: 50px;
     max-width: 1280px;
-
     display: flex;
     flex-direction: column;
     font-family: "Inter", sans-serif;
@@ -43,9 +43,8 @@ $lightGrey: #f4f5f7;
 
     .main-row {
       display: flex;
-      width: 100%;
       white-space: nowrap;
-      justify-content: space-between;
+      gap: 150px;
       flex-direction: row;
       font-size: 12px;
       margin: 0 auto;
@@ -53,6 +52,7 @@ $lightGrey: #f4f5f7;
         display: flex;
         flex-direction: column;
         gap: 10px;
+        width: min-content;
         div:first-child {
           font-size: 16px;
           margin-bottom: 5px;

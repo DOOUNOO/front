@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { LineWave } from "react-loader-spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,32 +13,178 @@ import {
   faStar,
   faArrowTrendUp,
 } from "@fortawesome/free-solid-svg-icons";
-
+import DayTimePicker from "@mooncake-dev/react-day-time-picker";
+import ReservationModal from "../../components/ReservationModal/index";
 import "./index.scss";
 
-const Offer = () => {
+const Offer = ({ token }) => {
   const params = useParams();
-
+  const navigate = useNavigate();
   const [data, setData] = useState({});
+  const [userData, setUserData] = useState({});
+
   const [isLoading, setIsLoading] = useState(true);
   const [descIsLong, setDescIsLong] = useState(false);
   const [seeAll, setSeeAll] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [reservationTime, setReservationTime] = useState(new Date());
+
+  const handleScheduled = (dateTime) => {
+    if (token) {
+      console.log("scheduled: ", dateTime);
+      setShowModal(true);
+      setReservationTime(dateTime);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  const timeSlotValidator = (slotTime) => {
+    const morningTime = new Date(
+      slotTime.getFullYear(),
+      slotTime.getMonth(),
+      slotTime.getDate(),
+      7,
+      0,
+      0
+    );
+
+    const eveningTime = new Date(
+      slotTime.getFullYear(),
+      slotTime.getMonth(),
+      slotTime.getDate(),
+      20,
+      0,
+      0
+    );
+
+    let isValid =
+      slotTime.getTime() > morningTime.getTime() &&
+      slotTime.getTime() < eveningTime.getTime();
+
+    // if (slotTime.getDay() === 0) {
+    //   isValid = false;
+    // }
+
+    return isValid;
+  };
+
+  const theme = {
+    primary: "#94cac0",
+    secondary: "#258675",
+    background: "white",
+    buttons: {
+      disabled: {
+        color: "#94cac0",
+        background: "#f0f0f0",
+      },
+      confirm: {
+        color: "white",
+        background: "#258675",
+        hover: {
+          color: "",
+          background: "#94cac0",
+        },
+      },
+    },
+    feedback: {
+      success: {
+        color: "#29aba4",
+      },
+      failed: {
+        color: "#eb7260",
+      },
+    },
+  };
+
+  const ratings = {
+    metaData: {
+      averageRating: 5,
+      totalRatings: 41,
+    },
+    ratings: [
+      {
+        key: 1,
+        rater: {
+          firstName: "Juliette",
+          lastName: "Moreau",
+        },
+        date: "7 février, 2022",
+        rating: 5,
+        ratingText: "Son travail était vraiment super ! Je recommande.",
+      },
+      {
+        key: 2,
+        rater: {
+          firstName: "Félicia",
+          lastName: "Lopez",
+        },
+        date: "10 mars, 2022",
+        rating: 5,
+        ratingText:
+          "Wow ! C'est un gain de temps énorme dans ma recherche d'informations !",
+      },
+    ],
+  };
+
+  const numOfStars = (rating) => {
+    let arr = [];
+    for (let i = 0; i < 5; i++) {
+      if (i < rating) {
+        arr.push(
+          <>
+            <FontAwesomeIcon
+              icon={faStar}
+              style={{
+                color: "gold",
+                width: 14,
+              }}
+            />{" "}
+          </>
+        );
+      } else {
+        arr.push(
+          <FontAwesomeIcon
+            icon={faStar}
+            style={{
+              color: "grey",
+            }}
+          />
+        );
+      }
+    }
+    return arr;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
         `https://doounoo.herokuapp.com/findexperts/${params.id}`
       );
-      setData(response.data);
-      setIsLoading(false);
+      console.log(params.id);
       console.log(response.data);
+      setData(response.data);
 
-      if (response.data.account.description.length > 179) {
-        setDescIsLong(true);
+      if (token) {
+        const fetchUserData = async () => {
+          const res = await axios.get(
+            `https://doounoo.herokuapp.com/users/${token}`
+          );
+          console.log(token);
+          console.log(res.data);
+          setUserData(res.data);
+        };
+        fetchUserData();
+      } else {
+        console.log("no token");
       }
+
+      setIsLoading(false);
+
+      if (response.data.account.description.length > 173) setDescIsLong(true);
     };
     fetchData();
-  }, [params.id]);
+  }, [params.id, token]);
 
   return isLoading ? (
     <div className="offer-container">
@@ -64,7 +210,15 @@ const Offer = () => {
               </div>
               <div className="main-profile-info-col">
                 <h1>
-                  {data.account.firstName} {data.account.lastName}
+                  {data.account.firstName} {data.account.lastName}{" "}
+                  <img
+                    src="https://res.cloudinary.com/dyj1ddjba/image/upload/v1646237849/doounoo/certified_fljewi.png"
+                    alt="certified"
+                    style={{
+                      height: 18,
+                      marginLeft: 6,
+                    }}
+                  ></img>
                 </h1>
                 <div>
                   <FontAwesomeIcon
@@ -138,7 +292,7 @@ const Offer = () => {
               </>
             ) : (
               <>
-                <p>{data.account.description.substring(0, 179)}...</p>
+                <p>{data.account.description.substring(0, 170)}...</p>
                 <div
                   className="desc-btn"
                   onClick={() => {
@@ -152,9 +306,112 @@ const Offer = () => {
           </div>
           <div className="calendar-container" id="calendar">
             <h2>Agenda</h2>
+            <ReservationModal
+              showModal={showModal}
+              setShowModal={setShowModal}
+              reservationTime={reservationTime}
+              data={data}
+              userData={userData}
+            />
+            <div
+              style={{
+                boxShadow: "none",
+                color: "black",
+                fontSize: 14,
+                maxHeight: 500,
+                overflow: "hidden",
+              }}
+            >
+              <DayTimePicker
+                timeSlotSizeMinutes={60}
+                timeSlotValidator={timeSlotValidator}
+                onConfirm={handleScheduled}
+                theme={theme}
+                confirmText="Prendre rendez-vous"
+                isLoading={false}
+                isDone={false}
+              />
+            </div>
           </div>
           <div className="ratings-container" id="ratings">
             <h2>Avis</h2>
+            <div className="ratings-data-row">
+              <div className="ratings-left-col">
+                <div className="avg-rating">
+                  {ratings.metaData.averageRating}
+                </div>
+                <div className="stars-container">
+                  {numOfStars(ratings.metaData.averageRating)}
+                </div>
+                <div className="total-ratings">
+                  {ratings.metaData.totalRatings} avis
+                </div>
+              </div>
+              <div className="ratings-right-col">
+                <div className="ratings-visualization-row">
+                  <div className="stars-desc">5 étoiles</div>{" "}
+                  <div
+                    className="ratings-bar"
+                    style={{
+                      backgroundColor: "gold",
+                    }}
+                  ></div>{" "}
+                  <div className="total-ratings-desc">(41)</div>
+                </div>
+                <div className="ratings-visualization-row">
+                  <div className="stars-desc">4 étoiles</div>{" "}
+                  <div className="ratings-bar"></div>{" "}
+                  <div className="total-ratings-desc">(0)</div>
+                </div>
+                <div className="ratings-visualization-row">
+                  <div className="stars-desc">3 étoiles</div>{" "}
+                  <div className="ratings-bar"></div>{" "}
+                  <div className="total-ratings-desc">(0)</div>
+                </div>
+                <div className="ratings-visualization-row">
+                  <div className="stars-desc">2 étoiles</div>{" "}
+                  <div className="ratings-bar"></div>{" "}
+                  <div className="total-ratings-desc">(0)</div>
+                </div>
+                <div className="ratings-visualization-row">
+                  <di className="stars-desc" v>
+                    1 étoile
+                  </di>{" "}
+                  <div className="ratings-bar"></div>{" "}
+                  <div className="total-ratings-desc">(0)</div>
+                </div>
+              </div>
+            </div>
+            <div className="ratings-list">
+              {ratings.ratings.map((e, i) => {
+                return (
+                  <div key={e.key} className="rating-block">
+                    <div className="rater-img-placeholder"></div>
+                    <div className="rating-info-col">
+                      <div className="name-row">
+                        {e.rater.firstName}{" "}
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          style={{
+                            color: "gold",
+                            width: 14,
+                          }}
+                        />{" "}
+                        <span
+                          style={{
+                            color: "gold",
+                          }}
+                        >
+                          5
+                        </span>
+                      </div>
+                      <div className="date-row">{e.date}</div>
+                      <div className="rating-txt">{e.ratingText}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
         <div className="right-col">
