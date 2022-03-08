@@ -2,7 +2,7 @@ import "./index.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const IntroParagraph = ({ sliceOrRedirect, title, paragraph }) => {
+const IntroParagraph = ({ sliceOrRedirect, title, paragraph, expertId }) => {
   /* If you want to display the button to show or hide a part of a paragraph,
 set the props sliceOrRedirect to true.
 Else, you will get the same component with a redirect button to the expert profil*/
@@ -41,7 +41,7 @@ Else, you will get the same component with a redirect button to the expert profi
       ) : (
         <>
           <p className="intro-paragraph">{`${paragraph.slice(0, 150)}...`}</p>
-          <Link to="/findexperts/:id">
+          <Link to={`/findexperts/${expertId}`}>
             <span className="readmore-btn">Voir plus</span>
           </Link>
         </>

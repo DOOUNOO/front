@@ -23,6 +23,7 @@ const ExpertsFeed = ({ data, avatarImg }) => {
         secondTextBtn="Contacter"
         firstUrl={`/findexperts/${elem._id}`}
         secondUrl="/"
+        expertId={elem._id}
       />
     );
   });

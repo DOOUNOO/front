@@ -15,6 +15,7 @@ import FindExperts from "./containers/FindExperts";
 import Payment from "./containers/Payment";
 import PageNotFound from "./containers/PageNotFound";
 import Account from "./containers/Account";
+import ScrollToTop from "./components/ScrollToTop";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -61,6 +62,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <Header token={token} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />

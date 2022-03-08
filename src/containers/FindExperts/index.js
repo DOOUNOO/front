@@ -26,13 +26,14 @@ const FindExperts = () => {
 
   const handlePageClick = (event) => {
     setPage(event.selected + 1);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://doounoo.herokuapp.com/findexperts?page=${page}&category=${category}&subcategory=${subcategory}&priceMin=${priceMin}&priceMax=${priceMax}`
+          `http://localhost:3000/findexperts?page=${page}&category=${category}&subcategory=${subcategory}&priceMin=${priceMin}&priceMax=${priceMax}`
         );
         const limit = response.data.limit;
 
