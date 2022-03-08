@@ -129,7 +129,7 @@ const FindExpert = ({ token }) => {
   const ratings = {
     metaData: {
       averageRating: 5,
-      totalRatings: 41,
+      totalRatings: 2,
     },
     ratings: [
       {
@@ -301,7 +301,7 @@ const FindExpert = ({ token }) => {
                   window.location.replace(`/findexperts/${params.id}/#ratings`);
                 }}
               >
-                Avis (41)
+                Avis ({ratings.metaData.totalRatings})
               </div>
               <div>CV</div>
               <div>Expériences</div>
@@ -373,7 +373,7 @@ const FindExpert = ({ token }) => {
             <div className="ratings-data-row">
               <div className="ratings-left-col">
                 <div className="avg-rating">
-                  {ratings.metaData.averageRating}
+                  {ratings.metaData.averageRating},0
                 </div>
                 <div className="stars-container">
                   {numOfStars(ratings.metaData.averageRating)}
@@ -391,7 +391,7 @@ const FindExpert = ({ token }) => {
                       backgroundColor: "gold",
                     }}
                   ></div>{" "}
-                  <div className="total-ratings-desc">(41)</div>
+                  <div className="total-ratings-desc">(2)</div>
                 </div>
                 <div className="ratings-visualization-row">
                   <div className="stars-desc">4 étoiles</div>{" "}
@@ -472,9 +472,11 @@ const FindExpert = ({ token }) => {
                       color: "gold",
                     }}
                   />{" "}
-                  5,0
+                  {ratings.metaData.averageRating},0
                 </div>
-                <div className="bttm-line">3 avis</div>
+                <div className="bttm-line">
+                  {ratings.metaData.totalRatings} avis
+                </div>
               </div>
               <div className="contact-price-block">
                 <div className="top-line">{data.account.hourlyPrice} €</div>
