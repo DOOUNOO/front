@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
@@ -146,6 +147,42 @@ const Home = ({ data, isLoading }) => {
   }
 
   const [review, setReview] = useState(2);
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [email, setEmail] = useState();
+  const [message, setMessage] = useState();
+  const [acceptsConditions, setAcceptsConditions] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(0);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (email && firstName && lastName && message) {
+      setErrorMessage(0);
+      try {
+        const response = await axios.post(
+          // "adresse backend",
+          {
+            email,
+            firstName,
+            lastName,
+            message,
+          }
+        );
+        console.log(response.data);
+      } catch (error) {
+        // console.log(error.response.data);
+        if (error.response.data.error === "This email has already been used") {
+          setErrorMessage(3);
+        } else if (
+          error.response.data.error === "This username has already been used"
+        ) {
+          setErrorMessage(4);
+        }
+      }
+    } else {
+      setErrorMessage(1);
+    }
+  };
 
   return isLoading ? (
     <>{/*TODO add a Spinner with react-loader-spinner?*/}</>
@@ -474,6 +511,21 @@ const Home = ({ data, isLoading }) => {
             <h4>Entrepreneuse | MamaMia(m)</h4>
           </div>
         )}
+        <img
+          src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646677465/Doounoo/Vector_1894_Stroke_n5nxct.png"
+          alt="zigzag"
+          className="zigzag"
+        />
+        <img
+          src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646677465/Doounoo/Ellipse_753_Stroke_jnvdmo.png"
+          alt="zigzag"
+          className="ring"
+        />
+        <img
+          src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646677433/Doounoo/Pattern_dfohly.png"
+          alt="zigzag"
+          className="triangle"
+        />
 
         <div className="checkboxs__div">
           <input
@@ -486,6 +538,7 @@ const Home = ({ data, isLoading }) => {
           <input
             type="radio"
             name="reviews"
+            checked={true}
             onClick={() => {
               setReview(2);
             }}
@@ -516,11 +569,60 @@ const Home = ({ data, isLoading }) => {
             conseil dont vous avez besoin.
           </p>
         </div>
-        <form>
-          <input type="text" placeholder="Prénom" />
-          <input type="text" placeholder="Nom" />
-          <input type="text" placeholder="Adresse mail" />
-          <input type="text" placeholder="Message" />
+
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Prénom"
+            onChange={(event) => {
+              setFirstName(event.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Nom"
+            onChange={(event) => {
+              setLastName(event.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Adresse mail"
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+          />
+          <textarea
+            type="text"
+            placeholder="Message"
+            rows="5"
+            cols="30"
+            minLength="10"
+            maxLength="30"
+            onChange={(event) => {
+              setMessage(event.target.value);
+            }}
+          />
+          <div className="condition__div">
+            <input
+              type="checkbox"
+              onClick={() => {
+                acceptsConditions
+                  ? setAcceptsConditions(false)
+                  : setAcceptsConditions(true);
+              }}
+            />
+            <label>
+              en cliquant sur ce bouton j'accepte les{" "}
+              <span>conditions générales d'utilisation</span>.
+            </label>
+          </div>
+          <div className="validation__div">
+            <input className="valid__input" type="submit" value="Envoyer" />
+            {errorMessage === 1 ? (
+              <span>Merci d'entrer tous les champs</span>
+            ) : null}
+          </div>
         </form>
       </div>
     </>

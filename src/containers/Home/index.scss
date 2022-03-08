@@ -218,7 +218,6 @@ h2 {
   justify-content: center;
 
   .titles__div {
-    // border: red solid 3px;
     text-align: center;
 
     h3 {
@@ -231,13 +230,13 @@ h2 {
 
   .icons__div {
     display: flex;
-    // border: blue solid 3px;
+
     width: 80%;
     .icons-section__div {
       display: flex;
       flex-direction: column;
       align-items: center;
-      // border: red solid 3px;
+
       flex: 1;
       text-align: center;
       h4,
@@ -258,7 +257,7 @@ h2 {
     width: 511.29px;
     height: 341px;
     position: relative;
-    // border: red solid 3px;
+
     .picture__img {
       height: 100%;
       width: 100%;
@@ -268,7 +267,7 @@ h2 {
       position: absolute;
       height: 100px;
       width: 100px;
-      // border: red solid 3px;
+
       top: 40%;
       left: 40%;
     }
@@ -287,7 +286,6 @@ h2 {
   justify-content: center;
 
   .titles__div {
-    // border: red solid 3px;
     text-align: start;
 
     h3 {
@@ -300,14 +298,14 @@ h2 {
 
   .icons__div {
     display: flex;
-    // border: blue solid 3px;
+
     width: 80%;
     .icons-section__div {
       display: flex;
       gap: 10px;
       flex-direction: column;
       align-items: center;
-      // border: red solid 3px;
+
       flex: 1;
       text-align: center;
       h4 {
@@ -335,10 +333,9 @@ h2 {
   align-items: center;
   gap: 150px;
   justify-content: center;
-  // border: red solid 3px;
+  position: relative;
 
   .titles__div {
-    // border: red solid 3px;
     text-align: center;
     width: 458px;
 
@@ -361,7 +358,6 @@ h2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // border: blue solid 3px;
 
     img {
       height: 108px;
@@ -400,6 +396,21 @@ h2 {
       background-color: $lightOrange;
     }
   }
+  .zigzag {
+    position: absolute;
+    left: 400px;
+    bottom: 250px;
+  }
+  .ring {
+    position: absolute;
+    right: 420px;
+    top: 400px;
+  }
+  .triangle {
+    position: absolute;
+    left: 220px;
+    top: 250px;
+  }
 }
 
 .contact__div {
@@ -411,7 +422,6 @@ h2 {
   align-items: center;
   gap: 50px;
   justify-content: center;
-  border: red solid 3px;
   position: relative;
   img {
     bottom: 100px;
@@ -432,15 +442,68 @@ h2 {
     text-align: justify;
     font-size: 18px;
   }
+
   form {
     position: absolute;
-    top: 0;
-    background-color: yellow;
+    background-color: white;
+    box-shadow: 0 5px 10px -20px grey, 6px 0 white, 0 5px 10px -5px grey;
+    border-radius: 20px;
     width: 564px;
     height: 620px;
     right: 200px;
     top: 90px;
     display: flex;
     flex-direction: column;
+    padding: 40px;
+    gap: 30px;
+    input {
+      height: 60px;
+      border: solid #cfcfcf 1px;
+    }
+    input::placeholder {
+      color: grey;
+      font-size: 16px;
+    }
+    textarea {
+      height: 165px;
+      resize: none;
+      border: solid #cfcfcf 1px;
+      border-radius: 5px;
+    }
+    textarea::placeholder {
+      color: grey;
+      padding: 15px 10px;
+      font-size: 16px;
+    }
+    .condition__div {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      height: 16px;
+      span {
+        color: $lightOrange;
+      }
+      span:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      label {
+        font-size: 13px;
+      }
+    }
+    .validation__div {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .valid__input {
+      width: 155px;
+      background-color: $lightOrange;
+      border: none;
+      color: white;
+    }
+    span {
+      color: red;
+    }
   }
 }
