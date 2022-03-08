@@ -4,6 +4,7 @@ import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
 import Carousel from "../../components/Carousel/Carousel";
 import AdviceCard from "../../components/AdviceCard/AdviceCard";
+import {Link} from "react-router-dom";
 
 const Home = ({ data, isLoading }) => {
   //TODO fetch this data from the server obviously
@@ -149,54 +150,28 @@ const Home = ({ data, isLoading }) => {
     <>{/*TODO add a Spinner with react-loader-spinner?*/}</>
   ) : (
     <>
+      <div className="categories">
+        <Link className="link" to="/findexperts/Mode">Mode</Link>
+        <Link className="link" to="/findexperts/Cosmétique">Cosmétique</Link>
+        <Link className="link" to="/findexperts/Art">Art</Link>
+        <Link className="link" to="/findexperts/Santé">Santé</Link>
+        <Link className="link" to="/findexperts/Sport">Sport</Link>
+        <Link className="link" to="/findexperts/Éducation">Éducation</Link>
+        <Link className="link" to="/findexperts/Restauration">Restauration</Link>
+        <Link className="link" to="/findexperts/Business">Business</Link>
+        <Link className="link" to="/findexperts/Droit">Droit</Link>
+        <Link className="link" to="/findexperts/Loisirs">Loisirs</Link>
+      </div>
       <div className="hero-bg-image">
         <div className="hero-content">
-          <div className="hero-title-categories">
-            <h1 className="hero-title">
-              Salut,
-              <br />
-              moi c'est {""}
-              <span style={{ color: "#ff9f66" }}>Julie.</span>
-            </h1>
-            <div className="categories">
-              {/*TODO links to find advice*/}
-              <div className="category">
-                <p>Mode</p>
-              </div>
-              <div className="category">
-                <p>Cosmétique</p>
-              </div>
-              <div className="category">
-                <p>Art</p>
-              </div>
-              <div className="category">
-                <p>Santé</p>
-              </div>
-              <div className="category">
-                <p>Sport</p>
-              </div>
-              <div className="category">
-                <p>Éducation</p>
-              </div>
-              <div className="category">
-                <p>Restauration</p>
-              </div>
-              <div className="category">
-                <p>Business</p>
-              </div>
-              <div className="category">
-                <p>Droit</p>
-              </div>
-              <div className="category">
-                <p>Loisirs</p>
-              </div>
-              <div className="category">
-                <p>Immobilier</p>
-              </div>
-              <div className="category">
-                <p>Management</p>
-              </div>
-            </div>
+          <div className="hero-title-subtitle">
+            <p className="hero-title">
+              Salut,<br/>
+              moi c'est <span style={{color: "#ff9f66"}}>Julie.</span>
+            </p>
+            <p className="hero-subtitle">
+              STYLISTE MODÉLISTE
+            </p>
           </div>
         </div>
       </div>

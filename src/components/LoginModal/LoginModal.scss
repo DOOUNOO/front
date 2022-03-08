@@ -9,7 +9,6 @@ $secondDarkestGreen: #45a090;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #E8EEF0;
 
   p {
     font-size: 12px;
@@ -26,7 +25,7 @@ $secondDarkestGreen: #45a090;
   }
 
   .empty {
-    flex :1;
+    flex: 1;
   }
 
   .framed__div {
@@ -36,7 +35,6 @@ $secondDarkestGreen: #45a090;
     flex-direction: column;
     padding: 15px 20px;
     gap: 40px;
-    box-shadow: 10px 5px 5px #d5d5d5;
 
     .title__div {
       display: flex;
@@ -108,8 +106,6 @@ $secondDarkestGreen: #45a090;
         flex: 2;
       }
     }
-
-
 
     span {
       font-size: 12px;
