@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
@@ -6,91 +6,46 @@ import Carousel from "../../components/Carousel/Carousel";
 import AdviceCard from "../../components/AdviceCard/AdviceCard";
 import {Link} from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import axios from "axios";
 
-const Home = ({ data, isLoading }) => {
-  //TODO fetch this data from the server obviously
-  const users = [
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235118/doounoo/man_12_y5jbru.jpg",
-      name: "Hugo Busquet",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description:
-        "Je vous aide à développer la visibilité de votre business en ligne",
-      price: "49",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/blonde_hair_girl_2_l0gzeh.jpg",
-      name: "Sasha Loraine",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description:
-        "Je vous donne des conseils sur la comptabilité de votre entreprise",
-      price: "69",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235117/doounoo/man_6_qmjnmj.jpg",
-      name: "Fred Kacilin",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description: "Je vous partage des tips sur votre personnal branding",
-      price: "75",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/natte_girl_evqhgg.jpg",
-      name: "Karen Momoa",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description: "Conseils sur la comptabilité de votre entreprise",
-      price: "28",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235118/doounoo/man_12_y5jbru.jpg",
-      name: "Hugo Busquet",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description:
-        "Je vous aide à développer la visibilité de votre business en ligne",
-      price: "49",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/blonde_hair_girl_2_l0gzeh.jpg",
-      name: "Sasha Loraine",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description:
-        "Je vous donne des conseils sur la comptabilité de votre entreprise",
-      price: "69",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235117/doounoo/man_6_qmjnmj.jpg",
-      name: "Fred Kacilin",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description: "Je vous partage des tips sur votre personnal branding",
-      price: "75",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/natte_girl_evqhgg.jpg",
-      name: "Karen Momoa",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description: "Conseils sur la comptabilité de votre entreprise",
-      price: "28",
-    },
-  ];
-  let userCards = [];
-  for (let i = 0; i < users.length; i++) {
-    userCards.push(<UserCard key={i} user={users[i]} />);
-  }
+const Home = () => {
+  const [userCards, setUserCards] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://doounoo.herokuapp.com/findexperts`
+        );
+
+        const experts = response.data.experts;
+        console.log(experts);
+        for (let i = 0; i < experts.length; i++) {
+          console.log(experts[i]);
+          const expert = {
+            picture:
+              "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/natte_girl_evqhgg.jpg",
+            name: experts[i].account.firstName + " " + experts[i].account.lastName,
+            avatar:
+              "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
+            description: experts[i].account.description,
+            price: experts[i].account.hourlyPrice
+          }
+          let newUserCards = [...userCards];
+          newUserCards.push(<UserCard key={i} user={expert} />);
+          setUserCards(newUserCards);
+        }
+        console.log(userCards);
+
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const advices = [
     {
