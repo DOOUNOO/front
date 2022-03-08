@@ -93,6 +93,7 @@ const ReservationModal = ({
                   state: {
                     userData: userData,
                     expertData: data,
+                    reservationTime: reservationTime,
                   },
                 });
               }}
