@@ -8,7 +8,6 @@ import Home from "./containers/Home";
 import Signup from "./containers/SignUp";
 import UserSignUp from "./containers/UserSignUp/UserSignUp";
 import ExpertSignup from "./containers/ExpertSignUp/ExpertSignUp";
-import Login from "./containers/Login/Login";
 import Publish from "./containers/Publish";
 import FindExpert from "./containers/FindExpert";
 import FindExperts from "./containers/FindExperts";
@@ -70,7 +69,6 @@ function App() {
           element={<ExpertSignup setUser={setUser} />}
         />
         <Route path="/signup/user" element={<UserSignUp setUser={setUser} />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/account" element={<Account />} />
         <Route path="/publish" element={<Publish />} />
         <Route path="/findexperts/:id" element={<FindExpert />} />
