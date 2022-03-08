@@ -151,52 +151,14 @@ const Home = ({ data, isLoading }) => {
     <>
       <div className="hero-bg-image">
         <div className="hero-content">
-          <div className="hero-title-categories">
-            <h1 className="hero-title">
-              Salut,
-              <br />
-              moi c'est {""}
-              <span style={{ color: "#ff9f66" }}>Julie.</span>
-            </h1>
-            <div className="categories">
-              {/*TODO links to find advice*/}
-              <div className="category">
-                <p>Mode</p>
-              </div>
-              <div className="category">
-                <p>Cosmétique</p>
-              </div>
-              <div className="category">
-                <p>Art</p>
-              </div>
-              <div className="category">
-                <p>Santé</p>
-              </div>
-              <div className="category">
-                <p>Sport</p>
-              </div>
-              <div className="category">
-                <p>Éducation</p>
-              </div>
-              <div className="category">
-                <p>Restauration</p>
-              </div>
-              <div className="category">
-                <p>Business</p>
-              </div>
-              <div className="category">
-                <p>Droit</p>
-              </div>
-              <div className="category">
-                <p>Loisirs</p>
-              </div>
-              <div className="category">
-                <p>Immobilier</p>
-              </div>
-              <div className="category">
-                <p>Management</p>
-              </div>
-            </div>
+          <div className="hero-title-subtitle">
+            <p className="hero-title">
+              Salut,<br/>
+              moi c'est <span style={{color: "#ff9f66"}}>Julie.</span>
+            </p>
+            <p className="hero-subtitle">
+              STYLISTE MODÉLISTE
+            </p>
           </div>
         </div>
       </div>
