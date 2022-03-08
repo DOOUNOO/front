@@ -12,6 +12,10 @@
   }
 
   .update-img-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-right: 40px;
 
     .img-specifications {
@@ -21,56 +25,80 @@
       width: 200px;
     }
 
+    .default-profile-picture {
+      width: 200px;
+      height: 200px;
+      background-color: #09b1ba;
+      border-radius: 1000px;
+      margin-bottom: 20px;
+    }
+
     input[type="file"] {
       display: none;
     }
 
     .custom-file-upload {
-      border: 1px solid #ccc;
       display: inline-block;
-      padding: 6px 12px;
-      cursor: pointer;
-    }
-
-    .account-to-update-wrapper {
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid lightgrey;
-    }
-
-    .firstname-to-update,
-    .lastname-to-update,
-    .phonenumber-to-update,
-    .social-media-connect {
-      display: flex;
-      justify-content: space-between;
+      border: 1px solid #09b1ba;
+      border-radius: 7px;
+      padding: 12px 0;
       width: 100%;
+      background: #09b1ba;
+      color: #f9f9f9;
+      cursor: pointer;
+      transition: 0.6s;
+      text-align: center;
     }
 
-    .firstname-to-update,
-    .lastname-to-update,
-    .phonenumber-to-update,
-    .social-media-connect {
-      margin-bottom: 20px;
+    .custom-file-upload:hover {
+      opacity: 0.8;
     }
 
-    .firstname-to-update,
-    .lastname-to-update,
-    .phonenumber-to-update {
-      input {
-        width: 60%;
-      }
-
-      .social-media-connect {
-        input {
-          width: 100%;
-        }
-      }
+    .max-size-spec,
+    .format-spec {
+      color: lightgrey;
+      font-size: 0.9rem;
     }
 
-    label {
-      margin-right: 20px;
+    .cloud-icon {
+      margin-right: 10px;
     }
+  }
+
+  // Account To Update
+
+  .account-to-update-wrapper {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgrey;
+    width: 100%;
+
+    input {
+      max-height: 25px;
+    }
+  }
+
+  .firstname-to-update,
+  .lastname-to-update,
+  .phonenumber-to-update,
+  .social-media-connect {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .firstname-to-update,
+  .lastname-to-update,
+  .phonenumber-to-update,
+  .social-media-connect {
+    margin-bottom: 20px;
+  }
+
+  .edit-label {
+    margin-right: 100px;
+  }
+
+  .social-media-connect {
     .linkedin-link,
     .instagram-link {
       display: flex;
@@ -80,9 +108,14 @@
       margin-bottom: 20px;
     }
     .edit-profil {
-      width: 100%;
+      display: flex;
+      width: 70%;
     }
   }
+
+  // Drop Down Menu
+
+  // Edit Title Description
 
   .edit-title-description {
     display: flex;

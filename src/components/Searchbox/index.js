@@ -1,13 +1,11 @@
 import "./index.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import categories from "../../assets/categories.json";
+
 const Searchbox = ({
   filterName,
   filter,
   setFilter,
   filterReference,
-  priceFilter,
-  setPriceFilter,
   setPriceMin,
   setPriceMax,
   isFirst,

@@ -37,12 +37,17 @@ const DoubleButtonsRates = ({
       </div>
       <div className="double-btn">
         <div className="first-btn-wrapper">
-          <Button linkUrl={firstUrl} rounded={true}>
+          <Button isLinkBtn={true} linkUrl={firstUrl} rounded={true}>
             {firstTextBtn}
           </Button>
         </div>
         <div className="second-btn-wrapper">
-          <Button linkUrl={secondUrl} noBackground={true} rounded={true}>
+          <Button
+            isLinkBtn={true}
+            linkUrl={secondUrl}
+            noBackground={true}
+            rounded={true}
+          >
             {secondTextBtn}
           </Button>
         </div>

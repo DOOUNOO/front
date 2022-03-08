@@ -1,0 +1,15 @@
+.current-password {
+  display: flex;
+  justify-content: space-between;
+}
+
+.field-button {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+}
+
+.input-password {
+  margin-bottom: 10px;
+}

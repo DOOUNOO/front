@@ -1,0 +1,11 @@
+.current-password,
+.new-password,
+.check-new-password {
+  display: flex;
+  justify-content: space-between;
+}
+
+.current-password,
+.new-password {
+  margin-bottom: 20px;
+}

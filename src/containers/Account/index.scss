@@ -1,7 +1,7 @@
 .account-container {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 80%;
   margin: 100px auto;
 
   .account-menu {
@@ -9,21 +9,26 @@
 
     ul li {
       margin-bottom: 20px;
+      cursor: pointer;
+      color: grey;
     }
   }
 
   .border-wrapper {
     padding: 40px 15px 15px 40px;
     border: 1px solid rgba(211, 211, 211, 0.295);
+    width: 100%;
   }
 
   .account-to-update {
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 100%;
   }
 }
 
 .account-to-update-wrapper {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

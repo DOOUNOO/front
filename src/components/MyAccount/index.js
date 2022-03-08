@@ -1,8 +1,7 @@
 import "./index.scss";
-import { useState } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Button from "../../components/Button.js";
 import Searchbox from "../Searchbox";
 
 const MyAccount = ({
@@ -28,26 +27,37 @@ const MyAccount = ({
             )}
             <label htmlFor="" className="custom-file-upload">
               <input type="file" accept=".jpeg, .png" />
-              <FontAwesomeIcon icon="cloud-upload" />
+              <FontAwesomeIcon
+                className="cloud-icon"
+                icon="cloud-upload"
+                size="xl"
+              />
+              insérer une image
             </label>
 
             <div className="img-specifications">
               <div className="max-size-spec">Taille maximum: 2MB</div>
-              <div className="Format">Format: JPG ou PNG</div>
+              <div className="format-spec">Format: JPG ou PNG</div>
             </div>
           </div>
           {/* second part right container */}
           <form className="edit-profil">
             <div className="firstname-to-update">
-              <label htmlFor="">Prénom</label>
+              <label className="edit-label" htmlFor="">
+                Prénom
+              </label>
               <input type="text" />
             </div>
             <div className="lastname-to-update">
-              <label htmlFor="">Nom</label>
+              <label className="edit-label" htmlFor="">
+                Nom
+              </label>
               <input type="text" />
             </div>
             <div className="phonenumber-to-update">
-              <label htmlFor="">Numéro de téléphone</label>
+              <label className="edit-label" htmlFor="">
+                Numéro de téléphone
+              </label>
               <input type="text" />
             </div>
             <div className="social-media-connect">
