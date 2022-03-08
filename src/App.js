@@ -71,7 +71,7 @@ function App() {
         <Route path="/signup/user" element={<UserSignUp setUser={setUser} />} />
         <Route path="/account" element={<Account />} />
         <Route path="/publish" element={<Publish />} />
-        <Route path="/findexpert/:id" element={<FindExpert />} />
+        <Route path="/findexpert/:id" element={<FindExpert token={token} />} />
         <Route path="/findexperts/:category" element={<FindExperts />} />
         <Route path="/findexperts" element={<FindExperts />} />
         <Route path="/payment" element={<Payment />} />
