@@ -21,7 +21,7 @@ const Payment = () => {
   return !state ? (
     <Navigate to="/login" />
   ) : !paymentValidated ? (
-    <div>
+    <div className="payment-container">
       <Elements stripe={stripePromise}>
         <CheckoutForm
           paymentValidated={paymentValidated}
@@ -30,7 +30,7 @@ const Payment = () => {
       </Elements>
     </div>
   ) : (
-    <div>Payment validated info</div>
+    <div className="payment-container">Payment validated info</div>
   );
 };
 

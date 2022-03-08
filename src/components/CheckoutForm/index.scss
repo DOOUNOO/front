@@ -1,0 +1,94 @@
+//Primary Color
+$orange: #ff9f66;
+$cream: #fff1e8;
+$lightOrange: #ffb081;
+$white: #ffffff;
+
+//Secondary Color
+$darkestGreen: #258675;
+$secondDarkestGreen: #45a090;
+$secondLightestGreen: #94cac0;
+$lightestGreen: #d4eee9;
+$yellow: #edc988;
+$pink: #feaea3;
+$darkPink: #ff7d6b;
+$lightPink: #ff7d6b;
+
+//Text Color
+$darkText: #1c110a;
+$lightText: #576165;
+
+//Other Color
+$lightBlueGrey: #f5f6f9;
+$darkGrey: #b0b4c0;
+$blueGrey: #e8eef0;
+$grey: #cfcfcf;
+$lightGrey: #f4f5f7;
+
+.checkout-container {
+  padding: 15px 30px;
+  border: solid $grey 1px;
+  border-radius: 5px;
+  width: 650px;
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .payment-row {
+    display: flex;
+    padding: 12px 0;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    gap: 10px;
+  }
+
+  .paypal-row {
+    border-bottom: 1px solid $grey;
+  }
+
+  form {
+    margin-top: 20px;
+    margin-left: 22px;
+    min-width: 500px;
+    width: 500px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .cardholder-row {
+      display: flex;
+      gap: 15px;
+
+      input {
+        flex: 1;
+        background-color: $blueGrey;
+      }
+    }
+
+    button {
+      background-color: $secondDarkestGreen;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      height: 35px;
+      width: 100px;
+      box-shadow: none;
+      margin-top: 10px;
+    }
+  }
+}
