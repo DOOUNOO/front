@@ -1,3 +1,11 @@
+.reviewcard-container {
+  width: 738px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 .review__div {
   background-color: white;
   width: 738px;
@@ -12,8 +20,8 @@
   justify-content: center;
 
   img {
-    height: 108px;
-    width: 108px;
+    height: 100px;
+    width: 100px;
     object-fit: cover;
     border-radius: 50%;
     position: absolute;

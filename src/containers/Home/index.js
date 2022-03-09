@@ -2,12 +2,13 @@ import React, {useEffect, useState} from "react";
 
 import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
-import Carousel from "../../components/Carousel/Carousel";
+import UsersCarousel from "../../components/UsersCarousel/UsersCarousel";
 import AdviceCard from "../../components/AdviceCard/AdviceCard";
 import {Link} from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import axios from "axios";
 import ReviewCard from "../../components/ReviewCard/ReviewCard";
+import ReviewsCarousel from "../../components/ReviewsCarousel/ReviewsCarousel";
 
 const Home = () => {
   const [userCards, setUserCards] = useState([]);
@@ -261,9 +262,9 @@ const Home = () => {
       </div>
       <div className="recently-visited">
         <h2>Récemment consultés et plus</h2>
-        <Carousel elements={userCards}/>
+        <UsersCarousel elements={userCards}/>
         <h2>Services les plus recherchés</h2>
-        <Carousel elements={adviceCards}/>
+        <UsersCarousel elements={adviceCards}/>
       </div>
       <div className="expert-profiles__div">
         <div className="titles__div">
@@ -436,13 +437,8 @@ const Home = () => {
           <h1>Ce que les clients disent de nous</h1>
         </div>
 
-        {review === 1 ? (
-          reviewCards[0]
-        ) : review === 2 ? (
-          reviewCards[1]
-        ) : (
-          reviewCards[2]
-        )}
+        <ReviewsCarousel elements={reviewCards}/>
+
         <img
           src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646677465/Doounoo/Vector_1894_Stroke_n5nxct.png"
           alt="zigzag"
