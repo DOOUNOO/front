@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
 import Carousel from "../../components/Carousel/Carousel";
 import AdviceCard from "../../components/AdviceCard/AdviceCard";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import axios from "axios";
 
@@ -21,7 +21,7 @@ const Home = () => {
 
         const experts = response.data.experts;
         console.log(experts);
-        for (let i = 0; i < experts.length; i++) {
+        /*  for (let i = 0; i < experts.length; i++) {
           console.log(experts[i]);
           const expert = {
             picture:
@@ -36,7 +36,7 @@ const Home = () => {
           newUserCards.push(<UserCard key={i} user={expert} />);
           setUserCards(newUserCards);
         }
-        console.log(userCards);
+        console.log(userCards); */
 
         setIsLoading(false);
       } catch (error) {
@@ -180,12 +180,11 @@ const Home = () => {
         <div className="hero-content">
           <div className="hero-title-subtitle">
             <p className="hero-title">
-              Salut,<br/>
-              moi c'est <span style={{color: "#ff9f66"}}>Julie.</span>
+              Salut,
+              <br />
+              moi c'est <span style={{ color: "#ff9f66" }}>Julie.</span>
             </p>
-            <p className="hero-subtitle">
-              STYLISTE MODÉLISTE
-            </p>
+            <p className="hero-subtitle">STYLISTE MODÉLISTE</p>
           </div>
         </div>
       </div>

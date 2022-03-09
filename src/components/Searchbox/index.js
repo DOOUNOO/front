@@ -182,9 +182,6 @@ const Searchbox = ({
                   if (isThird) {
                     resetPriceRange();
                   }
-                  if (data.account.category) {
-                    data.account.category = "";
-                  }
                 }}
               >
                 x
