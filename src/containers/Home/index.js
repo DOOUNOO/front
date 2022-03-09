@@ -21,6 +21,7 @@ const Home = () => {
 
         const experts = response.data.experts;
         console.log(experts);
+        let newUserCards = [];
         for (let i = 0; i < experts.length; i++) {
           console.log(experts[i]);
           const expert = {
@@ -32,12 +33,10 @@ const Home = () => {
             description: experts[i].account.description,
             price: experts[i].account.hourlyPrice
           }
-          let newUserCards = [...userCards];
-          newUserCards.push(<UserCard key={i} user={expert} />);
-          setUserCards(newUserCards);
+          newUserCards.push(<UserCard key={i} user={expert}/>);
         }
-        console.log(userCards);
-
+        console.log(newUserCards);
+        setUserCards(newUserCards);
         setIsLoading(false);
       } catch (error) {
         console.log(error.response);
