@@ -6,7 +6,7 @@ const ExpertsFeed = ({ data, avatarImg }) => {
     return (
       <ExpertCard
         key={elem._id}
-        expertImg={avatarImg}
+        expertImg={elem.account.avatarURL}
         isBaseline={true}
         expertBaseline="Carpe Diem"
         expertName={`${elem?.account?.firstName} ${elem?.account?.lastName}`}
