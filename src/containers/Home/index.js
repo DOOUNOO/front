@@ -45,7 +45,7 @@ const Home = () => {
     };
 
     fetchData();
-  }, []);
+  }, [userCards]);
 
   const advices = [
     {
