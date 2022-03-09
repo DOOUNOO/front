@@ -77,7 +77,8 @@ const Header = ({ token, setUser }) => {
                 </div>
               </DropdownToggle>
               <DropdownMenu className="menu">
-                <DropdownItem className="menu-item" onClick={() => {}}>
+                <DropdownItem className="menu-item">Profil</DropdownItem>
+                <DropdownItem className="menu-item">
                   Tableau de bord
                 </DropdownItem>
                 <DropdownItem className="menu-item" divider />
