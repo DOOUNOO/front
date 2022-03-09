@@ -21,7 +21,12 @@ const Home = () => {
 
         const experts = response.data.experts;
         console.log(experts);
+<<<<<<< HEAD
         /*  for (let i = 0; i < experts.length; i++) {
+=======
+        let newUserCards = [];
+        for (let i = 0; i < experts.length; i++) {
+>>>>>>> b5d530560c742cf2bdbda749bd6e559a2b025fc8
           console.log(experts[i]);
           const expert = {
             picture:
@@ -32,12 +37,15 @@ const Home = () => {
             description: experts[i].account.description,
             price: experts[i].account.hourlyPrice
           }
-          let newUserCards = [...userCards];
-          newUserCards.push(<UserCard key={i} user={expert} />);
-          setUserCards(newUserCards);
+          newUserCards.push(<UserCard key={i} user={expert}/>);
         }
+<<<<<<< HEAD
         console.log(userCards); */
 
+=======
+        console.log(newUserCards);
+        setUserCards(newUserCards);
+>>>>>>> b5d530560c742cf2bdbda749bd6e559a2b025fc8
         setIsLoading(false);
       } catch (error) {
         console.log(error.response);
