@@ -89,6 +89,7 @@ const Header = ({ token, setUser }) => {
                 <DropdownItem className="menu-item" onClick={() => {}}>
                   Tableau de bord
                 </DropdownItem>
+
                 <DropdownItem className="menu-item" divider />
                 <DropdownItem
                   className="menu-item"

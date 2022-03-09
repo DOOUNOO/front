@@ -72,10 +72,10 @@ function App() {
           element={<ExpertSignup setUser={setUser} />}
         />
         <Route path="/signup/user" element={<UserSignUp setUser={setUser} />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/account" element={<Account />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/account/:id" element={<Account token={token} />} />
         <Route path="/publish" element={<Publish />} />
-        <Route path="/findexperts/:id" element={<FindExpert />} />
+        <Route path="/findexpert/:id" element={<FindExpert />} />
         <Route path="/findexperts" element={<FindExperts />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="*" element={<PageNotFound />} />

@@ -7,6 +7,7 @@ import AdviceCard from "../../components/AdviceCard/AdviceCard";
 
 const Home = ({ data, isLoading }) => {
   //TODO fetch this data from the server obviously
+
   const users = [
     {
       picture:

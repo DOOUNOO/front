@@ -10,7 +10,7 @@ import ExpertsFeed from "../../components/ExpertsFeed";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
 const FindExperts = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
@@ -33,7 +33,7 @@ const FindExperts = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/findexperts?page=${page}&category=${category}&subcategory=${subcategory}&priceMin=${priceMin}&priceMax=${priceMax}`
+          `https://doounoo.herokuapp.com/findexperts?page=${page}&category=${category}&subcategory=${subcategory}&priceMin=${priceMin}&priceMax=${priceMax}`
         );
         const limit = response.data.limit;
 

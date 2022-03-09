@@ -1,21 +1,29 @@
 import "./index.scss";
 import Button from "../../components/Button.js";
-const MyEmail = () => {
+const MyEmail = ({ handleSubmit, email, setEmail }) => {
   return (
     <div className="my-email-container">
       <h2 className="account-update-title">Votre e-mail</h2>
-      <div className="border-wrapper">
+      <form className="border-wrapper" onSubmit={handleSubmit}>
         <div className="current-password">
           <label htmlFor="">Votre e-mail</label>
           <div className="field-button">
-            <input type="password" className="input-password" />
+            <input
+              type="email"
+              className="input-email"
+              placeholder={email}
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
+            />
             <Button
               isInputBtn={true}
-              inputValue="Enregistrer l'adresse e-mail"
+              inputValue="Modifier l'adresse e-mail"
+              handleSubmit={handleSubmit}
             />
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
