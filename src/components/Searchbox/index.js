@@ -2,6 +2,7 @@ import "./index.scss";
 import categories from "../../assets/categories.json";
 
 const Searchbox = ({
+  data,
   filterName,
   filter,
   setFilter,
@@ -11,6 +12,7 @@ const Searchbox = ({
   isFirst,
   isSecond,
   isThird,
+  page,
   setPage,
 }) => {
   /* This component appears in Searchbar */
@@ -157,11 +159,18 @@ const Searchbox = ({
               <div className="category-selected">{filter}</div>
               <button
                 className="close-selected-btn"
-                onClick={() => {
+                onClick={(event) => {
+                  event.preventDefault();
                   setFilter("");
-                  setPage(1);
+                  if (page) {
+                    setPage(1);
+                  }
+
                   if (isThird) {
                     resetPriceRange();
+                  }
+                  if (data.account.category) {
+                    data.account.category = "";
                   }
                 }}
               >

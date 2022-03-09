@@ -1,0 +1,69 @@
+.user-card {
+  height: 400px;
+  width: 275px;
+  border-radius: 5px;
+  border: 1px solid #e5e5e5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: white;
+}
+
+.user-card p {
+  margin-bottom: 0;
+}
+
+.user-card .picture-details .picture {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.user-card .picture-details .details .name-avatar {
+  padding: 10px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+.user-card .picture-details .details .name-avatar .avatar {
+  height: 25px;
+  width: 25px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-card .picture-details .details .name-avatar .certified {
+  height: 20px;
+  width: 20px;
+}
+
+.user-card .picture-details .details .description {
+  padding: 10px 15px;
+  line-height: 20px;
+}
+
+.user-card .price {
+  border-top: 1px solid #e5e5e5;
+  padding: 10px 15px;
+  height: 70px;
+}
+
+.user-card .price .a-partir {
+  font-size: 10px;
+}
+/*# sourceMappingURL=UserCard.css.map */

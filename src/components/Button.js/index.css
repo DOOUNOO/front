@@ -1,0 +1,39 @@
+button {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cta-btn {
+  background: #09b1ba;
+  color: #f9f9f9;
+  border: 1px solid #09b1ba;
+  font-size: 1.2rem;
+}
+
+.submit-btn {
+  background: #09b1ba;
+  color: #f9f9f9;
+  border: 1px solid #09b1ba;
+  font-size: 0.9rem;
+  padding: 8px;
+}
+
+.rounded,
+.noBackground {
+  border-radius: 25px !important;
+}
+
+.squared {
+  border-radius: 3px;
+}
+
+.noBackground {
+  background: none;
+  color: #09b1ba;
+}
+/*# sourceMappingURL=index.css.map */

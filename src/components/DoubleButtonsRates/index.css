@@ -1,0 +1,68 @@
+.double-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.double-wrapper .double-rates {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 25px;
+}
+
+.double-wrapper .double-rates .ratings,
+.double-wrapper .double-rates .hourly-rate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.double-wrapper .double-rates .ratings {
+  margin-right: 25px;
+}
+
+.double-wrapper .double-btn {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.double-wrapper .first-btn-wrapper {
+  margin-bottom: 10px;
+}
+
+.double-wrapper .total-rates-stars,
+.double-wrapper .hourly-pricing {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.double-wrapper .comments-detail,
+.double-wrapper .hourly-detail {
+  color: grey;
+}
+
+.double-wrapper .awesome-icon {
+  margin-right: 5px;
+}
+
+.double-wrapper .fontawesome-star {
+  margin-right: 5px;
+}
+/*# sourceMappingURL=index.css.map */
