@@ -1,0 +1,155 @@
+.header-overarching-container {
+  background-color: #ffffff;
+  border-bottom: solid 2px #f4f5f7;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.header-container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1280px;
+  height: 90px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "Inter", sans-serif;
+  color: #1c110a;
+}
+
+.header-container .logo-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  width: 100px;
+  color: #ff9f66;
+  font-weight: bold;
+}
+
+.header-container .header-left,
+.header-container .header-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-container .header-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.header-container .header-right .menu-item-container {
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.header-container .header-right .menu-item-container .underline {
+  position: absolute;
+  margin-top: 5px;
+  height: 2.5px;
+  width: 25%;
+}
+
+.header-container .header-right .find-a-service {
+  color: #ff9f66;
+}
+
+.header-container .header-right .find-a-service .underline {
+  background-color: #ff9f66;
+}
+
+.header-container .header-right .offer-a-service {
+  color: #45a090;
+}
+
+.header-container .header-right .offer-a-service .underline {
+  background-color: #45a090;
+}
+
+.header-container .header-right .sign-up-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 48px;
+  width: 122px;
+  border-radius: 6px;
+  background-color: #45a090;
+  color: #ffffff;
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+}
+
+.header-container .header-right .sign-up-btn:hover {
+  color: #45a090;
+  background-color: #ffffff;
+  border: 1px solid #45a090;
+}
+
+.header-container .header-right .menu {
+  margin-top: 2.5px;
+  min-width: 10px;
+  font-size: 12px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.header-container .header-right .menu .menu-item {
+  color: #576165;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.header-container .header-right .avatar-container {
+  height: 40px;
+  width: 40px;
+  background-color: indigo;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ffffff;
+}
+
+.header-container .header-right .avatar-container:hover {
+  cursor: pointer;
+}
+
+.header-container .header-right .avatar-container .logged-in-green-circle {
+  position: absolute;
+  top: 27px;
+  left: 27px;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: solid #ffffff 1.5px;
+  background-color: green;
+}
+/*# sourceMappingURL=Header.css.map */

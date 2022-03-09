@@ -1,0 +1,12 @@
+.check-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.day-to-check {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

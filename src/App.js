@@ -14,6 +14,7 @@ import FindExperts from "./containers/FindExperts";
 import Payment from "./containers/Payment";
 import PageNotFound from "./containers/PageNotFound";
 import Account from "./containers/Account";
+import ScrollToTop from "./components/ScrollToTop";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -60,6 +61,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <Header token={token} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -69,7 +71,10 @@ function App() {
           element={<ExpertSignup setUser={setUser} />}
         />
         <Route path="/signup/user" element={<UserSignUp setUser={setUser} />} />
-        <Route path="/account" element={<Account />} />
+        <Route
+          path="/account/:id"
+          element={<Account setUser={setUser} token={token} />}
+        />
         <Route path="/publish" element={<Publish />} />
         <Route path="/findexpert/:id" element={<FindExpert token={token} />} />
         <Route path="/findexperts/:category" element={<FindExperts />} />

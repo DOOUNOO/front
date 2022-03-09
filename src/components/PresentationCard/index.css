@@ -1,0 +1,53 @@
+.presentation-card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.presentation-card-container .presentation-img-container {
+  margin-right: 15px;
+}
+
+.presentation-card-container .presentation-img-container img {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+}
+
+.presentation-name-icon,
+.presentation-category-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.presentation-name-icon {
+  margin-bottom: 15px;
+}
+
+.presentation-name {
+  margin-right: 10px;
+}
+
+.verify {
+  margin-top: 3px;
+}
+
+.presentation-category-icon {
+  margin-bottom: 10px;
+}
+
+.presentation-icon {
+  margin-right: 15px;
+}
+
+.presentation-baseline {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.presentation-separator {
+  margin-bottom: 25px;
+}
+/*# sourceMappingURL=index.css.map */

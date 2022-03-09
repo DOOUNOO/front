@@ -66,16 +66,16 @@
   }
 
   // Account To Update
-
+  .edit-profil {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
   .account-to-update-wrapper {
     margin-bottom: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid lightgrey;
     width: 100%;
-
-    input {
-      max-height: 25px;
-    }
   }
 
   .firstname-to-update,
@@ -107,10 +107,11 @@
     .linkedin-link {
       margin-bottom: 20px;
     }
-    .edit-profil {
-      display: flex;
-      width: 70%;
-    }
+  }
+
+  .myaccount-submit-container {
+    display: flex;
+    justify-content: space-between;
   }
 
   // Drop Down Menu

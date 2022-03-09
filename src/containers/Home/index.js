@@ -9,6 +9,7 @@ import {Link} from "react-router-dom";
 
 const Home = ({ data, isLoading }) => {
   //TODO fetch this data from the server obviously
+
   const users = [
     {
       picture:

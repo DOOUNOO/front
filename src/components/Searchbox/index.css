@@ -1,0 +1,105 @@
+.search-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 10px;
+}
+
+.search-container label {
+  color: grey;
+  margin-bottom: 15px;
+}
+
+.search-container select {
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.search-container .option-select {
+  width: 250px;
+  background: url(/assets/images/angle-down-solid.svg) no-repeat 220px;
+}
+
+.search-container .category-select {
+  width: 270px;
+  background: url(/assets/images/angle-down-solid.svg) no-repeat 240px;
+}
+
+.search-container button {
+  width: unset;
+  padding: 0;
+}
+
+.search-container .select-wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search-content-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.category-search-selection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 150px;
+}
+
+.search-separator {
+  border-left: 1px solid #e8e8e8;
+  height: 70%;
+  margin: 5px 5px 0 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.none {
+  border: none;
+}
+
+.close-selected-btn {
+  border: none;
+  background: none;
+}
+
+@media (max-width: 1208px) {
+  .search-experts-wrapper {
+    width: 100%;
+  }
+  .visual-wrapper {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .search-container {
+    margin-bottom: 10px;
+  }
+  .search-container label {
+    margin-bottom: 0;
+  }
+  .search-container {
+    margin: 0;
+  }
+  .search-container .option-select {
+    background: url(/assets/images/angle-down-solid.svg) no-repeat 220px;
+  }
+  .search-container .category-select {
+    background: url(/assets/images/angle-down-solid.svg) no-repeat 220px;
+  }
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,12 +1,12 @@
 import React from "react";
 import axios from "axios";
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
-import { PulseLoader} from "react-spinners";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { PulseLoader } from "react-spinners";
 
 import "./ExpertSignUp.scss";
 
-const ExpertSignup = ({setUser}) => {
+const ExpertSignup = ({ setUser }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,7 +21,8 @@ const ExpertSignup = ({setUser}) => {
     try {
       event.preventDefault();
 
-      const validEmailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const validEmailRegex =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if (!firstName) {
         setErrorMessage("Veuillez saisir votre prénom");
       } else if (!lastName) {
@@ -35,11 +36,11 @@ const ExpertSignup = ({setUser}) => {
       } else if (password !== confirmPassword) {
         setErrorMessage("Les mots de passe sont différents");
       } else {
-        setIsLoading(true)
+        setIsLoading(true);
         setErrorMessage("");
         const response = await axios.post(
-            // "http://localhost:3100/expert/signup",
-           "https://doounoo.herokuapp.com/expert/signup",
+          /* "http://localhost:3000/expert/signup", */
+          "https://doounoo.herokuapp.com/expert/signup",
           {
             email,
             password,
@@ -115,7 +116,7 @@ const ExpertSignup = ({setUser}) => {
             />
             {isLoading ? (
               <div className="loader">
-                <PulseLoader color={"white"}/>
+                <PulseLoader color={"white"} />
               </div>
             ) : (
               <input
@@ -130,9 +131,9 @@ const ExpertSignup = ({setUser}) => {
             <p>
               En vous inscrivant, vous acceptez les
               <span className="expert-signup_blue-span__span">
-            {" "}
+                {" "}
                 Conditions Générales d'Utilisation{" "}
-          </span>
+              </span>
               et <span> la Politique de Confidentialité de Doounoo</span>
             </p>
           </div>
