@@ -21,31 +21,37 @@ const Header = ({ token, setUser }) => {
     try {
       if (token) {
         const fetchUserData = async () => {
-          const res = await axios.get(
-            `https://doounoo.herokuapp.com/users/${token}`
-          );
-          console.log(res.data);
-          setAccountLoggedInType("user");
-          setFirstName(res.data.account.firstName);
+          const res = await axios.post(`https://doounoo.herokuapp.com/user`, {
+            token: token,
+          });
+
+          if (!res.data) {
+            try {
+              if (token) {
+                const fetchExpertData = async () => {
+                  const res = await axios.post(
+                    `https://doounoo.herokuapp.com/findexpert`,
+                    {
+                      token: token,
+                    }
+                  );
+                  setAccountLoggedInType("expert");
+                  setFirstName(res.data.account.firstName);
+                };
+                fetchExpertData();
+              }
+            } catch (error) {
+              console.log(error);
+            }
+          } else {
+            setAccountLoggedInType("user");
+            setFirstName(res.data.account.firstName);
+          }
         };
         fetchUserData();
       }
     } catch (error) {
-      // The token does not belong to a user because no user profile data exists for this token;
-      // We now try again with the expert route.
-      try {
-        if (token) {
-          const fetchExpertData = async () => {
-            const res = await axios.get(
-              `https://doounoo.herokuapp.com/findexpert/${token}`
-            );
-            console.log(res.data);
-            setAccountLoggedInType("expert");
-            setFirstName(res.data.account.firstName);
-          };
-          fetchExpertData();
-        }
-      } catch (error) {}
+      console.log(error);
     }
   }, [token]);
 
