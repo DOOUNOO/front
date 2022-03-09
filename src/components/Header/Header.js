@@ -13,19 +13,42 @@ import LoginModal from "../LoginModal/LoginModal";
 
 const Header = ({ token, setUser }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [userFirstName, setUserFirstName] = useState(null);
+  const [FirstName, setFirstName] = useState(null);
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
+  const [accountLoggedInType, setAccountLoggedInType] = useState("");
+  const [userID, setUserID] = useState("");
 
   useEffect(() => {
     try {
       if (token) {
         const fetchUserData = async () => {
-          const res = await axios.get(
-            `https://doounoo.herokuapp.com/users/${token}`
-          );
-          console.log(token);
-          console.log(res.data);
-          setUserFirstName(res.data.account.firstName);
+          const res = await axios.post(`https://doounoo.herokuapp.com/user`, {
+            token: token,
+          });
+
+          if (!res.data) {
+            try {
+              if (token) {
+                const fetchExpertData = async () => {
+                  const res = await axios.post(
+                    `https://doounoo.herokuapp.com/findexpert`,
+                    {
+                      token: token,
+                    }
+                  );
+                  setAccountLoggedInType("expert");
+                  setUserID(res.data._id);
+                  setFirstName(res.data.account.firstName);
+                };
+                fetchExpertData();
+              }
+            } catch (error) {
+              console.log(error);
+            }
+          } else {
+            setAccountLoggedInType("user");
+            setFirstName(res.data.account.firstName);
+          }
         };
         fetchUserData();
       }
@@ -56,39 +79,34 @@ const Header = ({ token, setUser }) => {
                 <div className="underline"></div>
               </div>
             </Link>
-            <Link
-              to={token ? "/publish" : "/signup/expert"}
-              style={{ color: "inherit", textDecoration: "inherit" }}
-            >
-              <div className="menu-item-container offer-a-service">
-                <div className="offer-a-service">Proposer un conseil</div>
-                <div className="underline"></div>
-              </div>
-            </Link>
-            <Link
-              // Update when route known
-              to="/"
-              style={{ color: "inherit", textDecoration: "inherit" }}
-            >
-              <div className="menu-item-container">Messages</div>
-            </Link>
-            <Link
-              // Update when route known
-              to="/"
-              style={{ color: "inherit", textDecoration: "inherit" }}
-            >
-              <div className="menu-item-container">Mes favoris</div>
-            </Link>
-
+            {!token ||
+              (accountLoggedInType === "expert" && (
+                <Link
+                  to={
+                    accountLoggedInType === "expert"
+                      ? `/account/${userID}`
+                      : "/signup/expert"
+                  }
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                >
+                  <div className="menu-item-container offer-a-service">
+                    <div className="offer-a-service">Proposer un conseil</div>
+                    <div className="underline"></div>
+                  </div>
+                </Link>
+              ))}
+            <div className="menu-item-container">Messages</div>
+            <div className="menu-item-container">Mes favoris</div>
             <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
               <DropdownToggle tag="div">
                 <div className="menu-item-container avatar-container">
-                  {userFirstName ? userFirstName.charAt(0).toUpperCase() : ""}
+                  {FirstName ? FirstName.charAt(0).toUpperCase() : ""}
                   <div className="logged-in-green-circle"></div>
                 </div>
               </DropdownToggle>
               <DropdownMenu className="menu">
-                <DropdownItem className="menu-item" onClick={() => {}}>
+                <DropdownItem className="menu-item">Profil</DropdownItem>
+                <DropdownItem className="menu-item">
                   Tableau de bord
                 </DropdownItem>
                 <DropdownItem className="menu-item" divider />

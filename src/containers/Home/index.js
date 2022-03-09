@@ -1,97 +1,51 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, {useEffect, useState} from "react";
 
 import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
 import Carousel from "../../components/Carousel/Carousel";
 import AdviceCard from "../../components/AdviceCard/AdviceCard";
 import {Link} from "react-router-dom";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import axios from "axios";
 
-const Home = ({ data, isLoading }) => {
-  //TODO fetch this data from the server obviously
+const Home = () => {
+  const [userCards, setUserCards] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const users = [
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235118/doounoo/man_12_y5jbru.jpg",
-      name: "Hugo Busquet",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description:
-        "Je vous aide à développer la visibilité de votre business en ligne",
-      price: "49",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/blonde_hair_girl_2_l0gzeh.jpg",
-      name: "Sasha Loraine",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description:
-        "Je vous donne des conseils sur la comptabilité de votre entreprise",
-      price: "69",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235117/doounoo/man_6_qmjnmj.jpg",
-      name: "Fred Kacilin",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description: "Je vous partage des tips sur votre personnal branding",
-      price: "75",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/natte_girl_evqhgg.jpg",
-      name: "Karen Momoa",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description: "Conseils sur la comptabilité de votre entreprise",
-      price: "28",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235118/doounoo/man_12_y5jbru.jpg",
-      name: "Hugo Busquet",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description:
-        "Je vous aide à développer la visibilité de votre business en ligne",
-      price: "49",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/blonde_hair_girl_2_l0gzeh.jpg",
-      name: "Sasha Loraine",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description:
-        "Je vous donne des conseils sur la comptabilité de votre entreprise",
-      price: "69",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235117/doounoo/man_6_qmjnmj.jpg",
-      name: "Fred Kacilin",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description: "Je vous partage des tips sur votre personnal branding",
-      price: "75",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/natte_girl_evqhgg.jpg",
-      name: "Karen Momoa",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description: "Conseils sur la comptabilité de votre entreprise",
-      price: "28",
-    },
-  ];
-  let userCards = [];
-  for (let i = 0; i < users.length; i++) {
-    userCards.push(<UserCard key={i} user={users[i]} />);
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://doounoo.herokuapp.com/findexperts`
+        );
+
+        const experts = response.data.experts;
+        console.log(experts);
+        for (let i = 0; i < experts.length; i++) {
+          console.log(experts[i]);
+          const expert = {
+            picture:
+              "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/natte_girl_evqhgg.jpg",
+            name: experts[i].account.firstName + " " + experts[i].account.lastName,
+            avatar:
+              "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
+            description: experts[i].account.description,
+            price: experts[i].account.hourlyPrice
+          }
+          let newUserCards = [...userCards];
+          newUserCards.push(<UserCard key={i} user={expert} />);
+          setUserCards(newUserCards);
+        }
+        console.log(userCards);
+
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+
+    fetchData();
+  }, [userCards]);
 
   const advices = [
     {
@@ -149,37 +103,37 @@ const Home = ({ data, isLoading }) => {
   }
 
   const [review, setReview] = useState(2);
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
+  const [firstname, setFirstname] = useState();
+  const [lastname, setLastname] = useState();
   const [email, setEmail] = useState();
   const [message, setMessage] = useState();
   const [acceptsConditions, setAcceptsConditions] = useState(false);
   const [errorMessage, setErrorMessage] = useState(0);
+  const [confirmationMessage, setConfirmationMessage] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (email && firstName && lastName && message) {
+    if (email && firstname && lastname && message) {
       setErrorMessage(0);
-      try {
-        const response = await axios.post(
-          // "adresse backend",
-          {
-            email,
-            firstName,
-            lastName,
-            message,
-          }
-        );
-        console.log(response.data);
-      } catch (error) {
-        // console.log(error.response.data);
-        if (error.response.data.error === "This email has already been used") {
-          setErrorMessage(3);
-        } else if (
-          error.response.data.error === "This username has already been used"
-        ) {
-          setErrorMessage(4);
+      if (acceptsConditions) {
+        try {
+          const response = await axios.post(
+            "https://doounoo.herokuapp.com/contact",
+            {
+              email,
+              firstname,
+              lastname,
+              message,
+            }
+          );
+          console.log(response.data);
+
+          setConfirmationMessage(true);
+        } catch (error) {
+          console.log(error.response.data);
         }
+      } else {
+        setErrorMessage(2);
       }
     } else {
       setErrorMessage(1);
@@ -187,20 +141,40 @@ const Home = ({ data, isLoading }) => {
   };
 
   return isLoading ? (
-    <>{/*TODO add a Spinner with react-loader-spinner?*/}</>
+    <LoadingSpinner />
   ) : (
     <>
       <div className="categories">
-        <Link className="link" to="/findexperts/Mode">Mode</Link>
-        <Link className="link" to="/findexperts/Cosmétique">Cosmétique</Link>
-        <Link className="link" to="/findexperts/Art">Art</Link>
-        <Link className="link" to="/findexperts/Santé">Santé</Link>
-        <Link className="link" to="/findexperts/Sport">Sport</Link>
-        <Link className="link" to="/findexperts/Éducation">Éducation</Link>
-        <Link className="link" to="/findexperts/Restauration">Restauration</Link>
-        <Link className="link" to="/findexperts/Business">Business</Link>
-        <Link className="link" to="/findexperts/Droit">Droit</Link>
-        <Link className="link" to="/findexperts/Loisirs">Loisirs</Link>
+        <Link className="link" to="/findexperts/Mode">
+          Mode
+        </Link>
+        <Link className="link" to="/findexperts/Cosmétique">
+          Cosmétique
+        </Link>
+        <Link className="link" to="/findexperts/Art">
+          Art
+        </Link>
+        <Link className="link" to="/findexperts/Santé">
+          Santé
+        </Link>
+        <Link className="link" to="/findexperts/Sport">
+          Sport
+        </Link>
+        <Link className="link" to="/findexperts/Éducation">
+          Éducation
+        </Link>
+        <Link className="link" to="/findexperts/Restauration">
+          Restauration
+        </Link>
+        <Link className="link" to="/findexperts/Business">
+          Business
+        </Link>
+        <Link className="link" to="/findexperts/Droit">
+          Droit
+        </Link>
+        <Link className="link" to="/findexperts/Loisirs">
+          Loisirs
+        </Link>
       </div>
       <div className="hero-bg-image">
         <div className="hero-content">
@@ -514,7 +488,7 @@ const Home = ({ data, isLoading }) => {
           <input
             type="radio"
             name="reviews"
-            checked={true}
+            // checked={true}
             onClick={() => {
               setReview(2);
             }}
@@ -551,14 +525,14 @@ const Home = ({ data, isLoading }) => {
             type="text"
             placeholder="Prénom"
             onChange={(event) => {
-              setFirstName(event.target.value);
+              setFirstname(event.target.value);
             }}
           />
           <input
             type="text"
             placeholder="Nom"
             onChange={(event) => {
-              setLastName(event.target.value);
+              setLastname(event.target.value);
             }}
           />
           <input
@@ -596,7 +570,18 @@ const Home = ({ data, isLoading }) => {
           <div className="validation__div">
             <input className="valid__input" type="submit" value="Envoyer" />
             {errorMessage === 1 ? (
-              <span>Merci d'entrer tous les champs</span>
+              <span className="red__span">Merci d'entrer tous les champs</span>
+            ) : errorMessage === 2 ? (
+              <span className="red__span">
+                Merci de bien vouloir accepter nos Conditions Générales
+                d'Utilisation
+              </span>
+            ) : null}
+            {confirmationMessage === true ? (
+              <span className="green__span">
+                Message bien envoyé ! 🚀 <br /> Nous reviendrons vers vous sous
+                48h.{" "}
+              </span>
             ) : null}
           </div>
         </form>

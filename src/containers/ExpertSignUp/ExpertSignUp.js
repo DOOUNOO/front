@@ -39,7 +39,6 @@ const ExpertSignup = ({ setUser }) => {
         setIsLoading(true);
         setErrorMessage("");
         const response = await axios.post(
-          /* "http://localhost:3000/expert/signup", */
           "https://doounoo.herokuapp.com/expert/signup",
           {
             email,

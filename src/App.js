@@ -76,7 +76,10 @@ function App() {
           element={<Account setUser={setUser} token={token} />}
         />
         <Route path="/publish" element={<Publish />} />
-        <Route path="/findexpert/:id" element={<FindExpert token={token} />} />
+        <Route
+          path="/findexpert/:id"
+          element={<FindExpert token={token} setUser={setUser} />}
+        />
         <Route path="/findexperts/:category" element={<FindExperts />} />
         <Route path="/findexperts" element={<FindExperts />} />
         <Route path="/payment" element={<Payment />} />
