@@ -13,8 +13,9 @@ import LoginModal from "../LoginModal/LoginModal";
 
 const Header = ({ token, setUser }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [userFirstName, setUserFirstName] = useState(null);
+  const [FirstName, setFirstName] = useState(null);
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
+  const [accountLoggedInType, setAccountLoggedInType] = useState("");
 
   useEffect(() => {
     try {
@@ -23,14 +24,28 @@ const Header = ({ token, setUser }) => {
           const res = await axios.get(
             `https://doounoo.herokuapp.com/users/${token}`
           );
-          console.log(token);
           console.log(res.data);
-          setUserFirstName(res.data.account.firstName);
+          setAccountLoggedInType("user");
+          setFirstName(res.data.account.firstName);
         };
         fetchUserData();
       }
     } catch (error) {
-      console.log(error);
+      // The token does not belong to a user because no user profile data exists for this token;
+      // We now try again with the expert route.
+      try {
+        if (token) {
+          const fetchExpertData = async () => {
+            const res = await axios.get(
+              `https://doounoo.herokuapp.com/findexpert/${token}`
+            );
+            console.log(res.data);
+            setAccountLoggedInType("expert");
+            setFirstName(res.data.account.firstName);
+          };
+          fetchExpertData();
+        }
+      } catch (error) {}
     }
   }, [token]);
 
@@ -72,7 +87,7 @@ const Header = ({ token, setUser }) => {
             <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
               <DropdownToggle tag="div">
                 <div className="menu-item-container avatar-container">
-                  {userFirstName ? userFirstName.charAt(0).toUpperCase() : ""}
+                  {FirstName ? FirstName.charAt(0).toUpperCase() : ""}
                   <div className="logged-in-green-circle"></div>
                 </div>
               </DropdownToggle>
