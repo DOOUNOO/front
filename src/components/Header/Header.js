@@ -65,21 +65,8 @@ const Header = ({ token, setUser }) => {
                 <div className="underline"></div>
               </div>
             </Link>
-            <Link
-              // Update when route known
-              to="/"
-              style={{ color: "inherit", textDecoration: "inherit" }}
-            >
-              <div className="menu-item-container">Messages</div>
-            </Link>
-            <Link
-              // Update when route known
-              to="/"
-              style={{ color: "inherit", textDecoration: "inherit" }}
-            >
-              <div className="menu-item-container">Mes favoris</div>
-            </Link>
-
+            <div className="menu-item-container">Messages</div>
+            <div className="menu-item-container">Mes favoris</div>
             <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
               <DropdownToggle tag="div">
                 <div className="menu-item-container avatar-container">
