@@ -63,7 +63,6 @@ const ReservationModal = ({
               </div>
               <div className="right-col">
                 <div>Tarif horaire</div>
-                {/* Needs to include the real price */}
                 <div>{data.account.hourlyPrice},00 €</div>
                 <div>0,99 €</div>
                 <div

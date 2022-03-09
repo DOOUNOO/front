@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { LineWave } from "react-loader-spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,11 +15,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import DayTimePicker from "@mooncake-dev/react-day-time-picker";
 import ReservationModal from "../../components/ReservationModal/index";
+import LoginModal from "../../components/LoginModal/LoginModal";
 import "./index.scss";
 
-const FindExpert = ({ token }) => {
+const FindExpert = ({ token, setUser }) => {
   const params = useParams();
-  const navigate = useNavigate();
   const [data, setData] = useState({});
   const [userData, setUserData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -28,6 +28,7 @@ const FindExpert = ({ token }) => {
   const [showModal, setShowModal] = useState(false);
   const [reservationTime, setReservationTime] = useState(new Date());
   const [unavailableDaysArr, setUnavailableDaysArr] = useState([]);
+  const [displayLoginModal, setDisplayLoginModal] = useState(false);
 
   const handleScheduled = (dateTime) => {
     if (token) {
@@ -35,7 +36,7 @@ const FindExpert = ({ token }) => {
       setShowModal(true);
       setReservationTime(dateTime);
     } else {
-      navigate("/login");
+      setDisplayLoginModal(true);
     }
   };
 
@@ -342,6 +343,14 @@ const FindExpert = ({ token }) => {
           </div>
           <div className="calendar-container" id="calendar">
             <h2>Agenda</h2>
+            {displayLoginModal && (
+              <div
+                className="modal-overlay"
+                onClick={() => setDisplayLoginModal(false)}
+              >
+                <LoginModal setUser={setUser} />
+              </div>
+            )}
             <ReservationModal
               showModal={showModal}
               setShowModal={setShowModal}
