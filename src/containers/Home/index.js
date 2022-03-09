@@ -27,8 +27,6 @@ const Home = () => {
             picture:
               "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/natte_girl_evqhgg.jpg",
             name: experts[i].account.firstName + " " + experts[i].account.lastName,
-            avatar:
-              "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
             description: experts[i].account.description,
             price: experts[i].account.hourlyPrice
           }
