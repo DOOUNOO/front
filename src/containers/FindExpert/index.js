@@ -282,7 +282,7 @@ const FindExpert = ({ token }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   window.location.replace(
-                    `/findexpert/${params.id}/#description`
+                    `/findexpert/${params.id}#description`
                   );
                 }}
               >
@@ -291,7 +291,7 @@ const FindExpert = ({ token }) => {
               <div
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.replace(`/findexpert/${params.id}/#calendar`);
+                  window.location.replace(`/findexpert/${params.id}#calendar`);
                 }}
               >
                 Agenda
@@ -299,7 +299,7 @@ const FindExpert = ({ token }) => {
               <div
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.replace(`/findexpert/${params.id}/#ratings`);
+                  window.location.replace(`/findexpert/${params.id}#ratings`);
                 }}
               >
                 Avis ({ratings.metaData.totalRatings})
