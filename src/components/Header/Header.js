@@ -56,15 +56,17 @@ const Header = ({ token, setUser }) => {
                 <div className="underline"></div>
               </div>
             </Link>
-            <Link
-              to={token ? "/publish" : "/signup/expert"}
-              style={{ color: "inherit", textDecoration: "inherit" }}
-            >
-              <div className="menu-item-container offer-a-service">
-                <div className="offer-a-service">Proposer un conseil</div>
-                <div className="underline"></div>
-              </div>
-            </Link>
+            {!token && (
+              <Link
+                to="/signup/expert"
+                style={{ color: "inherit", textDecoration: "inherit" }}
+              >
+                <div className="menu-item-container offer-a-service">
+                  <div className="offer-a-service">Proposer un conseil</div>
+                  <div className="underline"></div>
+                </div>
+              </Link>
+            )}
             <div className="menu-item-container">Messages</div>
             <div className="menu-item-container">Mes favoris</div>
             <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
