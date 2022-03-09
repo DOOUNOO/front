@@ -74,7 +74,7 @@ const FindExpert = ({ token, setUser }) => {
 
   const theme = {
     primary: "#94cac0",
-    secondary: "#258675",
+    secondary: "#45a090",
     background: "white",
     buttons: {
       disabled: {
