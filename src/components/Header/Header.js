@@ -16,7 +16,7 @@ const Header = ({ token, setUser }) => {
   const [FirstName, setFirstName] = useState(null);
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
   const [accountLoggedInType, setAccountLoggedInType] = useState("");
-  const [expertUserID, setExpertUserID] = useState("");
+  const [userID, setUserID] = useState("");
 
   useEffect(() => {
     try {
@@ -37,7 +37,7 @@ const Header = ({ token, setUser }) => {
                     }
                   );
                   setAccountLoggedInType("expert");
-                  setExpertUserID(res.data._id);
+                  setUserID(res.data._id);
                   setFirstName(res.data.account.firstName);
                 };
                 fetchExpertData();
@@ -84,7 +84,7 @@ const Header = ({ token, setUser }) => {
                 <Link
                   to={
                     accountLoggedInType === "expert"
-                      ? `/account/${expertUserID}`
+                      ? `/account/${userID}`
                       : "/signup/expert"
                   }
                   style={{ color: "inherit", textDecoration: "inherit" }}
