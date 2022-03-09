@@ -40,7 +40,12 @@ const ReservationModal = ({
   console.log(data.account.hourlyPrice);
 
   return (
-    <div className="modal">
+    <div
+      className="modal"
+      onClick={() => {
+        setShowModal(false);
+      }}
+    >
       <div className="modal-content">
         <div className="modal-body">
           <h1>Confirmation de prise de rendez-vous</h1>
