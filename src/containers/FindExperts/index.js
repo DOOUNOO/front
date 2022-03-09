@@ -14,7 +14,9 @@ const FindExperts = () => {
   const params = useParams();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [category, setCategory] = useState(params.category);
+  const [category, setCategory] = useState(
+    params.category ? params.category : ""
+  );
   const [subcategory, setSubcategory] = useState("");
 
   const [priceFilter, setPriceFilter] = useState("");

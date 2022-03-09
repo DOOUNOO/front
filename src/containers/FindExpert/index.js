@@ -161,7 +161,7 @@ const FindExpert = ({ token }) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://doounoo.herokuapp.com/findexperts/${params.id}`
+        `https://doounoo.herokuapp.com/findexpert/${params.id}`
       );
       console.log(params.id);
       console.log(response.data);
@@ -282,7 +282,7 @@ const FindExpert = ({ token }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   window.location.replace(
-                    `/findexperts/${params.id}/#description`
+                    `/findexpert/${params.id}/#description`
                   );
                 }}
               >
@@ -291,9 +291,7 @@ const FindExpert = ({ token }) => {
               <div
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.replace(
-                    `/findexperts/${params.id}/#calendar`
-                  );
+                  window.location.replace(`/findexpert/${params.id}/#calendar`);
                 }}
               >
                 Agenda
@@ -301,7 +299,7 @@ const FindExpert = ({ token }) => {
               <div
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.replace(`/findexperts/${params.id}/#ratings`);
+                  window.location.replace(`/findexpert/${params.id}/#ratings`);
                 }}
               >
                 Avis ({ratings.metaData.totalRatings})
