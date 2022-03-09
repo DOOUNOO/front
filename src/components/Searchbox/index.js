@@ -12,6 +12,7 @@ const Searchbox = ({
   isFirst,
   isSecond,
   isThird,
+  isFourth,
   page,
   setPage,
 }) => {
@@ -143,6 +144,18 @@ const Searchbox = ({
                   <option value="50 € - 70 €">50 € - 70 €</option>
                   <option value="70 € - 100 €">70 € - 100 €</option>
                   <option value="100 € & +">100 € & +</option>
+                </>
+              )}
+
+              {isFourth && (
+                <>
+                  <option value="Lundi">Lundi</option>
+                  <option value="Mardi">Mardi</option>
+                  <option value="Mercredi">Mercredi</option>
+                  <option value="Jeudi">Jeudi</option>
+                  <option value="Vendredi">Vendredi</option>
+                  <option value="Samedi">Samedi</option>
+                  <option value="Dimanche">Dimanche</option>
                 </>
               )}
             </select>

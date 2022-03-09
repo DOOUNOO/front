@@ -37,7 +37,8 @@ const FindExperts = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://doounoo.herokuapp.com/findexperts?page=${page}&category=${category}&subcategory=${subcategory}&priceMin=${priceMin}&priceMax=${priceMax}`
+          `http://localhost:3000/findexperts?page=${page}&category=${category}&subcategory=${subcategory}&availability=${availability}&priceMin=${priceMin}&priceMax=${priceMax}`
+          /* `https://doounoo.herokuapp.com/findexperts?page=${page}&category=${category}&subcategory=${subcategory}&availability=${availability}&priceMin=${priceMin}&priceMax=${priceMax}` */
         );
         const limit = response.data.limit;
 
@@ -50,7 +51,15 @@ const FindExperts = () => {
     };
 
     fetchData();
-  }, [category, subcategory, priceMin, priceMax, page, pageCount]);
+  }, [
+    category,
+    subcategory,
+    priceMin,
+    priceMax,
+    availability,
+    page,
+    pageCount,
+  ]);
 
   console.log(data);
   return isLoading ? (
