@@ -5,7 +5,7 @@ import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
 import Carousel from "../../components/Carousel/Carousel";
 import AdviceCard from "../../components/AdviceCard/AdviceCard";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Home = ({ data, isLoading }) => {
   //TODO fetch this data from the server obviously
@@ -162,7 +162,7 @@ const Home = ({ data, isLoading }) => {
       setErrorMessage(0);
       try {
         const response = await axios.post(
-          // "adresse backend",
+          "https://doounoo.herokuapp.com/contact",
           {
             email,
             firstName,
@@ -172,7 +172,7 @@ const Home = ({ data, isLoading }) => {
         );
         console.log(response.data);
       } catch (error) {
-        // console.log(error.response.data);
+        console.log(error.response.data);
         if (error.response.data.error === "This email has already been used") {
           setErrorMessage(3);
         } else if (
@@ -191,27 +191,46 @@ const Home = ({ data, isLoading }) => {
   ) : (
     <>
       <div className="categories">
-        <Link className="link" to="/findexperts/Mode">Mode</Link>
-        <Link className="link" to="/findexperts/Cosmétique">Cosmétique</Link>
-        <Link className="link" to="/findexperts/Art">Art</Link>
-        <Link className="link" to="/findexperts/Santé">Santé</Link>
-        <Link className="link" to="/findexperts/Sport">Sport</Link>
-        <Link className="link" to="/findexperts/Éducation">Éducation</Link>
-        <Link className="link" to="/findexperts/Restauration">Restauration</Link>
-        <Link className="link" to="/findexperts/Business">Business</Link>
-        <Link className="link" to="/findexperts/Droit">Droit</Link>
-        <Link className="link" to="/findexperts/Loisirs">Loisirs</Link>
+        <Link className="link" to="/findexperts/Mode">
+          Mode
+        </Link>
+        <Link className="link" to="/findexperts/Cosmétique">
+          Cosmétique
+        </Link>
+        <Link className="link" to="/findexperts/Art">
+          Art
+        </Link>
+        <Link className="link" to="/findexperts/Santé">
+          Santé
+        </Link>
+        <Link className="link" to="/findexperts/Sport">
+          Sport
+        </Link>
+        <Link className="link" to="/findexperts/Éducation">
+          Éducation
+        </Link>
+        <Link className="link" to="/findexperts/Restauration">
+          Restauration
+        </Link>
+        <Link className="link" to="/findexperts/Business">
+          Business
+        </Link>
+        <Link className="link" to="/findexperts/Droit">
+          Droit
+        </Link>
+        <Link className="link" to="/findexperts/Loisirs">
+          Loisirs
+        </Link>
       </div>
       <div className="hero-bg-image">
         <div className="hero-content">
           <div className="hero-title-subtitle">
             <p className="hero-title">
-              Salut,<br/>
-              moi c'est <span style={{color: "#ff9f66"}}>Julie.</span>
+              Salut,
+              <br />
+              moi c'est <span style={{ color: "#ff9f66" }}>Julie.</span>
             </p>
-            <p className="hero-subtitle">
-              STYLISTE MODÉLISTE
-            </p>
+            <p className="hero-subtitle">STYLISTE MODÉLISTE</p>
           </div>
         </div>
       </div>
