@@ -341,40 +341,6 @@ h2 {
     }
   }
 
-  .review__div {
-    background-color: white;
-    width: 738px;
-    height: 300px;
-    border-radius: 20px;
-    padding: 50px;
-    text-align: center;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      height: 108px;
-      width: 108px;
-      object-fit: cover;
-      border-radius: 50%;
-      position: absolute;
-      top: -50px;
-    }
-    p {
-      margin: 50px 0;
-      font-size: 18px;
-    }
-    h3 {
-      font-size: 16px;
-    }
-    h4 {
-      font-size: 14px;
-      color: $lightText;
-    }
-  }
-
   .checkboxs__div {
     display: flex;
     gap: 5px;
