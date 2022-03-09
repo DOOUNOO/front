@@ -149,37 +149,37 @@ const Home = ({ data, isLoading }) => {
   }
 
   const [review, setReview] = useState(2);
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
+  const [firstname, setFirstname] = useState();
+  const [lastname, setLastname] = useState();
   const [email, setEmail] = useState();
   const [message, setMessage] = useState();
   const [acceptsConditions, setAcceptsConditions] = useState(false);
   const [errorMessage, setErrorMessage] = useState(0);
+  const [confirmationMessage, setConfirmationMessage] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (email && firstName && lastName && message) {
+    if (email && firstname && lastname && message) {
       setErrorMessage(0);
-      try {
-        const response = await axios.post(
-          "https://doounoo.herokuapp.com/contact",
-          {
-            email,
-            firstName,
-            lastName,
-            message,
-          }
-        );
-        console.log(response.data);
-      } catch (error) {
-        console.log(error.response.data);
-        if (error.response.data.error === "This email has already been used") {
-          setErrorMessage(3);
-        } else if (
-          error.response.data.error === "This username has already been used"
-        ) {
-          setErrorMessage(4);
+      if (acceptsConditions) {
+        try {
+          const response = await axios.post(
+            "https://doounoo.herokuapp.com/contact",
+            {
+              email,
+              firstname,
+              lastname,
+              message,
+            }
+          );
+          console.log(response.data);
+
+          setConfirmationMessage(true);
+        } catch (error) {
+          console.log(error.response.data);
         }
+      } else {
+        setErrorMessage(2);
       }
     } else {
       setErrorMessage(1);
@@ -533,7 +533,7 @@ const Home = ({ data, isLoading }) => {
           <input
             type="radio"
             name="reviews"
-            checked={true}
+            // checked={true}
             onClick={() => {
               setReview(2);
             }}
@@ -570,14 +570,14 @@ const Home = ({ data, isLoading }) => {
             type="text"
             placeholder="Prénom"
             onChange={(event) => {
-              setFirstName(event.target.value);
+              setFirstname(event.target.value);
             }}
           />
           <input
             type="text"
             placeholder="Nom"
             onChange={(event) => {
-              setLastName(event.target.value);
+              setLastname(event.target.value);
             }}
           />
           <input
@@ -615,7 +615,18 @@ const Home = ({ data, isLoading }) => {
           <div className="validation__div">
             <input className="valid__input" type="submit" value="Envoyer" />
             {errorMessage === 1 ? (
-              <span>Merci d'entrer tous les champs</span>
+              <span className="red__span">Merci d'entrer tous les champs</span>
+            ) : errorMessage === 2 ? (
+              <span className="red__span">
+                Merci de bien vouloir accepter nos Conditions Générales
+                d'Utilisation
+              </span>
+            ) : null}
+            {confirmationMessage === true ? (
+              <span className="green__span">
+                Message bien envoyé ! 🚀 <br /> Nous reviendrons vers vous sous
+                48h.{" "}
+              </span>
             ) : null}
           </div>
         </form>
