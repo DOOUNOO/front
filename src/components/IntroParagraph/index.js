@@ -41,7 +41,11 @@ Else, you will get the same component with a redirect button to the expert profi
       ) : (
         <>
           <p className="intro-paragraph">{`${paragraph.slice(0, 150)}...`}</p>
+<<<<<<< HEAD
           <Link to={`/findexperts/${expertId}`}>
+=======
+          <Link to="/findexpert/:id">
+>>>>>>> a820bf9cd5e0b72e8c823573a99a2909d42d72aa
             <span className="readmore-btn">Voir plus</span>
           </Link>
         </>

@@ -1,53 +1,112 @@
+import { CardElement } from "@stripe/react-stripe-js";
 import { useState } from "react";
-import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
+import "./index.scss";
 
-import axios from "axios";
-
-// NEEDS TO BE UPDATED WITH PROPER INFO
-
-const CheckoutForm = ({ owner_id, title }) => {
-  const stripe = useStripe();
-  const elements = useElements();
-  const [completed, setCompleted] = useState(false);
+const CheckoutForm = ({ paymentValidated, setPaymentValidated }) => {
+  const [paypal, setPaypal] = useState(false);
+  const [creditcard, setCreditcard] = useState(true);
+  const [name, setName] = useState();
+  const [missingInfo, setMissingInfo] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const cardElement = elements.getElement(CardElement);
-
-    const stripeResponse = await stripe.createToken(cardElement, {
-      name: owner_id,
-    });
-    console.log(stripeResponse);
-    const stripeToken = stripeResponse.token.id;
-    const response = await axios.post(
-      "https://lereacteur-vinted-api.herokuapp.com/payment",
-      {
-        token: stripeToken,
-        title: title,
-        amount: 1,
-      }
-    );
-    console.log(response.data);
-    if (response.data.status === "succeeded") {
-      setCompleted(true);
+    if (name) {
+      setPaymentValidated(true);
+    } else {
+      setMissingInfo(true);
     }
   };
 
   return (
-    <div className="card-form-section">
-      {!completed ? (
-        <form onSubmit={handleSubmit}>
-          <div>
-            <CardElement />
+    <div className="checkout-container">
+      {!paymentValidated ? (
+        <>
+          <h1>Méthode de paiement</h1>
+          <div className="payment-row paypal-row">
+            <input
+              type="radio"
+              checked={paypal}
+              onChange={() => {
+                setPaypal(true);
+                setCreditcard(false);
+              }}
+            />
+            <div>Paypal</div>{" "}
+            <img
+              src="https://res.cloudinary.com/dxdxmd9mf/image/upload/v1646748838/doounoo/paypal-logo.png"
+              alt="paypal-logo"
+              className="payment-logo"
+            />
           </div>
-          <button type="submit">Pay</button>
-        </form>
-      ) : (
-        <span style={{ color: "darkgreen", fontWeight: "bold" }}>
-          Paiement effectué !{" "}
-        </span>
-      )}
+          <div className="payment-row">
+            <input
+              type="radio"
+              checked={creditcard}
+              onChange={() => {
+                setPaypal(false);
+                setCreditcard(true);
+              }}
+            />{" "}
+            <div>Carte de crédit</div>
+            <div className="payment-logo-row">
+              <img
+                src="https://res.cloudinary.com/dxdxmd9mf/image/upload/v1646748823/doounoo/cb-logo.png"
+                alt="cb-logo"
+                className="payment-logo"
+              />
+              <img
+                src="https://res.cloudinary.com/dxdxmd9mf/image/upload/v1646748858/doounoo/visa-logo.png"
+                alt="visa-logo"
+                className="payment-logo"
+              />
+              <img
+                src="https://res.cloudinary.com/dxdxmd9mf/image/upload/v1646748848/doounoo/mastercard-logo.png"
+                alt="mastercard-logo"
+                className="payment-logo"
+              />
+            </div>
+          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="cardholder-row">
+              <div>Titulaire de la carte :</div>
+              <input
+                type="text"
+                placeholder="prénom NOM"
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                  setMissingInfo(false);
+                }}
+              />
+            </div>
+
+            <CardElement
+              options={{
+                style: {
+                  base: {
+                    color: "#36454F",
+                    fontSize: 12,
+                  },
+                },
+                placeholder: "text",
+              }}
+            />
+            {creditcard && <button type="submit">Valider</button>}
+            {missingInfo && (
+              <div
+                className="payment-warning"
+                style={{
+                  color: "red",
+                  fontSize: 12,
+                }}
+              >
+                Veuillez spécifier votre nom complet
+              </div>
+            )}
+          </form>
+        </>
+      ) : null}
     </div>
   );
 };

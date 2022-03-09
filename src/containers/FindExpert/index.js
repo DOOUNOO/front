@@ -17,17 +17,17 @@ import DayTimePicker from "@mooncake-dev/react-day-time-picker";
 import ReservationModal from "../../components/ReservationModal/index";
 import "./index.scss";
 
-const Offer = ({ token }) => {
+const FindExpert = ({ token }) => {
   const params = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState({});
   const [userData, setUserData] = useState({});
-
   const [isLoading, setIsLoading] = useState(true);
   const [descIsLong, setDescIsLong] = useState(false);
   const [seeAll, setSeeAll] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [reservationTime, setReservationTime] = useState(new Date());
+  const [unavailableDaysArr, setUnavailableDaysArr] = useState([]);
 
   const handleScheduled = (dateTime) => {
     if (token) {
@@ -44,7 +44,7 @@ const Offer = ({ token }) => {
       slotTime.getFullYear(),
       slotTime.getMonth(),
       slotTime.getDate(),
-      7,
+      8,
       0,
       0
     );
@@ -62,9 +62,11 @@ const Offer = ({ token }) => {
       slotTime.getTime() > morningTime.getTime() &&
       slotTime.getTime() < eveningTime.getTime();
 
-    // if (slotTime.getDay() === 0) {
-    //   isValid = false;
-    // }
+    let placeholderArr = [...unavailableDaysArr];
+
+    for (let i = 0; i < placeholderArr.length; i++) {
+      if (slotTime.getDay() === placeholderArr[i]) isValid = false;
+    }
 
     return isValid;
   };
@@ -100,7 +102,7 @@ const Offer = ({ token }) => {
   const ratings = {
     metaData: {
       averageRating: 5,
-      totalRatings: 41,
+      totalRatings: 2,
     },
     ratings: [
       {
@@ -164,6 +166,36 @@ const Offer = ({ token }) => {
       console.log(params.id);
       console.log(response.data);
       setData(response.data);
+
+      let placeholderArr = [];
+      if (!response.data.account.availabilities.sunday) {
+        placeholderArr.push(0);
+      }
+      if (!response.data.account.availabilities.monday) {
+        placeholderArr.push(1);
+      }
+
+      if (!response.data.account.availabilities.tuesday) {
+        placeholderArr.push(2);
+      }
+
+      if (!response.data.account.availabilities.wednesday) {
+        placeholderArr.push(3);
+      }
+
+      if (!response.data.account.availabilities.thursday) {
+        placeholderArr.push(4);
+      }
+
+      if (!response.data.account.availabilities.friday) {
+        placeholderArr.push(5);
+      }
+
+      if (!response.data.account.availabilities.saturday) {
+        placeholderArr.push(6);
+      }
+
+      setUnavailableDaysArr(placeholderArr);
 
       if (token) {
         const fetchUserData = async () => {
@@ -232,7 +264,9 @@ const Offer = ({ token }) => {
                     icon={faUser}
                     className="main-profile-icons"
                   />
-                  131 conseils
+                  {data.account.totalOrder === 0 || !data.account.totalOrder
+                    ? "Nouveau sur le site"
+                    : data.account.totalOrder + " conseils "}
                 </div>
                 <div>
                   <FontAwesomeIcon
@@ -247,7 +281,9 @@ const Offer = ({ token }) => {
               <div
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.replace(`/offer/${params.id}/#description`);
+                  window.location.replace(
+                    `/findexperts/${params.id}/#description`
+                  );
                 }}
               >
                 Présentation
@@ -255,7 +291,9 @@ const Offer = ({ token }) => {
               <div
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.replace(`/offer/${params.id}/#calendar`);
+                  window.location.replace(
+                    `/findexperts/${params.id}/#calendar`
+                  );
                 }}
               >
                 Agenda
@@ -263,10 +301,10 @@ const Offer = ({ token }) => {
               <div
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.replace(`/offer/${params.id}/#ratings`);
+                  window.location.replace(`/findexperts/${params.id}/#ratings`);
                 }}
               >
-                Avis (41)
+                Avis ({ratings.metaData.totalRatings})
               </div>
               <div>CV</div>
               <div>Expériences</div>
@@ -338,7 +376,7 @@ const Offer = ({ token }) => {
             <div className="ratings-data-row">
               <div className="ratings-left-col">
                 <div className="avg-rating">
-                  {ratings.metaData.averageRating}
+                  {ratings.metaData.averageRating},0
                 </div>
                 <div className="stars-container">
                   {numOfStars(ratings.metaData.averageRating)}
@@ -356,7 +394,7 @@ const Offer = ({ token }) => {
                       backgroundColor: "gold",
                     }}
                   ></div>{" "}
-                  <div className="total-ratings-desc">(41)</div>
+                  <div className="total-ratings-desc">(2)</div>
                 </div>
                 <div className="ratings-visualization-row">
                   <div className="stars-desc">4 étoiles</div>{" "}
@@ -416,7 +454,18 @@ const Offer = ({ token }) => {
         </div>
         <div className="right-col">
           <div className="contact-container">
-            <div className="video"></div>
+            <div className="video">
+              <img
+                className="video-img"
+                src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646672553/Doounoo/happy_dream_team_jd1dvp.jpg"
+                alt="video"
+              />
+              <img
+                className="play-icon-img"
+                src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646674736/Doounoo/Bouton_play_video_d0xpsx.png"
+                alt="video"
+              />
+            </div>
             <div className="details-row">
               <div className="contact-ratings-block">
                 <div className="top-line">
@@ -426,9 +475,11 @@ const Offer = ({ token }) => {
                       color: "gold",
                     }}
                   />{" "}
-                  5,0
+                  {ratings.metaData.averageRating},0
                 </div>
-                <div className="bttm-line">3 avis</div>
+                <div className="bttm-line">
+                  {ratings.metaData.totalRatings} avis
+                </div>
               </div>
               <div className="contact-price-block">
                 <div className="top-line">{data.account.hourlyPrice} €</div>
@@ -464,4 +515,4 @@ const Offer = ({ token }) => {
   );
 };
 
-export default Offer;
+export default FindExpert;

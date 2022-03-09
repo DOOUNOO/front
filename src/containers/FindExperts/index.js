@@ -8,11 +8,17 @@ import Searchbar from "../../components/Searchbar";
 import avatarImg from "../../assets/images/student.jpg";
 import ExpertsFeed from "../../components/ExpertsFeed";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import {useParams} from "react-router-dom";
 
 const FindExperts = () => {
+<<<<<<< HEAD
   const [data, setData] = useState({});
+=======
+  const params = useParams();
+  const [data, setData] = useState();
+>>>>>>> a820bf9cd5e0b72e8c823573a99a2909d42d72aa
   const [isLoading, setIsLoading] = useState(true);
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(params.category);
   const [subcategory, setSubcategory] = useState("");
 
   const [priceFilter, setPriceFilter] = useState("");

@@ -8,7 +8,6 @@ import Home from "./containers/Home";
 import Signup from "./containers/SignUp";
 import UserSignUp from "./containers/UserSignUp/UserSignUp";
 import ExpertSignup from "./containers/ExpertSignUp/ExpertSignUp";
-import Login from "./containers/Login/Login";
 import Publish from "./containers/Publish";
 import FindExpert from "./containers/FindExpert";
 import FindExperts from "./containers/FindExperts";
@@ -72,10 +71,10 @@ function App() {
           element={<ExpertSignup setUser={setUser} />}
         />
         <Route path="/signup/user" element={<UserSignUp setUser={setUser} />} />
-        <Route path="/login" element={<Login setUser={setUser} />} />
-        <Route path="/account/:id" element={<Account token={token} />} />
+        <Route path="/account/:id" element={<Account />} />
         <Route path="/publish" element={<Publish />} />
-        <Route path="/findexpert/:id" element={<FindExpert />} />
+        <Route path="/findexpert/:id" element={<FindExpert token={token} />} />
+        <Route path="/findexperts/:category" element={<FindExperts />} />
         <Route path="/findexperts" element={<FindExperts />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="*" element={<PageNotFound />} />

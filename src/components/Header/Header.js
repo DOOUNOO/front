@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./Header.scss";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import {Link} from "react-router-dom";
+import {useState, useEffect} from "react";
 import {
   ButtonDropdown,
   DropdownToggle,
@@ -9,10 +9,12 @@ import {
   DropdownItem,
 } from "reactstrap";
 import axios from "axios";
+import LoginModal from "../LoginModal/LoginModal";
 
-const Header = ({ token, setUser }) => {
-  const [dropdownOpen, setOpen] = useState(false);
+const Header = ({token, setUser}) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [userFirstName, setUserFirstName] = useState(null);
+  const [displayLoginModal, setDisplayLoginModal] = useState(false);
 
   useEffect(() => {
     try {
@@ -32,13 +34,13 @@ const Header = ({ token, setUser }) => {
     }
   }, [token]);
 
-  const toggle = () => setOpen(!dropdownOpen);
+  const toggle = () => setDropdownOpen(!dropdownOpen);
 
   return (
     <div className="header-overarching-container">
       <div className="header-container">
         <div className="header-left">
-          <Link to="/" style={{ color: "inherit", textDecoration: "inherit" }}>
+          <Link to="/" style={{color: "inherit", textDecoration: "inherit"}}>
             <div className="logo-div">DOOUNOO.</div>
           </Link>
         </div>
@@ -47,33 +49,33 @@ const Header = ({ token, setUser }) => {
           <div className="header-right logged-in">
             <Link
               to="/findexperts"
-              style={{ color: "inherit", textDecoration: "inherit" }}
+              style={{color: "inherit", textDecoration: "inherit"}}
             >
               <div className="menu-item-container find-a-service">
-                <div className="find-a-service">Trouver un service</div>
+                <div className="find-a-service">Trouver un conseil</div>
                 <div className="underline"></div>
               </div>
             </Link>
             <Link
               to={token ? "/publish" : "/signup/expert"}
-              style={{ color: "inherit", textDecoration: "inherit" }}
+              style={{color: "inherit", textDecoration: "inherit"}}
             >
               <div className="menu-item-container offer-a-service">
-                <div className="offer-a-service">Proposer un service</div>
+                <div className="offer-a-service">Proposer un conseil</div>
                 <div className="underline"></div>
               </div>
             </Link>
             <Link
               // Update when route known
               to="/"
-              style={{ color: "inherit", textDecoration: "inherit" }}
+              style={{color: "inherit", textDecoration: "inherit"}}
             >
               <div className="menu-item-container">Messages</div>
             </Link>
             <Link
               // Update when route known
               to="/"
-              style={{ color: "inherit", textDecoration: "inherit" }}
+              style={{color: "inherit", textDecoration: "inherit"}}
             >
               <div className="menu-item-container">Mes favoris</div>
             </Link>
@@ -86,11 +88,16 @@ const Header = ({ token, setUser }) => {
                 </div>
               </DropdownToggle>
               <DropdownMenu className="menu">
-                <DropdownItem className="menu-item" onClick={() => {}}>
+                <DropdownItem className="menu-item" onClick={() => {
+                }}>
                   Tableau de bord
                 </DropdownItem>
+<<<<<<< HEAD
 
                 <DropdownItem className="menu-item" divider />
+=======
+                <DropdownItem className="menu-item" divider/>
+>>>>>>> a820bf9cd5e0b72e8c823573a99a2909d42d72aa
                 <DropdownItem
                   className="menu-item"
                   onClick={() => {
@@ -106,32 +113,32 @@ const Header = ({ token, setUser }) => {
           <div className="header-right logged-out">
             <Link
               to="/findexperts"
-              style={{ color: "inherit", textDecoration: "inherit" }}
+              style={{color: "inherit", textDecoration: "inherit"}}
             >
               <div className="menu-item-container find-a-service">
-                <div className="find-a-service">Trouver un service</div>
+                <div className="find-a-service">Trouver un conseil</div>
                 <div className="underline"></div>
               </div>
             </Link>
 
             <Link
               to={token ? "/publish" : "/signup/expert"}
-              style={{ color: "inherit", textDecoration: "inherit" }}
+              style={{color: "inherit", textDecoration: "inherit"}}
             >
               <div className="menu-item-container offer-a-service">
-                <div className="offer-a-service">Proposer un service</div>
+                <div className="offer-a-service">Proposer un conseil</div>
                 <div className="underline"></div>
               </div>
             </Link>
-            <Link
-              to="/login"
-              style={{ color: "inherit", textDecoration: "inherit" }}
-            >
-              <div className="menu-item-container">Se connecter</div>
-            </Link>
+            <div className="menu-item-container login-btn" onClick={() => setDisplayLoginModal(true)}>Se connecter</div>
+            {displayLoginModal && (
+              <div className="modal-overlay" onClick={() => setDisplayLoginModal(false)}>
+                <LoginModal setUser={setUser}/>
+              </div>
+            )}
             <Link
               to="/signup"
-              style={{ color: "inherit", textDecoration: "inherit" }}
+              style={{color: "inherit", textDecoration: "inherit"}}
             >
               <div className="menu-item-container sign-up-btn">S'inscrire</div>
             </Link>
