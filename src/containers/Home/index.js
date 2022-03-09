@@ -21,31 +21,23 @@ const Home = () => {
 
         const experts = response.data.experts;
         console.log(experts);
-<<<<<<< HEAD
-        /*  for (let i = 0; i < experts.length; i++) {
-=======
         let newUserCards = [];
         for (let i = 0; i < experts.length; i++) {
->>>>>>> b5d530560c742cf2bdbda749bd6e559a2b025fc8
           console.log(experts[i]);
           const expert = {
             picture:
               "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/natte_girl_evqhgg.jpg",
-            name: experts[i].account.firstName + " " + experts[i].account.lastName,
+            name:
+              experts[i].account.firstName + " " + experts[i].account.lastName,
             avatar:
               "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
             description: experts[i].account.description,
-            price: experts[i].account.hourlyPrice
-          }
-          newUserCards.push(<UserCard key={i} user={expert}/>);
+            price: experts[i].account.hourlyPrice,
+          };
+          newUserCards.push(<UserCard key={i} user={expert} />);
         }
-<<<<<<< HEAD
-        console.log(userCards); */
-
-=======
         console.log(newUserCards);
         setUserCards(newUserCards);
->>>>>>> b5d530560c742cf2bdbda749bd6e559a2b025fc8
         setIsLoading(false);
       } catch (error) {
         console.log(error.response);
