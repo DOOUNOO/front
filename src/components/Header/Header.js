@@ -16,6 +16,7 @@ const Header = ({ token, setUser }) => {
   const [FirstName, setFirstName] = useState(null);
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
   const [accountLoggedInType, setAccountLoggedInType] = useState("");
+  const [expertUserID, setExpertUserID] = useState("");
 
   useEffect(() => {
     try {
@@ -36,6 +37,7 @@ const Header = ({ token, setUser }) => {
                     }
                   );
                   setAccountLoggedInType("expert");
+                  setExpertUserID(res.data._id);
                   setFirstName(res.data.account.firstName);
                 };
                 fetchExpertData();
@@ -77,17 +79,22 @@ const Header = ({ token, setUser }) => {
                 <div className="underline"></div>
               </div>
             </Link>
-            {!token && (
-              <Link
-                to="/signup/expert"
-                style={{ color: "inherit", textDecoration: "inherit" }}
-              >
-                <div className="menu-item-container offer-a-service">
-                  <div className="offer-a-service">Proposer un conseil</div>
-                  <div className="underline"></div>
-                </div>
-              </Link>
-            )}
+            {!token ||
+              (accountLoggedInType === "expert" && (
+                <Link
+                  to={
+                    accountLoggedInType === "expert"
+                      ? `/account/${expertUserID}`
+                      : "/signup/expert"
+                  }
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                >
+                  <div className="menu-item-container offer-a-service">
+                    <div className="offer-a-service">Proposer un conseil</div>
+                    <div className="underline"></div>
+                  </div>
+                </Link>
+              ))}
             <div className="menu-item-container">Messages</div>
             <div className="menu-item-container">Mes favoris</div>
             <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
