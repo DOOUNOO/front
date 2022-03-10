@@ -42,8 +42,8 @@ $lightGrey: #f4f5f7;
     padding: 50px 0;
 
     .main-row {
-      width: 100%;
       display: flex;
+      justify-content: center;
       white-space: nowrap;
       gap: 150px;
       flex-direction: row;
