@@ -10,7 +10,7 @@ $orange: #ff9f66;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("https://res.cloudinary.com/dyj1ddjba/image/upload/v1646751392/doounoo/man_3_zmpsbk.jpg");
+  background-image: url("https://res.cloudinary.com/dn7zdnm89/image/upload/v1646922080/Doounoo/Illustration_of_Diverse_Group_of_People_y4fi0o.webp");
 
   .signup_framed__div {
     height: 300px;
@@ -27,7 +27,7 @@ $orange: #ff9f66;
 .signup_framed_buttons__div {
   display: flex;
   justify-content: space-between;
-  gap: 20px
+  gap: 20px;
 }
 
 .button {
@@ -39,7 +39,7 @@ $orange: #ff9f66;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
 
   p {
     margin-bottom: 0;
