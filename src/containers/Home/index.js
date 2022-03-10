@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 
 import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
-import Carousel from "../../components/Carousel/Carousel";
+import UsersCarousel from "../../components/UsersCarousel/UsersCarousel";
 import AdviceCard from "../../components/AdviceCard/AdviceCard";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import axios from "axios";
+import ReviewCard from "../../components/ReviewCard/ReviewCard";
+import ReviewsCarousel from "../../components/ReviewsCarousel/ReviewsCarousel";
 
 const Home = () => {
   const [userCards, setUserCards] = useState([]);
@@ -20,23 +22,25 @@ const Home = () => {
         );
 
         const experts = response.data.experts;
-        console.log(experts);
         let newUserCards = [];
         for (let i = 0; i < experts.length; i++) {
-          console.log(experts[i]);
           const expert = {
+<<<<<<< HEAD
             picture:
               "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/natte_girl_evqhgg.jpg",
             name:
               experts[i].account.firstName + " " + experts[i].account.lastName,
             avatar:
               "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
+=======
+            picture: experts[i].account.avatarURL,
+            name: experts[i].account.firstName + " " + experts[i].account.lastName,
+>>>>>>> aa67149c50d18096b8e98fbb4a7743c7f2a8703c
             description: experts[i].account.description,
             price: experts[i].account.hourlyPrice,
           };
           newUserCards.push(<UserCard key={i} user={expert} />);
         }
-        console.log(newUserCards);
         setUserCards(newUserCards);
         setIsLoading(false);
       } catch (error) {
@@ -45,7 +49,7 @@ const Home = () => {
     };
 
     fetchData();
-  }, [userCards]);
+  }, []);
 
   const advices = [
     {
@@ -99,10 +103,30 @@ const Home = () => {
   ];
   let adviceCards = [];
   for (let i = 0; i < advices.length; i++) {
-    adviceCards.push(<AdviceCard key={i} advice={advices[i]} />);
+    adviceCards.push(<AdviceCard key={i} advice={advices[i]}/>);
   }
 
-  const [review, setReview] = useState(2);
+  const reviews = [{
+    avatarURL: "https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/2_pikejx.jpg",
+    text: "J'ai trouvé ici des conseils pertinents pour la comptabilité de mon entreprise. Sur cette plateforme, j'ai pu économiser temps et argent par la digitalisation de ce service.",
+    name: "Sofia Maoudi",
+    job: "Entrepreneuse | HostPost"
+  }, {
+    avatarURL: "https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736571/Doounoo/1_fvhjhp.png",
+    text: "Je souhaitais créer une ruche connectée, mais je n'y connaissais rien. Sur Doounoo, j'ai pu contacter un apiculteur expérimenté qui m'a donné des conseils et son retour d'expérience.",
+    name: "Steven Maccocini",
+    job: "Entrepreneur | La Beeruche"
+  }, {
+    avatarURL: "https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/3_vga5bj.jpg",
+    text: "J'avais énormement de questions concernant la création d'un restaurant en terme de budget et de travail. Ici, j'ai pu trouver les réponses à mes questions via le retour des meilleurs restaurateurs.",
+    name: "Mathilde Vanier",
+    job: "Entrepreneuse | MamaMia(m)"
+  }];
+  let reviewCards = []
+  for (let i = 0; i < reviews.length; i++) {
+    reviewCards.push(<ReviewCard key={i} review={reviews[i]}/>)
+  }
+
   const [firstname, setFirstname] = useState();
   const [lastname, setLastname] = useState();
   const [email, setEmail] = useState();
@@ -141,7 +165,7 @@ const Home = () => {
   };
 
   return isLoading ? (
-    <LoadingSpinner />
+    <LoadingSpinner/>
   ) : (
     <>
       <div className="categories">
@@ -241,9 +265,9 @@ const Home = () => {
       </div>
       <div className="recently-visited">
         <h2>Récemment consultés et plus</h2>
-        <Carousel elements={userCards} />
+        <UsersCarousel elements={userCards}/>
         <h2>Services les plus recherchés</h2>
-        <Carousel elements={adviceCards} />
+        <UsersCarousel elements={adviceCards}/>
       </div>
       <div className="expert-profiles__div">
         <div className="titles__div">
@@ -416,50 +440,8 @@ const Home = () => {
           <h1>Ce que les clients disent de nous</h1>
         </div>
 
-        {review === 1 ? (
-          <div className="review__div">
-            <img
-              src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/2_pikejx.jpg"
-              alt="reviewer's"
-            />
-            <p>
-              "J'ai trouvé ici des conseils pertinents pour la comptabilité de
-              mon entreprise. Sur cette plateforme, j'ai pu économiser temps et
-              argent par la digitalisation de ce service."
-            </p>
-            <h3>Sofia Maoudi</h3>
-            <h4>Entrepreneuse | HostPost</h4>
-          </div>
-        ) : review === 2 ? (
-          <div className="review__div">
-            <img
-              src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736571/Doounoo/1_fvhjhp.png"
-              alt="reviewer's"
-            />
-            <p>
-              "Je souhaitais créer une ruche connectée, mais je n'y connaissais
-              rien. Sur Doounoo, j'ai pu contacter un apiculteur expérimenté
-              m'ayant donner des conseils et son retour d'expérience."
-            </p>
-            <h3>Steven Maccocini</h3>
-            <h4>Entrepreneur | La Beeruche</h4>
-          </div>
-        ) : (
-          <div className="review__div">
-            <img
-              src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/3_vga5bj.jpg"
-              alt="reviewer's"
-            />
-            <p>
-              "J'avais énormement de questions concernant la création d'un
-              restaurant en terme de budget et de travail. Ici, j'ai pu trouver
-              les réponses à mes questions via le retour des meilleurs
-              restaurateurs."
-            </p>
-            <h3>Mathilde Vanier</h3>
-            <h4>Entrepreneuse | MamaMia(m)</h4>
-          </div>
-        )}
+        <ReviewsCarousel elements={reviewCards}/>
+
         <img
           src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646677465/Doounoo/Vector_1894_Stroke_n5nxct.png"
           alt="zigzag"
@@ -475,31 +457,6 @@ const Home = () => {
           alt="zigzag"
           className="triangle"
         />
-
-        <div className="checkboxs__div">
-          <input
-            type="radio"
-            name="reviews"
-            onClick={() => {
-              setReview(1);
-            }}
-          />
-          <input
-            type="radio"
-            name="reviews"
-            // checked={true}
-            onClick={() => {
-              setReview(2);
-            }}
-          />
-          <input
-            type="radio"
-            name="reviews"
-            onClick={() => {
-              setReview(3);
-            }}
-          />
-        </div>
       </div>
       <div className="contact__div">
         <img
@@ -508,7 +465,7 @@ const Home = () => {
         />
         <div className="titles__div container">
           <h1>
-            Besoin d'un conseil ? <br />
+            Besoin d'un conseil ? <br/>
             Contactez-nous !
           </h1>
 
@@ -567,7 +524,7 @@ const Home = () => {
             </label>
           </div>
           <div className="validation__div">
-            <input className="valid__input" type="submit" value="Envoyer" />
+            <input className="valid__input" type="submit" value="Envoyer"/>
             {errorMessage === 1 ? (
               <span className="red__span">Merci d'entrer tous les champs</span>
             ) : errorMessage === 2 ? (
@@ -578,7 +535,7 @@ const Home = () => {
             ) : null}
             {confirmationMessage === true ? (
               <span className="green__span">
-                Message bien envoyé ! 🚀 <br /> Nous reviendrons vers vous sous
+                Message bien envoyé ! 🚀 <br/> Nous reviendrons vers vous sous
                 48h.{" "}
               </span>
             ) : null}
