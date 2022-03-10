@@ -22,20 +22,16 @@ const Home = () => {
         );
 
         const experts = response.data.experts;
-        console.log(experts);
         let newUserCards = [];
         for (let i = 0; i < experts.length; i++) {
-          console.log(experts[i]);
           const expert = {
-            picture:
-              "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/natte_girl_evqhgg.jpg",
+            picture: experts[i].account.avatarURL,
             name: experts[i].account.firstName + " " + experts[i].account.lastName,
             description: experts[i].account.description,
             price: experts[i].account.hourlyPrice
           }
           newUserCards.push(<UserCard key={i} user={expert}/>);
         }
-        console.log(newUserCards);
         setUserCards(newUserCards);
         setIsLoading(false);
       } catch (error) {
