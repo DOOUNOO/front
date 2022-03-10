@@ -430,11 +430,12 @@ h2 {
       resize: none;
       border: solid #cfcfcf 1px;
       border-radius: 5px;
+      padding: 15px;
+      font-size: 16px;
+      outline: none;
     }
     textarea::placeholder {
       color: grey;
-      padding: 15px 10px;
-      font-size: 16px;
     }
     .condition__div {
       display: flex;
