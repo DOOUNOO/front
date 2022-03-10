@@ -122,7 +122,6 @@ const Home = () => {
     reviewCards.push(<ReviewCard key={i} review={reviews[i]}/>)
   }
 
-  const [review, setReview] = useState(2);
   const [firstname, setFirstname] = useState();
   const [lastname, setLastname] = useState();
   const [email, setEmail] = useState();
