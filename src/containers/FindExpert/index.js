@@ -471,7 +471,7 @@ const FindExpert = ({ token, setUser }) => {
               />
               <img
                 className="play-icon-img"
-                src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646674736/Doounoo/Bouton_play_video_d0xpsx.png"
+                src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646730290/Doounoo/play_xoirlx.png?fbclid=IwAR3XpRb7JMMraYXRJz4NxuC6uzoceWnjFfvIUBRiCJUIFSSXQZ1ImOBfXlc"
                 alt="video"
               />
             </div>
