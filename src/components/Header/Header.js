@@ -105,7 +105,18 @@ const Header = ({ token, setUser }) => {
                 </div>
               </DropdownToggle>
               <DropdownMenu className="menu">
-                <DropdownItem className="menu-item">Profil</DropdownItem>
+                <DropdownItem className="menu-item">
+                  {accountLoggedInType === "expert" ? (
+                    <Link
+                      to={`/account/${userID}`}
+                      style={{ color: "inherit", textDecoration: "inherit" }}
+                    >
+                      Profil
+                    </Link>
+                  ) : (
+                    "Profil"
+                  )}
+                </DropdownItem>
                 <DropdownItem className="menu-item">
                   Tableau de bord
                 </DropdownItem>
