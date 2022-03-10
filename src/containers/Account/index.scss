@@ -4,6 +4,10 @@
   width: 80%;
   margin: 100px auto;
 
+  input::placeholder {
+    color: #161616;
+  }
+
   .account-menu {
     margin-right: 100px;
 

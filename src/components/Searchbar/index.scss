@@ -1,7 +1,7 @@
 .search-experts-wrapper {
   display: flex;
   justify-content: center;
-  box-shadow: 0px 15px 15px -11px rgba(0, 0, 0, 0.94);
+  box-shadow: 0px 12px 10px -11px rgba(226, 226, 226, 0.94);
   padding: 10px;
   border-radius: 20px;
   width: 90%;
@@ -13,9 +13,10 @@
   align-items: center;
   width: 75%;
   margin: 0 auto;
-  box-shadow: 0px 15px 15px -11px rgba(0, 0, 0, 0.94);
+  box-shadow: 0px 12px 10px -11px rgba(226, 226, 226, 0.94);
   border-radius: 5px;
   height: 125px;
+  padding-bottom: 20px;
 }
 
 @media (max-width: 1597px) {
@@ -47,5 +48,9 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+  }
+
+  .search-content-wrapper {
+    margin-bottom: 15px;
   }
 }

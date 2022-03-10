@@ -1,94 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
-import Carousel from "../../components/Carousel/Carousel";
+import UsersCarousel from "../../components/UsersCarousel/UsersCarousel";
 import AdviceCard from "../../components/AdviceCard/AdviceCard";
+import { Link } from "react-router-dom";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import axios from "axios";
+import ReviewCard from "../../components/ReviewCard/ReviewCard";
+import ReviewsCarousel from "../../components/ReviewsCarousel/ReviewsCarousel";
 
-const Home = ({ data, isLoading }) => {
-  //TODO fetch this data from the server obviously
-  const users = [
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235118/doounoo/man_12_y5jbru.jpg",
-      name: "Hugo Busquet",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description:
-        "Je vous aide à développer la visibilité de votre business en ligne",
-      price: "49",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/blonde_hair_girl_2_l0gzeh.jpg",
-      name: "Sasha Loraine",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description:
-        "Je vous donne des conseils sur la comptabilité de votre entreprise",
-      price: "69",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235117/doounoo/man_6_qmjnmj.jpg",
-      name: "Fred Kacilin",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description: "Je vous partage des tips sur votre personnal branding",
-      price: "75",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/natte_girl_evqhgg.jpg",
-      name: "Karen Momoa",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description: "Conseils sur la comptabilité de votre entreprise",
-      price: "28",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235118/doounoo/man_12_y5jbru.jpg",
-      name: "Hugo Busquet",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description:
-        "Je vous aide à développer la visibilité de votre business en ligne",
-      price: "49",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/blonde_hair_girl_2_l0gzeh.jpg",
-      name: "Sasha Loraine",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description:
-        "Je vous donne des conseils sur la comptabilité de votre entreprise",
-      price: "69",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235117/doounoo/man_6_qmjnmj.jpg",
-      name: "Fred Kacilin",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description: "Je vous partage des tips sur votre personnal branding",
-      price: "75",
-    },
-    {
-      picture:
-        "https://res.cloudinary.com/dyj1ddjba/image/upload/v1646235098/doounoo/natte_girl_evqhgg.jpg",
-      name: "Karen Momoa",
-      avatar:
-        "https://pm1.narvii.com/6387/1dd33fc521c0467f576bf731b31f849b93dc6dac_hq.jpg",
-      description: "Conseils sur la comptabilité de votre entreprise",
-      price: "28",
-    },
-  ];
-  let userCards = [];
-  for (let i = 0; i < users.length; i++) {
-    userCards.push(<UserCard key={i} user={users[i]} />);
-  }
+const Home = () => {
+  const [userCards, setUserCards] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://doounoo.herokuapp.com/findexperts?limit=8`
+        );
+
+        const experts = response.data.experts;
+        let newUserCards = [];
+        for (let i = 0; i < experts.length; i++) {
+          const expert = {
+            picture: experts[i].account.avatarURL,
+            name:
+              experts[i].account.firstName + " " + experts[i].account.lastName,
+            description: experts[i].account.description,
+            price: experts[i].account.hourlyPrice,
+          };
+          newUserCards.push(<UserCard key={i} user={expert} />);
+        }
+        setUserCards(newUserCards);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const advices = [
     {
@@ -145,58 +98,116 @@ const Home = ({ data, isLoading }) => {
     adviceCards.push(<AdviceCard key={i} advice={advices[i]} />);
   }
 
+  const reviews = [
+    {
+      avatarURL:
+        "https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/2_pikejx.jpg",
+      text: "J'ai trouvé ici des conseils pertinents pour la comptabilité de mon entreprise. Sur cette plateforme, j'ai pu économiser temps et argent par la digitalisation de ce service.",
+      name: "Sofia Maoudi",
+      job: "Entrepreneuse | HostPost",
+    },
+    {
+      avatarURL:
+        "https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736571/Doounoo/1_fvhjhp.png",
+      text: "Je souhaitais créer une ruche connectée, mais je n'y connaissais rien. Sur Doounoo, j'ai pu contacter un apiculteur expérimenté qui m'a donné des conseils et son retour d'expérience.",
+      name: "Steven Maccocini",
+      job: "Entrepreneur | La Beeruche",
+    },
+    {
+      avatarURL:
+        "https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/3_vga5bj.jpg",
+      text: "J'avais énormement de questions concernant la création d'un restaurant en terme de budget et de travail. Ici, j'ai pu trouver les réponses à mes questions via le retour des meilleurs restaurateurs.",
+      name: "Mathilde Vanier",
+      job: "Entrepreneuse | MamaMia(m)",
+    },
+  ];
+  let reviewCards = [];
+  for (let i = 0; i < reviews.length; i++) {
+    reviewCards.push(<ReviewCard key={i} review={reviews[i]} />);
+  }
+
+  const [firstname, setFirstname] = useState();
+  const [lastname, setLastname] = useState();
+  const [email, setEmail] = useState();
+  const [message, setMessage] = useState();
+  const [acceptsConditions, setAcceptsConditions] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(0);
+  const [confirmationMessage, setConfirmationMessage] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (email && firstname && lastname && message) {
+      setErrorMessage(0);
+      if (acceptsConditions) {
+        try {
+          const response = await axios.post(
+            "https://doounoo.herokuapp.com/contact",
+            {
+              email,
+              firstname,
+              lastname,
+              message,
+            }
+          );
+          console.log(response.data);
+
+          setConfirmationMessage(true);
+        } catch (error) {
+          console.log(error.response.data);
+        }
+      } else {
+        setErrorMessage(2);
+      }
+    } else {
+      setErrorMessage(1);
+    }
+  };
+
   return isLoading ? (
-    <>{/*TODO add a Spinner with react-loader-spinner?*/}</>
+    <LoadingSpinner />
   ) : (
     <>
+      <div className="categories">
+        <Link className="link" to="/findexperts/Mode">
+          Mode
+        </Link>
+        <Link className="link" to="/findexperts/Cosmétique">
+          Cosmétique
+        </Link>
+        <Link className="link" to="/findexperts/Art">
+          Art
+        </Link>
+        <Link className="link" to="/findexperts/Santé">
+          Santé
+        </Link>
+        <Link className="link" to="/findexperts/Sport">
+          Sport
+        </Link>
+        <Link className="link" to="/findexperts/Éducation">
+          Éducation
+        </Link>
+        <Link className="link" to="/findexperts/Restauration">
+          Restauration
+        </Link>
+        <Link className="link" to="/findexperts/Business">
+          Business
+        </Link>
+        <Link className="link" to="/findexperts/Droit">
+          Droit
+        </Link>
+        <Link className="link" to="/findexperts/Loisirs">
+          Loisirs
+        </Link>
+      </div>
       <div className="hero-bg-image">
         <div className="hero-content">
-          <div className="hero-title-categories">
-            <h1 className="hero-title">
+          <div className="hero-title-subtitle">
+            <p className="hero-title">
               Salut,
               <br />
-              moi c'est {""}
-              <span style={{ color: "#ff9f66" }}>Julie.</span>
-            </h1>
-            <div className="categories">
-              {/*TODO links to find advice*/}
-              <div className="category">
-                <p>Mode</p>
-              </div>
-              <div className="category">
-                <p>Cosmétique</p>
-              </div>
-              <div className="category">
-                <p>Art</p>
-              </div>
-              <div className="category">
-                <p>Santé</p>
-              </div>
-              <div className="category">
-                <p>Sport</p>
-              </div>
-              <div className="category">
-                <p>Éducation</p>
-              </div>
-              <div className="category">
-                <p>Restauration</p>
-              </div>
-              <div className="category">
-                <p>Business</p>
-              </div>
-              <div className="category">
-                <p>Droit</p>
-              </div>
-              <div className="category">
-                <p>Loisirs</p>
-              </div>
-              <div className="category">
-                <p>Immobilier</p>
-              </div>
-              <div className="category">
-                <p>Management</p>
-              </div>
-            </div>
+              moi c'est <span style={{ color: "#ff9f66" }}>Julie.</span>
+            </p>
+            <p className="hero-subtitle">STYLISTE MODÉLISTE</p>
           </div>
         </div>
       </div>
@@ -253,9 +264,9 @@ const Home = ({ data, isLoading }) => {
       </div>
       <div className="recently-visited">
         <h2>Récemment consultés et plus</h2>
-        <Carousel elements={userCards} />
+        <UsersCarousel elements={userCards} />
         <h2>Services les plus recherchés</h2>
-        <Carousel elements={adviceCards} />
+        <UsersCarousel elements={adviceCards} />
       </div>
       <div className="expert-profiles__div">
         <div className="titles__div">
@@ -422,6 +433,113 @@ const Home = ({ data, isLoading }) => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="reviews__div">
+        <div className="titles__div">
+          <h1>Ce que les clients disent de nous</h1>
+        </div>
+
+        <ReviewsCarousel elements={reviewCards} />
+
+        <img
+          src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646677465/Doounoo/Vector_1894_Stroke_n5nxct.png"
+          alt="zigzag"
+          className="zigzag"
+        />
+        <img
+          src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646677465/Doounoo/Ellipse_753_Stroke_jnvdmo.png"
+          alt="zigzag"
+          className="ring"
+        />
+        <img
+          src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646677433/Doounoo/Pattern_dfohly.png"
+          alt="zigzag"
+          className="triangle"
+        />
+      </div>
+      <div className="contact__div">
+        <img
+          src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646759190/Doounoo/Sans_titre_hpyktn.png"
+          alt="form"
+        />
+        <div className="titles__div container">
+          <h1>
+            Besoin d'un conseil ? <br />
+            Contactez-nous !
+          </h1>
+
+          <p>
+            Prenez contact avec nous pour tout type d'aide. Nous sommes là pour
+            vous donner le meilleur et aussi pour vous aider à trouver le
+            conseil dont vous avez besoin.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Prénom"
+            onChange={(event) => {
+              setFirstname(event.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Nom"
+            onChange={(event) => {
+              setLastname(event.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Adresse mail"
+            onChange={(event) => {
+              setEmail(event.target.value);
+            }}
+          />
+          <textarea
+            type="text"
+            placeholder="Message"
+            rows="5"
+            cols="30"
+            minLength="10"
+            maxLength="30"
+            onChange={(event) => {
+              setMessage(event.target.value);
+            }}
+          />
+          <div className="condition__div">
+            <input
+              type="checkbox"
+              onClick={() => {
+                acceptsConditions
+                  ? setAcceptsConditions(false)
+                  : setAcceptsConditions(true);
+              }}
+            />
+            <label>
+              en cliquant sur ce bouton j'accepte les{" "}
+              <span>conditions générales d'utilisation</span>.
+            </label>
+          </div>
+          <div className="validation__div">
+            <input className="valid__input" type="submit" value="Envoyer" />
+            {errorMessage === 1 ? (
+              <span className="red__span">Merci d'entrer tous les champs</span>
+            ) : errorMessage === 2 ? (
+              <span className="red__span">
+                Merci de bien vouloir accepter nos Conditions Générales
+                d'Utilisation
+              </span>
+            ) : null}
+            {confirmationMessage === true ? (
+              <span className="green__span">
+                Message bien envoyé ! 🚀 <br /> Nous reviendrons vers vous sous
+                48h.{" "}
+              </span>
+            ) : null}
+          </div>
+        </form>
       </div>
     </>
   );

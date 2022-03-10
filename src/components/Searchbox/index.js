@@ -2,6 +2,7 @@ import "./index.scss";
 import categories from "../../assets/categories.json";
 
 const Searchbox = ({
+  data,
   filterName,
   filter,
   setFilter,
@@ -11,6 +12,8 @@ const Searchbox = ({
   isFirst,
   isSecond,
   isThird,
+  isFourth,
+  page,
   setPage,
 }) => {
   /* This component appears in Searchbar */
@@ -143,6 +146,18 @@ const Searchbox = ({
                   <option value="100 € & +">100 € & +</option>
                 </>
               )}
+
+              {isFourth && (
+                <>
+                  <option value="Lundi">Lundi</option>
+                  <option value="Mardi">Mardi</option>
+                  <option value="Mercredi">Mercredi</option>
+                  <option value="Jeudi">Jeudi</option>
+                  <option value="Vendredi">Vendredi</option>
+                  <option value="Samedi">Samedi</option>
+                  <option value="Dimanche">Dimanche</option>
+                </>
+              )}
             </select>
           </div>
         </>
@@ -157,9 +172,13 @@ const Searchbox = ({
               <div className="category-selected">{filter}</div>
               <button
                 className="close-selected-btn"
-                onClick={() => {
+                onClick={(event) => {
+                  event.preventDefault();
                   setFilter("");
-                  setPage(1);
+                  if (page) {
+                    setPage(1);
+                  }
+
                   if (isThird) {
                     resetPriceRange();
                   }

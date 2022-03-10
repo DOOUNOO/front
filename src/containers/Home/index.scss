@@ -1,5 +1,11 @@
 $lightGrey: #f4f5f7;
 $lightText: #576165;
+$lightOrange: #ffb081;
+$secondDarkestGreen: #45a090;
+
+p {
+  margin-bottom: 0;
+}
 
 h1 {
   font-size: 57px;
@@ -9,6 +15,28 @@ h1 {
 h2 {
   font-size: 28px;
   font-weight: bold;
+}
+
+.categories {
+  width: 100%;
+  background-color: #fdfdfd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+
+  .link {
+    padding: 10px;
+    transition: background-color 0.3s;
+    color: black;
+    text-decoration: none;
+  }
+
+  .link:hover {
+    background-color: #45a090;
+    color: white;
+  }
 }
 
 .hero-bg-image {
@@ -22,52 +50,20 @@ h2 {
     margin: 0 auto;
     max-width: 1280px;
 
-    .hero-title-categories {
+    .hero-title-subtitle {
       margin-left: 175px;
-      padding-top: 55px;
-      width: 490px;
+      padding-top: 130px;
+      width: 415px;
 
-      .categories {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 30px;
-        border-radius: 5px;
+      .hero-title {
+        font-size: 57px;
+        font-weight: bold;
+      }
 
-        .category {
-          flex: 1 0 21%;
-          background-color: #f88e55;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          transition: background-color 0.3s;
-          color: white;
-
-          p {
-            margin-top: 15px;
-            font-size: 15px;
-          }
-
-          &:nth-child(1) {
-            border-top-left-radius: 5px;
-          }
-
-          &:nth-child(4) {
-            border-top-right-radius: 5px;
-          }
-
-          &:nth-child(9) {
-            border-bottom-left-radius: 5px;
-          }
-
-          &:nth-child(12) {
-            border-bottom-right-radius: 5px;
-          }
-
-          &:hover {
-            background-color: white;
-            color: #f88e55;
-          }
-        }
+      .hero-subtitle {
+        text-align: right;
+        margin-top: 25px;
+        color: #584f49;
       }
     }
   }
@@ -217,7 +213,6 @@ h2 {
   justify-content: center;
 
   .titles__div {
-    // border: red solid 3px;
     text-align: center;
 
     h3 {
@@ -230,13 +225,13 @@ h2 {
 
   .icons__div {
     display: flex;
-    // border: blue solid 3px;
+
     width: 80%;
     .icons-section__div {
       display: flex;
       flex-direction: column;
       align-items: center;
-      // border: red solid 3px;
+
       flex: 1;
       text-align: center;
       h4,
@@ -257,7 +252,7 @@ h2 {
     width: 511.29px;
     height: 341px;
     position: relative;
-    // border: red solid 3px;
+
     .picture__img {
       height: 100%;
       width: 100%;
@@ -267,7 +262,7 @@ h2 {
       position: absolute;
       height: 100px;
       width: 100px;
-      // border: red solid 3px;
+
       top: 40%;
       left: 40%;
     }
@@ -286,7 +281,6 @@ h2 {
   justify-content: center;
 
   .titles__div {
-    // border: red solid 3px;
     text-align: start;
 
     h3 {
@@ -299,14 +293,14 @@ h2 {
 
   .icons__div {
     display: flex;
-    // border: blue solid 3px;
+
     width: 80%;
     .icons-section__div {
       display: flex;
       gap: 10px;
       flex-direction: column;
       align-items: center;
-      // border: red solid 3px;
+
       flex: 1;
       text-align: center;
       h4 {
@@ -320,6 +314,167 @@ h2 {
     img {
       height: 90px;
       width: 90px;
+    }
+  }
+}
+
+.reviews__div {
+  height: 910px;
+  background-color: $lightGrey;
+  box-shadow: -6px 0 white, 6px 0 white, 0 7px 5px -2px grey;
+  border: $lightGrey solid 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 150px;
+  justify-content: center;
+  position: relative;
+
+  .titles__div {
+    text-align: center;
+    width: 458px;
+
+    h1 {
+      font-size: 50px;
+      font-weight: 600;
+      margin-top: 30px;
+    }
+  }
+
+  .checkboxs__div {
+    display: flex;
+    gap: 5px;
+    input {
+      height: 30px;
+      width: 10x;
+      background-color: white;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      // -webkit-appearance: none;
+      cursor: pointer;
+    }
+    input:checked {
+      background-color: $lightOrange;
+    }
+  }
+  .zigzag {
+    position: absolute;
+    left: 400px;
+    bottom: 250px;
+  }
+  .ring {
+    position: absolute;
+    right: 420px;
+    top: 400px;
+  }
+  .triangle {
+    position: absolute;
+    left: 220px;
+    top: 250px;
+  }
+}
+
+.contact__div {
+  height: 910px;
+  background-color: white;
+  border: $lightGrey solid 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  justify-content: center;
+  position: relative;
+  img {
+    bottom: 100px;
+    height: 605px;
+    margin-top: 200px;
+  }
+  h1 {
+    position: absolute;
+    top: 400px;
+    left: 350px;
+    font-size: 50px;
+  }
+  p {
+    position: absolute;
+    top: 550px;
+    left: 350px;
+    width: 467px;
+    text-align: justify;
+    font-size: 18px;
+  }
+
+  form {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 5px 10px -20px grey, 6px 0 white, 0 5px 10px -5px grey;
+    border-radius: 20px;
+    width: 564px;
+    height: 620px;
+    right: 200px;
+    top: 90px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    gap: 30px;
+    input {
+      height: 60px;
+      border: solid #cfcfcf 1px;
+    }
+    input::placeholder {
+      color: grey;
+      font-size: 16px;
+    }
+    textarea {
+      height: 165px;
+      resize: none;
+      border: solid #cfcfcf 1px;
+      border-radius: 5px;
+      padding: 15px;
+      font-size: 16px;
+      outline: none;
+    }
+    textarea::placeholder {
+      color: grey;
+    }
+    .condition__div {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      height: 16px;
+      span {
+        color: $lightOrange;
+      }
+      span:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      label {
+        font-size: 13px;
+      }
+    }
+    .validation__div {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .valid__input {
+      width: 155px;
+      background-color: $lightOrange;
+      border: none;
+      color: white;
+      &:hover {
+        background-color: white;
+        color: $lightOrange;
+        border: 1px solid $lightOrange;
+      }
+    }
+
+    .red__span {
+      color: red;
+    }
+    .green__span {
+      color: $secondDarkestGreen;
     }
   }
 }

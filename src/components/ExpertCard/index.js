@@ -19,8 +19,9 @@ const ExpertCard = ({
   secondTextBtn,
   firstUrl,
   secondUrl,
+  expertId,
 }) => {
-  /* This component appears in FindExperts containers
+  /* This component appears in ExpertsFeed component
   and should appears in the dashboard too. */
   return (
     <div className="expert-card">
@@ -36,6 +37,7 @@ const ExpertCard = ({
           isIntroParagraph={isIntroParagraph}
           title={title}
           paragraph={paragraph}
+          expertId={expertId}
         />
       </div>
       <div className="double-brates-wrapper">

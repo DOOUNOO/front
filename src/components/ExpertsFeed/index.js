@@ -6,8 +6,8 @@ const ExpertsFeed = ({ data, avatarImg }) => {
     return (
       <ExpertCard
         key={elem._id}
-        expertImg={avatarImg}
-        isBaseline={true}
+        expertImg={elem.account.avatarURL}
+        isBaseline={false}
         expertBaseline="Carpe Diem"
         expertName={`${elem?.account?.firstName} ${elem?.account?.lastName}`}
         expertCategory={elem?.account?.category}
@@ -21,8 +21,9 @@ const ExpertsFeed = ({ data, avatarImg }) => {
         hourlyPrice={elem?.account?.hourlyPrice}
         firstTextBtn="Voir profil"
         secondTextBtn="Contacter"
-        firstUrl={`/findexperts/${elem._id}`}
+        firstUrl={`/findexpert/${elem._id}`}
         secondUrl="/"
+        expertId={elem._id}
       />
     );
   });

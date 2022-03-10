@@ -1,6 +1,10 @@
 .expert-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 60%;
   margin-left: 12%;
   padding: 15px;
@@ -28,6 +32,7 @@
     margin-left: 4%;
   }
 }
+
 @media (max-width: 1208px) {
   .expert-card {
     width: 100%;
@@ -40,15 +45,20 @@
 
 @media (max-width: 1025px) {
   .expert-card {
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .presentation-card-wrapper {
     width: 100%;
   }
-
   .double-brates-wrapper {
     margin-top: 15px;
     width: 100%;
   }
 }
+/*# sourceMappingURL=index.css.map */

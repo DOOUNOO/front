@@ -13,8 +13,9 @@ const PresentationCard = ({
   isIntroParagraph,
   title,
   paragraph,
+  expertId,
 }) => {
-  /* This component appears in OfferCard component */
+  /* This component appears in ExpertCard component */
 
   // This card has conditional display options depending on where it is displayed
   /* Conditional display : 
@@ -24,7 +25,12 @@ isIntroParagraph : Intro Paragraph component under the presentation block with i
   return (
     <div className="presentation-card-container">
       <div className="presentation-img-container">
-        <img src={expertImg} alt={`It's ${expertName}`} />
+        {expertImg ? (
+          <img src={expertImg} alt={`It's ${expertName}`} />
+        ) : (
+          <div>{expertName.charAt(0).toUpperCase()}</div>
+        )}
+
         {isBaseline && (
           <div className="presentation-baseline">{expertBaseline}</div>
         )}
@@ -78,7 +84,11 @@ isIntroParagraph : Intro Paragraph component under the presentation block with i
           </div>
         </div>
         {isIntroParagraph && (
-          <IntroParagraph title={title} paragraph={paragraph} />
+          <IntroParagraph
+            title={title}
+            paragraph={paragraph}
+            expertId={expertId}
+          />
         )}
       </div>
     </div>

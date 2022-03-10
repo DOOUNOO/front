@@ -40,7 +40,12 @@ const ReservationModal = ({
   console.log(data.account.hourlyPrice);
 
   return (
-    <div className="modal">
+    <div
+      className="modal"
+      onClick={() => {
+        setShowModal(false);
+      }}
+    >
       <div className="modal-content">
         <div className="modal-body">
           <h1>Confirmation de prise de rendez-vous</h1>
@@ -63,7 +68,6 @@ const ReservationModal = ({
               </div>
               <div className="right-col">
                 <div>Tarif horaire</div>
-                {/* Needs to include the real price */}
                 <div>{data.account.hourlyPrice},00 €</div>
                 <div>0,99 €</div>
                 <div
@@ -93,6 +97,7 @@ const ReservationModal = ({
                   state: {
                     userData: userData,
                     expertData: data,
+                    reservationTime: reservationTime,
                   },
                 });
               }}
