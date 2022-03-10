@@ -1,7 +1,7 @@
 import "./ReviewsCarousel.scss";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
-import "swiper/css/navigation";
+import "swiper/css/pagination";
 import {Pagination} from "swiper";
 import React from "react";
 

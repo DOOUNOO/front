@@ -454,31 +454,6 @@ const Home = () => {
           alt="zigzag"
           className="triangle"
         />
-
-        <div className="checkboxs__div">
-          <input
-            type="radio"
-            name="reviews"
-            onClick={() => {
-              setReview(1);
-            }}
-          />
-          <input
-            type="radio"
-            name="reviews"
-            // checked={true}
-            onClick={() => {
-              setReview(2);
-            }}
-          />
-          <input
-            type="radio"
-            name="reviews"
-            onClick={() => {
-              setReview(3);
-            }}
-          />
-        </div>
       </div>
       <div className="contact__div">
         <img
