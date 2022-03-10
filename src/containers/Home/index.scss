@@ -341,36 +341,25 @@ h2 {
     }
   }
 
-  .checkboxs__div {
-    display: flex;
-    gap: 5px;
-    input {
-      height: 30px;
-      width: 10x;
-      background-color: white;
-      border-radius: 50%;
-      border: 1px solid #ddd;
-      // -webkit-appearance: none;
-      cursor: pointer;
-    }
-    input:checked {
-      background-color: $lightOrange;
-    }
-  }
   .zigzag {
     position: absolute;
     left: 400px;
-    bottom: 250px;
+    bottom: 85px;
+    z-index: 1000;
   }
+
   .ring {
     position: absolute;
-    right: 420px;
-    top: 400px;
+    right: 360px;
+    top: 500px;
+    z-index: 1000;
   }
+
   .triangle {
     position: absolute;
     left: 220px;
     top: 250px;
+    z-index: 1000;
   }
 }
 
