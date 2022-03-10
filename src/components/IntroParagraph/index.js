@@ -25,7 +25,7 @@ Else, you will get the same component with a redirect button to the expert profi
       {sliceOrRedirect ? (
         !readMore ? (
           <>
-            <p className="intro-paragraph">{`${paragraph.slice(0, 150)}...`}</p>
+            <p className="intro-paragraph">{`${paragraph.slice(0, 100)}...`}</p>
             <span className="readmore-btn" onClick={handleReadMore}>
               Voir plus
             </span>
@@ -40,7 +40,7 @@ Else, you will get the same component with a redirect button to the expert profi
         )
       ) : (
         <>
-          <p className="intro-paragraph">{`${paragraph.slice(0, 150)}...`}</p>
+          <p className="intro-paragraph">{`${paragraph.slice(0, 100)}...`}</p>
           <Link to={`/findexpert/${expertId}`}>
             <span className="readmore-btn">Voir plus</span>
           </Link>
