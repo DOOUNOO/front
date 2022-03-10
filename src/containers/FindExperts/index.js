@@ -5,7 +5,6 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Searchbar from "../../components/Searchbar";
-import avatarImg from "../../assets/images/student.jpg";
 import ExpertsFeed from "../../components/ExpertsFeed";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import { useParams } from "react-router-dom";
@@ -37,7 +36,8 @@ const FindExperts = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://doounoo.herokuapp.com/findexperts?page=${page}&category=${category}&subcategory=${subcategory}&priceMin=${priceMin}&priceMax=${priceMax}`
+          /* `http://localhost:3000/findexperts?page=${page}&category=${category}&subcategory=${subcategory}&availability=${availability}&priceMin=${priceMin}&priceMax=${priceMax}` */
+          `https://doounoo.herokuapp.com/findexperts?page=${page}&category=${category}&subcategory=${subcategory}&availability=${availability}&priceMin=${priceMin}&priceMax=${priceMax}`
         );
         const limit = response.data.limit;
 
@@ -50,7 +50,15 @@ const FindExperts = () => {
     };
 
     fetchData();
-  }, [category, subcategory, priceMin, priceMax, page, pageCount]);
+  }, [
+    category,
+    subcategory,
+    priceMin,
+    priceMax,
+    availability,
+    page,
+    pageCount,
+  ]);
 
   console.log(data);
   return isLoading ? (
@@ -85,7 +93,7 @@ const FindExperts = () => {
           <h2>{data.count} profils disponibles</h2>
         )}
 
-        <ExpertsFeed data={data} avatarImg={avatarImg} />
+        <ExpertsFeed data={data} />
       </section>
 
       {data.count === 0 || pageCount === 1 ? null : (

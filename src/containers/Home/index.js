@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 import "./index.scss";
 import UserCard from "../../components/UserCard/UserCard";
 import UsersCarousel from "../../components/UsersCarousel/UsersCarousel";
 import AdviceCard from "../../components/AdviceCard/AdviceCard";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import axios from "axios";
 import ReviewCard from "../../components/ReviewCard/ReviewCard";
@@ -26,11 +26,12 @@ const Home = () => {
         for (let i = 0; i < experts.length; i++) {
           const expert = {
             picture: experts[i].account.avatarURL,
-            name: experts[i].account.firstName + " " + experts[i].account.lastName,
+            name:
+              experts[i].account.firstName + " " + experts[i].account.lastName,
             description: experts[i].account.description,
-            price: experts[i].account.hourlyPrice
-          }
-          newUserCards.push(<UserCard key={i} user={expert}/>);
+            price: experts[i].account.hourlyPrice,
+          };
+          newUserCards.push(<UserCard key={i} user={expert} />);
         }
         setUserCards(newUserCards);
         setIsLoading(false);
@@ -94,28 +95,35 @@ const Home = () => {
   ];
   let adviceCards = [];
   for (let i = 0; i < advices.length; i++) {
-    adviceCards.push(<AdviceCard key={i} advice={advices[i]}/>);
+    adviceCards.push(<AdviceCard key={i} advice={advices[i]} />);
   }
 
-  const reviews = [{
-    avatarURL: "https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/2_pikejx.jpg",
-    text: "J'ai trouvé ici des conseils pertinents pour la comptabilité de mon entreprise. Sur cette plateforme, j'ai pu économiser temps et argent par la digitalisation de ce service.",
-    name: "Sofia Maoudi",
-    job: "Entrepreneuse | HostPost"
-  }, {
-    avatarURL: "https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736571/Doounoo/1_fvhjhp.png",
-    text: "Je souhaitais créer une ruche connectée, mais je n'y connaissais rien. Sur Doounoo, j'ai pu contacter un apiculteur expérimenté qui m'a donné des conseils et son retour d'expérience.",
-    name: "Steven Maccocini",
-    job: "Entrepreneur | La Beeruche"
-  }, {
-    avatarURL: "https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/3_vga5bj.jpg",
-    text: "J'avais énormement de questions concernant la création d'un restaurant en terme de budget et de travail. Ici, j'ai pu trouver les réponses à mes questions via le retour des meilleurs restaurateurs.",
-    name: "Mathilde Vanier",
-    job: "Entrepreneuse | MamaMia(m)"
-  }];
-  let reviewCards = []
+  const reviews = [
+    {
+      avatarURL:
+        "https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/2_pikejx.jpg",
+      text: "J'ai trouvé ici des conseils pertinents pour la comptabilité de mon entreprise. Sur cette plateforme, j'ai pu économiser temps et argent par la digitalisation de ce service.",
+      name: "Sofia Maoudi",
+      job: "Entrepreneuse | HostPost",
+    },
+    {
+      avatarURL:
+        "https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736571/Doounoo/1_fvhjhp.png",
+      text: "Je souhaitais créer une ruche connectée, mais je n'y connaissais rien. Sur Doounoo, j'ai pu contacter un apiculteur expérimenté qui m'a donné des conseils et son retour d'expérience.",
+      name: "Steven Maccocini",
+      job: "Entrepreneur | La Beeruche",
+    },
+    {
+      avatarURL:
+        "https://res.cloudinary.com/dn7zdnm89/image/upload/v1646736567/Doounoo/3_vga5bj.jpg",
+      text: "J'avais énormement de questions concernant la création d'un restaurant en terme de budget et de travail. Ici, j'ai pu trouver les réponses à mes questions via le retour des meilleurs restaurateurs.",
+      name: "Mathilde Vanier",
+      job: "Entrepreneuse | MamaMia(m)",
+    },
+  ];
+  let reviewCards = [];
   for (let i = 0; i < reviews.length; i++) {
-    reviewCards.push(<ReviewCard key={i} review={reviews[i]}/>)
+    reviewCards.push(<ReviewCard key={i} review={reviews[i]} />);
   }
 
   const [firstname, setFirstname] = useState();
@@ -156,7 +164,7 @@ const Home = () => {
   };
 
   return isLoading ? (
-    <LoadingSpinner/>
+    <LoadingSpinner />
   ) : (
     <>
       <div className="categories">
@@ -195,12 +203,11 @@ const Home = () => {
         <div className="hero-content">
           <div className="hero-title-subtitle">
             <p className="hero-title">
-              Salut,<br/>
-              moi c'est <span style={{color: "#ff9f66"}}>Julie.</span>
+              Salut,
+              <br />
+              moi c'est <span style={{ color: "#ff9f66" }}>Julie.</span>
             </p>
-            <p className="hero-subtitle">
-              STYLISTE MODÉLISTE
-            </p>
+            <p className="hero-subtitle">STYLISTE MODÉLISTE</p>
           </div>
         </div>
       </div>
@@ -257,9 +264,9 @@ const Home = () => {
       </div>
       <div className="recently-visited">
         <h2>Récemment consultés et plus</h2>
-        <UsersCarousel elements={userCards}/>
+        <UsersCarousel elements={userCards} />
         <h2>Services les plus recherchés</h2>
-        <UsersCarousel elements={adviceCards}/>
+        <UsersCarousel elements={adviceCards} />
       </div>
       <div className="expert-profiles__div">
         <div className="titles__div">
@@ -432,7 +439,7 @@ const Home = () => {
           <h1>Ce que les clients disent de nous</h1>
         </div>
 
-        <ReviewsCarousel elements={reviewCards}/>
+        <ReviewsCarousel elements={reviewCards} />
 
         <img
           src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1646677465/Doounoo/Vector_1894_Stroke_n5nxct.png"
@@ -457,7 +464,7 @@ const Home = () => {
         />
         <div className="titles__div container">
           <h1>
-            Besoin d'un conseil ? <br/>
+            Besoin d'un conseil ? <br />
             Contactez-nous !
           </h1>
 
@@ -516,7 +523,7 @@ const Home = () => {
             </label>
           </div>
           <div className="validation__div">
-            <input className="valid__input" type="submit" value="Envoyer"/>
+            <input className="valid__input" type="submit" value="Envoyer" />
             {errorMessage === 1 ? (
               <span className="red__span">Merci d'entrer tous les champs</span>
             ) : errorMessage === 2 ? (
@@ -527,7 +534,7 @@ const Home = () => {
             ) : null}
             {confirmationMessage === true ? (
               <span className="green__span">
-                Message bien envoyé ! 🚀 <br/> Nous reviendrons vers vous sous
+                Message bien envoyé ! 🚀 <br /> Nous reviendrons vers vous sous
                 48h.{" "}
               </span>
             ) : null}
