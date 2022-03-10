@@ -169,30 +169,30 @@ const FindExpert = ({ token, setUser }) => {
       setData(response.data);
 
       let placeholderArr = [];
-      if (!response.data.account.availabilities.sunday) {
+      if (!response.data.account.availabilities.Dimanche) {
         placeholderArr.push(0);
       }
-      if (!response.data.account.availabilities.monday) {
+      if (!response.data.account.availabilities.Lundi) {
         placeholderArr.push(1);
       }
 
-      if (!response.data.account.availabilities.tuesday) {
+      if (!response.data.account.availabilities.Mardi) {
         placeholderArr.push(2);
       }
 
-      if (!response.data.account.availabilities.wednesday) {
+      if (!response.data.account.availabilities.Mercredi) {
         placeholderArr.push(3);
       }
 
-      if (!response.data.account.availabilities.thursday) {
+      if (!response.data.account.availabilities.Jeudi) {
         placeholderArr.push(4);
       }
 
-      if (!response.data.account.availabilities.friday) {
+      if (!response.data.account.availabilities.Vendredi) {
         placeholderArr.push(5);
       }
 
-      if (!response.data.account.availabilities.saturday) {
+      if (!response.data.account.availabilities.Samedi) {
         placeholderArr.push(6);
       }
 
