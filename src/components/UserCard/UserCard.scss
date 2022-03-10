@@ -13,7 +13,7 @@
 
   .picture {
     width: 100%;
-    height: 100%;
+    height: 42%;
     object-fit: cover;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -21,7 +21,7 @@
   }
 
   .details {
-    flex: 3;
+    height: 42%;
 
     .name-avatar {
       padding: 10px 15px;
@@ -51,7 +51,7 @@
   .price {
     border-top: 1px solid #e5e5e5;
     padding: 10px 15px;
-    flex: 1;
+    height: 15%;
 
     .a-partir {
       font-size: 10px;
