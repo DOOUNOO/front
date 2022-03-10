@@ -1,11 +1,11 @@
-import "./Carousel.scss";
+import "./UsersCarousel.scss";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/navigation";
 import {Navigation} from "swiper";
 import React from "react";
 
-const Carousel = ({elements}) => {
+const UsersCarousel = ({elements}) => {
   let swiperSlides = []
   for (let i = 0; i < elements.length; i++) {
     swiperSlides.push(<SwiperSlide key={i}>{elements[i]}</SwiperSlide>)
@@ -23,4 +23,4 @@ const Carousel = ({elements}) => {
   );
 };
 
-export default Carousel;
+export default UsersCarousel;

@@ -50,6 +50,7 @@ const Searchbar = ({
             filterName="MES DISPONIBILITÉS"
             filter={availability}
             setFilter={setAvailability}
+            isFourth={true}
             setPage={setPage}
           />
         </div>

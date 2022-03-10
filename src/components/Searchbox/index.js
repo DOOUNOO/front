@@ -12,6 +12,7 @@ const Searchbox = ({
   isFirst,
   isSecond,
   isThird,
+  isFourth,
   page,
   setPage,
 }) => {
@@ -145,6 +146,18 @@ const Searchbox = ({
                   <option value="100 € & +">100 € & +</option>
                 </>
               )}
+
+              {isFourth && (
+                <>
+                  <option value="Lundi">Lundi</option>
+                  <option value="Mardi">Mardi</option>
+                  <option value="Mercredi">Mercredi</option>
+                  <option value="Jeudi">Jeudi</option>
+                  <option value="Vendredi">Vendredi</option>
+                  <option value="Samedi">Samedi</option>
+                  <option value="Dimanche">Dimanche</option>
+                </>
+              )}
             </select>
           </div>
         </>
@@ -168,9 +181,6 @@ const Searchbox = ({
 
                   if (isThird) {
                     resetPriceRange();
-                  }
-                  if (data.account.category) {
-                    data.account.category = "";
                   }
                 }}
               >
