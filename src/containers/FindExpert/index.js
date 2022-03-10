@@ -111,6 +111,8 @@ const FindExpert = ({ token, setUser }) => {
         rater: {
           firstName: "Juliette",
           lastName: "Moreau",
+          imageURL:
+            "https://res.cloudinary.com/dxdxmd9mf/image/upload/v1646924539/doounoo/exp20_yuyqqy.jpg",
         },
         date: "7 février, 2022",
         rating: 5,
@@ -121,6 +123,8 @@ const FindExpert = ({ token, setUser }) => {
         rater: {
           firstName: "Félicia",
           lastName: "Lopez",
+          imageURL:
+            "https://res.cloudinary.com/dxdxmd9mf/image/upload/v1646924539/doounoo/exp14_rvvsqp.jpg",
         },
         date: "10 mars, 2022",
         rating: 5,
@@ -433,7 +437,14 @@ const FindExpert = ({ token, setUser }) => {
               {ratings.ratings.map((e, i) => {
                 return (
                   <div key={e.key} className="rating-block">
-                    <div className="rater-img-placeholder"></div>
+                    <img
+                      src={e.rater.imageURL}
+                      alt="avatar"
+                      style={{
+                        objectFit: "cover",
+                      }}
+                      className="rater-img-placeholder"
+                    ></img>
                     <div className="rating-info-col">
                       <div className="name-row">
                         {e.rater.firstName}{" "}
