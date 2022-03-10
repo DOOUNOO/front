@@ -6,10 +6,15 @@
       -ms-flex-pack: center;
           justify-content: center;
   width: 60%;
-  margin: 0 auto;
+  margin-left: 12%;
   padding: 15px;
   background: white;
   border-radius: 3px;
+}
+
+.double-brates-wrapper {
+  margin-left: 30px;
+  margin-bottom: 15px;
 }
 
 .presentation-card-wrapper {
@@ -24,12 +29,17 @@
 @media (max-width: 1597px) {
   .expert-card {
     width: 90%;
+    margin-left: 4%;
   }
 }
 
 @media (max-width: 1208px) {
   .expert-card {
     width: 100%;
+    margin-left: 0;
+  }
+  .double-brates-wrapper {
+    margin-left: 0;
   }
 }
 
