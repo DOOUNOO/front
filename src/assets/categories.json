@@ -1,73 +1,73 @@
 [
-    {
-      "categoryName": "Mode",
-      "subcategories": [
-        "Modélisme",
-        "Couture",
-        "Stylisme",
-        "Maroquinerie",
-        "Lingerie",
-        "Autre"
-      ]
-    },
-  
-    {
-      "categoryName": "Cosmétique",
-      "subcategories": ["Maquillage", "Soin", "Parfum", "Autre"]
-    },
- 
-    {
-      "categoryName": "Art",
-      "subcategories": [
-        "Architecture",
-        "Sculpture",
-        "Arts visuels",
-        "Musique",
-        "Littérature",
-        "Théatre",
-        "Danse",
-        "Cinéma",
-        "Autre"
-      ]
-    },
-  
-    {
-      "categoryName": "Santé",
-      "subcategories": ["Physique", "Mentale", "Travail", "Autre"]
-    },
-    {
-      "categoryName": "Sport",
-      "subcategories": ["Aérien", "Aquatique", "Terrestre", "Autre"]
-    },
-    {
-      "categoryName": "Éducation",
-      "subcategories": ["Sciences", "Langues", "Financière", "Sexuelle", "Autre"]
-    },
-    {
-      "categoryName": "Restauration",
-      "subcategories": ["Cuisine", "Patisserie", "Dessert", "Autre"]
-    },
-    {
-      "categoryName": "Business",
-      "subcategories": [
-        "Immobilier",
-        "Communication",
-        "Comptabilité",
-        "Management",
-        "Autre"
-      ]
-    },
-    {
-      "categoryName": "Droit",
-      "subcategories": ["Avocat", "Juriste", "Greffier", "Autre"]
-    },
-    {
-      "categoryName": "Technologie",
-      "subcategories": [
-        "Programmation & Tech",
-        "Design & Graphisme",
-        "Audiovisuel",
-        "Autre"
-      ]
-    }
-  ]
+  {
+    "categoryName": "Mode",
+    "subcategories": [
+      "Modélisme",
+      "Couture",
+      "Stylisme",
+      "Maroquinerie",
+      "Lingerie",
+      "Autre"
+    ]
+  },
+
+  {
+    "categoryName": "Cosmétique",
+    "subcategories": ["Maquillage", "Soin", "Parfum", "Autre"]
+  },
+
+  {
+    "categoryName": "Art",
+    "subcategories": [
+      "Architecture",
+      "Sculpture",
+      "Arts visuels",
+      "Musique",
+      "Littérature",
+      "Théatre",
+      "Danse",
+      "Cinéma",
+      "Autre"
+    ]
+  },
+
+  {
+    "categoryName": "Santé",
+    "subcategories": ["Physique", "Mental", "Travail", "Autre"]
+  },
+  {
+    "categoryName": "Sport",
+    "subcategories": ["Aérien", "Aquatique", "Terrestre", "Autre"]
+  },
+  {
+    "categoryName": "Éducation",
+    "subcategories": ["Sciences", "Langues", "Financière", "Sexuelle", "Autre"]
+  },
+  {
+    "categoryName": "Restauration",
+    "subcategories": ["Cuisine", "Patisserie", "Dessert", "Autre"]
+  },
+  {
+    "categoryName": "Business",
+    "subcategories": [
+      "Immobilier",
+      "Communication",
+      "Comptabilité",
+      "Management",
+      "Autre"
+    ]
+  },
+  {
+    "categoryName": "Droit",
+    "subcategories": ["Avocat", "Juriste", "Greffier", "Autre"]
+  },
+  {
+    "categoryName": "Technologie",
+    "subcategories": [
+      "Programmation & Tech",
+      "Design & Graphisme",
+      "Audiovisuel",
+      "Autre"
+    ]
+  }
+]

@@ -18,7 +18,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://doounoo.herokuapp.com/findexperts`
+          `https://doounoo.herokuapp.com/findexperts?limit=8`
         );
 
         const experts = response.data.experts;

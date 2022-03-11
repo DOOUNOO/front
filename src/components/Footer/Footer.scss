@@ -44,22 +44,27 @@ $lightGrey: #f4f5f7;
 
     .main-row {
       display: flex;
+      justify-content: center;
       white-space: nowrap;
       gap: 150px;
       flex-direction: row;
       font-size: 12px;
       margin: 0 auto;
+      flex-wrap: wrap;
+
       .col {
         display: flex;
         flex-direction: column;
         gap: 10px;
         width: min-content;
+
         div:first-child {
           font-size: 16px;
           margin-bottom: 5px;
           font-weight: 500;
           color: $grey;
         }
+
         div:not(:first-child) {
           cursor: pointer;
         }
@@ -67,6 +72,7 @@ $lightGrey: #f4f5f7;
     }
 
     .bottom-row {
+      width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
