@@ -22,9 +22,11 @@ const Home = () => {
         );
 
         const experts = response.data.experts;
+        console.log(experts);
         let newUserCards = [];
         for (let i = 0; i < experts.length; i++) {
           const expert = {
+            id: experts[i]._id,
             picture: experts[i].account.avatarURL,
             name:
               experts[i].account.firstName + " " + experts[i].account.lastName,
