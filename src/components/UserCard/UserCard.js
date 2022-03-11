@@ -1,4 +1,5 @@
 import "./UserCard.scss";
+import {Link} from "react-router-dom";
 
 const UserCard = ({user}) => {
   let description = user.description;
@@ -7,7 +8,7 @@ const UserCard = ({user}) => {
   }
 
   return (
-    <div className="user-card">
+    <Link className="user-card" to={"/findexpert/" + user.id}>
       <img className="picture" src={user.picture} alt="user"/>
       <div className="details">
         <div className="name-avatar">
@@ -22,7 +23,7 @@ const UserCard = ({user}) => {
         <p className="a-partir">A PARTIR DE</p>
         <p>{user.price} €</p>
       </div>
-    </div>
+    </Link>
   );
 };
 
