@@ -97,7 +97,10 @@ const Searchbox = ({
               name={filter}
               onChange={(event) => {
                 setFilter(event.target.value);
-                setPage(1);
+                if (page) {
+                  setPage(1);
+                }
+
                 if (isThird) {
                   if (event.target.value === "1 € - 30 €") {
                     setPriceMin(1);

@@ -1,8 +1,9 @@
+import Button from "../Button.js";
 import "./index.scss";
 
-const MyPassword = () => {
+const MyPassword = ({ handleSubmit }) => {
   return (
-    <div className="my-password-container">
+    <form className="my-password-container" onSubmit={handleSubmit}>
       <h2 className="account-update-title">Changer le mot de passe</h2>
       <div className="border-wrapper">
         <div className="current-password">
@@ -20,7 +21,10 @@ const MyPassword = () => {
           <input type="password" />
         </div>
       </div>
-    </div>
+      <div>
+        <Button isInputBtn={true}></Button>
+      </div>
+    </form>
   );
 };
 

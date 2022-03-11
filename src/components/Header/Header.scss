@@ -45,6 +45,10 @@ a:hover,
   font-family: "Inter", sans-serif;
   color: $darkText;
 
+  a {
+    text-decoration: none;
+  }
+
   .logo-div {
     display: flex;
     align-items: center;

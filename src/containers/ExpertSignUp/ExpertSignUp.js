@@ -51,7 +51,7 @@ const ExpertSignup = ({ setUser }) => {
         );
         if (response.data.token) {
           setUser(response.data.token, response.data._id);
-          navigate("/");
+          navigate(`/account/${response.data._id}`);
         }
       }
     } catch (error) {
