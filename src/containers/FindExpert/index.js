@@ -235,17 +235,36 @@ const FindExpert = ({ token, setUser }) => {
           <div className="main-expert-info">
             <div className="main-row">
               <div className="photo-col">
-                <img
-                  src={data.account.avatarURL}
-                  alt="avatar"
-                  style={{
-                    height: 160,
-                    width: 160,
-                    borderRadius: 10,
-                    marginRight: 25,
-                    objectFit: "cover",
-                  }}
-                />
+                {data.account.avatarURL ? (
+                  <img
+                    src={data.account.avatarURL}
+                    alt="avatar"
+                    style={{
+                      height: 160,
+                      width: 160,
+                      borderRadius: 10,
+                      marginRight: 25,
+                      objectFit: "cover",
+                    }}
+                  />
+                ) : (
+                  <div
+                    style={{
+                      height: 160,
+                      width: 160,
+                      backgroundColor: "#258675",
+                      borderRadius: 10,
+                      marginRight: 25,
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      fontSize: 30,
+                      color: "white",
+                    }}
+                  >
+                    {data.account.firstName.charAt(0)}
+                  </div>
+                )}
               </div>
               <div className="main-profile-info-col">
                 <h1>
