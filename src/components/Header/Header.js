@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
   ButtonDropdown,
@@ -105,18 +105,9 @@ const Header = ({ token, setUser }) => {
                 </div>
               </DropdownToggle>
               <DropdownMenu className="menu">
-                <DropdownItem className="menu-item">
-                  {accountLoggedInType === "expert" ? (
-                    <Link
-                      to={`/account/${userID}`}
-                      style={{ color: "inherit", textDecoration: "inherit" }}
-                    >
-                      Profil
-                    </Link>
-                  ) : (
-                    "Profil"
-                  )}
-                </DropdownItem>
+                <Link to={`/account/${userID}`}>
+                  <DropdownItem className="menu-item">Profil</DropdownItem>
+                </Link>
                 <DropdownItem className="menu-item">
                   Tableau de bord
                 </DropdownItem>
@@ -125,6 +116,7 @@ const Header = ({ token, setUser }) => {
                   className="menu-item"
                   onClick={() => {
                     setUser(null, null);
+                    Navigate("/");
                   }}
                 >
                   Se déconnecter
@@ -164,7 +156,10 @@ const Header = ({ token, setUser }) => {
                 className="modal-overlay"
                 onClick={() => setDisplayLoginModal(false)}
               >
-                <LoginModal setUser={setUser} />
+                <LoginModal
+                  setUser={setUser}
+                  setDisplayLoginModal={setDisplayLoginModal}
+                />
               </div>
             )}
             <Link

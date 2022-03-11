@@ -1,0 +1,350 @@
+.edit-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.input-edit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.input-edit .input-block {
+  margin: 20px 0;
+  width: 10%;
+}
+
+.input-edit .long {
+  width: 70%;
+}
+
+.my-account-container .account-update-title {
+  margin-bottom: 20px;
+}
+
+.my-account-container .update-img-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 40px;
+}
+
+.my-account-container .update-img-container .img-specifications {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 200px;
+}
+
+.my-account-container .update-img-container .default-profile-picture {
+  width: 200px;
+  height: 200px;
+  background-color: indigo;
+  border-radius: 1000px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.my-account-container .update-img-container .default-profile-picture p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: white;
+  font-size: 3rem;
+}
+
+.my-account-container .update-img-container input[type="file"] {
+  display: none;
+}
+
+.my-account-container .update-img-container .custom-file-upload {
+  display: inline-block;
+  border: 1px solid #09b1ba;
+  border-radius: 7px;
+  padding: 12px 0;
+  width: 100%;
+  background: #09b1ba;
+  color: #f9f9f9;
+  cursor: pointer;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  text-align: center;
+}
+
+.my-account-container .update-img-container .custom-file-upload:hover {
+  opacity: 0.8;
+}
+
+.my-account-container .update-img-container .max-size-spec,
+.my-account-container .update-img-container .format-spec {
+  color: lightgrey;
+  font-size: 0.9rem;
+}
+
+.my-account-container .update-img-container .cloud-icon {
+  margin-right: 10px;
+}
+
+.my-account-container .edit-profil {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+}
+
+.my-account-container .account-to-update-wrapper {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgrey;
+  width: 100%;
+}
+
+.my-account-container .noborder {
+  border: none;
+}
+
+.my-account-container .firstname-to-update,
+.my-account-container .lastname-to-update,
+.my-account-container .phonenumber-to-update,
+.my-account-container .social-media-connect {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.my-account-container .firstname-to-update,
+.my-account-container .lastname-to-update,
+.my-account-container .phonenumber-to-update,
+.my-account-container .social-media-connect {
+  margin-bottom: 20px;
+}
+
+.my-account-container .edit-label {
+  margin-right: 100px;
+}
+
+.my-account-container .social-media-connect .linkedin-link,
+.my-account-container .social-media-connect .instagram-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.my-account-container .social-media-connect .linkedin-link {
+  margin-bottom: 20px;
+}
+
+.my-account-container .activate-offer {
+  font-size: 1.2rem;
+}
+
+.my-account-container .activate-offer label {
+  margin-right: 10px;
+}
+
+.my-account-container .myaccount-submit-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 25%;
+}
+
+.my-account-container .hidded {
+  display: none;
+}
+
+.my-account-container .btn-cancel-submit {
+  margin-right: 10px;
+}
+
+.my-account-container .cancel-submit-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 20px 0 50px 0;
+}
+
+.my-account-container .edit-title-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.my-account-container .edit-title-description .offer-title,
+.my-account-container .edit-title-description .offer-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.my-account-container .edit-title-description .offer-title,
+.my-account-container .edit-title-description .offer-description {
+  margin-bottom: 20px;
+  margin-left: 15px;
+}
+
+.my-account-container .edit-title-description input {
+  width: 47.5%;
+}
+
+.my-account-container .edit-title-description textarea {
+  width: 47.5%;
+}
+
+.my-account-container .title-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.my-account-container .description-container {
+  width: 50%;
+}
+
+.my-account-container .description-container .description {
+  margin-right: 0;
+  width: 100%;
+}
+
+.my-account-container .description-container .description-paragraph {
+  width: 300px;
+}
+
+.my-account-container .firstname-informations,
+.my-account-container .lastname-informations {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.my-account-container .filled-infos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.my-account-container .informations-row {
+  margin-right: 30%;
+}
+
+.btn-bottom-update {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.btn-alternate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30%;
+  margin: 20px 0 50px 70%;
+}
+
+.activate-offer {
+  margin-bottom: 40px;
+}
+
+.firstname-informations {
+  margin-bottom: 20px;
+}
+
+.my-account-container .bottom {
+  margin: 20px 0 50px 0;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.bulk {
+  width: 100%;
+  margin-right: 80px;
+}
+
+.oneline,
+.choose-category,
+.title-description {
+  margin: 30px 0 15px 0;
+  display: block;
+}
+
+.oneline h3,
+.choose-category h3,
+.title-description h3 {
+  font-size: 1.3rem;
+}
+/*# sourceMappingURL=index.css.map */

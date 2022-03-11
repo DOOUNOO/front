@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Button = ({
   rounded,
   noBackground,
+  noBackgroundCancel,
   squared,
   children,
   isLinkBtn,
@@ -12,6 +13,7 @@ const Button = ({
   isNormalBtn,
   isInputBtn,
   inputValue,
+  functionToCall,
 }) => {
   return (
     /* This button appears in : DoubleButtonsRates component */
@@ -55,10 +57,13 @@ More option can be added, check the "classnames" package docs.
 
       {isNormalBtn && (
         <button
+          type="button"
+          onClick={functionToCall}
           className={classNames("cta-btn", {
             squared: squared,
             rounded: rounded,
             noBackground: noBackground,
+            noBackgroundCancel: noBackgroundCancel,
           })}
         >
           {children}

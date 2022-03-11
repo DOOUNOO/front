@@ -1,15 +1,56 @@
 .find-experts-container {
+  position: relative;
+
+  .blue-lines {
+    position: absolute;
+    width: 247px;
+    height: 289px;
+    left: 5%;
+    bottom: 1%;
+    top: 1%;
+    background: url(../../assets/images/lines.svg);
+  }
+
+  .inverted-blue-lines {
+    position: absolute;
+    width: 247px;
+    height: 289px;
+    left: 80%;
+    top: 40%;
+    background: url(../../assets/images/lines.svg);
+    transform: rotate(-180deg);
+  }
+
   h1 {
-    margin: 3% 0 3% 13%;
+    margin: 3% 0 3% 22%;
     font-size: 2rem;
   }
 }
 .find-experts-feed {
   margin-top: 50px;
   h2 {
-    margin: 0 0 30px 13%;
+    margin: 0 0 80px 13%;
     color: #258675;
     font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 1597px) {
+  .blue-lines,
+  .inverted-blue-lines {
+    display: none;
+  }
+
+  .find-experts-container {
+    h1 {
+      margin: 3% 0 3% 5%;
+    }
+  }
+
+  .find-experts-feed {
+    h2 {
+      margin: 0 0 80px 5.5%;
+    }
   }
 }
 

@@ -250,19 +250,27 @@ const FindExpert = ({ token, setUser }) => {
                 ) : (
                   <div
                     style={{
+                      position: "relative",
                       height: 160,
                       width: 160,
-                      backgroundColor: "#258675",
                       borderRadius: 10,
                       marginRight: 25,
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      fontSize: 30,
-                      color: "white",
+                      objectFit: "cover",
+                      backgroundColor: "indigo",
                     }}
                   >
-                    {data.account.firstName.charAt(0)}
+                    <p
+                      style={{
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                        fontSize: "3rem",
+                        color: "#F9F9F9",
+                      }}
+                    >
+                      {data.account.firstName.charAt(0).toUpperCase()}
+                    </p>
                   </div>
                 )}
               </div>

@@ -1,4 +1,5 @@
 .search-experts-wrapper {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,6 +15,7 @@
 }
 
 .visual-wrapper {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,7 +36,7 @@
     width: 90%;
   }
   .visual-wrapper {
-    width: 100%;
+    width: 90%;
   }
 }
 

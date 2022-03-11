@@ -28,7 +28,9 @@ isIntroParagraph : Intro Paragraph component under the presentation block with i
         {expertImg ? (
           <img src={expertImg} alt={`It's ${expertName}`} />
         ) : (
-          <div>{expertName.charAt(0).toUpperCase()}</div>
+          <div className="default-avatar-img-feed">
+            <p>{expertName.charAt(0).toUpperCase()}</p>
+          </div>
         )}
 
         {isBaseline && (
