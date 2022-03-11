@@ -14,6 +14,9 @@ const Account = ({ token }) => {
 
   const [myAccount, setMyAccount] = useState(true);
   // By default, the first displayed component is myAccount
+
+  const [updateAccount, setUpdateAccount] = useState(false);
+
   const [myEmail, setMyEmail] = useState(false);
   const [myPassword, setMyPassword] = useState(false);
   const [myAvailabilities, setMyAvailabilities] = useState(false);
@@ -31,6 +34,10 @@ const Account = ({ token }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [activateOffer, setActivateOffer] = useState(false);
+
+  const [hourlyPrice, setHourlyPrice] = useState(0);
+
+  const [keywords, setKeywords] = useState("");
 
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
@@ -60,6 +67,7 @@ const Account = ({ token }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
+          /* `http://localhost:3000/account/${params.id}` */
           `https://doounoo.herokuapp.com/account/${params.id}`
         );
 
@@ -76,6 +84,7 @@ const Account = ({ token }) => {
   const handleSubmit = async (event) => {
     try {
       const res = await axios.patch(
+        /* `http://localhost:3000/account/${params.id}`, */
         `https://doounoo.herokuapp.com/account/${params.id}`,
         {
           email: email,
@@ -83,6 +92,10 @@ const Account = ({ token }) => {
             firstName: firstName,
             lastName: lastName,
             password: password,
+            keywords: keywords,
+            hourlyPrice: hourlyPrice,
+            titleDescription: titleDescription,
+            description: description,
             category: category,
             subcategory: subcategory,
             activateOffer: activateOffer,
@@ -98,6 +111,7 @@ const Account = ({ token }) => {
           },
         }
       );
+
       console.log(res);
       console.log("success");
     } catch (error) {
@@ -157,45 +171,36 @@ const Account = ({ token }) => {
           {myAccount && (
             <MyAccount
               data={data}
+              updateAccount={updateAccount}
+              setUpdateAccount={setUpdateAccount}
+              activateOffer={activateOffer}
+              setActivateOffer={setActivateOffer}
               errorMessage={errorMessage}
               handleSubmit={handleSubmit}
+              expertAvatar={data.account.avatarURL}
               firstName={data.account.firstName}
               setFirstName={setFirstName}
               lastName={data.account.lastName}
               setLastName={setLastName}
-              activateOffer={
-                data.account.activateOffer
-                  ? data.account.activateOffer
-                  : activateOffer
-              }
-              setActivateOffer={setActivateOffer}
-              category={
-                data.account.category ? data.account.category : category
-              }
+              hourlyPrice={hourlyPrice}
+              setHourlyPrice={setHourlyPrice}
+              keywords={keywords}
+              setKeywords={setKeywords}
+              category={category}
               setCategory={setCategory}
-              subcategory={
-                data.account.subcategory
-                  ? data.account.subcategory
-                  : subcategory
-              }
+              subcategory={subcategory}
               setSubcategory={setSubcategory}
-              titleDescription={
-                data.account.titleDescription
-                  ? data.account.titleDescription
-                  : titleDescription
-              }
+              titleDescription={titleDescription}
               setTitleDescription={setTitleDescription}
-              description={
-                data.account.description
-                  ? data.account.description
-                  : description
-              }
+              description={description}
               setDescription={setDescription}
             />
           )}
           {myAvailabilities && (
             <MyAvailabilities
               data={data}
+              updateAccount={updateAccount}
+              setUpdateAccount={setUpdateAccount}
               handleSubmit={handleSubmit}
               day={day}
               setDay={setDay}
@@ -204,6 +209,8 @@ const Account = ({ token }) => {
           {myEmail && (
             <MyEmail
               data={data}
+              updateAccount={updateAccount}
+              setUpdateAccount={setUpdateAccount}
               handleSubmit={handleSubmit}
               email={data.email}
               setEmail={setEmail}
@@ -212,6 +219,8 @@ const Account = ({ token }) => {
           {myPassword && (
             <MyPassword
               data={data}
+              updateAccount={updateAccount}
+              setUpdateAccount={setUpdateAccount}
               handleSubmit={handleSubmit}
               password={password}
               setPassword={setPassword}

@@ -66,6 +66,8 @@ const FindExperts = () => {
   ) : (
     <>
       <div className="find-experts-container">
+        <div className="blue-lines"></div>
+        <div className="inverted-blue-lines"></div>
         <h1>Trouvez votre expert</h1>
         <div className="loading-container"></div>
 

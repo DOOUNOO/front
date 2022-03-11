@@ -1,14 +1,30 @@
-.edit-category-subcategory {
+.edit-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid lightgrey;
 }
 
+.input-edit {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgrey;
+  .input-block {
+    margin: 20px 0;
+    width: 10%;
+  }
+  .long {
+    width: 70%;
+  }
+}
+
 .my-account-container {
   .account-update-title {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   .update-img-container {
@@ -28,9 +44,18 @@
     .default-profile-picture {
       width: 200px;
       height: 200px;
-      background-color: #09b1ba;
+      background-color: indigo;
       border-radius: 1000px;
       margin-bottom: 20px;
+      position: relative;
+      p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 3rem;
+      }
     }
 
     input[type="file"] {
@@ -77,6 +102,9 @@
     border-bottom: 1px solid lightgrey;
     width: 100%;
   }
+  .noborder {
+    border: none;
+  }
 
   .firstname-to-update,
   .lastname-to-update,
@@ -109,9 +137,32 @@
     }
   }
 
+  .activate-offer {
+    font-size: 1.2rem;
+    label {
+      margin-right: 10px;
+    }
+  }
+
   .myaccount-submit-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-top: 25%;
+  }
+
+  .hidded {
+    display: none;
+  }
+
+  .btn-cancel-submit {
+    margin-right: 10px;
+  }
+
+  .cancel-submit-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0 50px 0;
   }
 
   // Drop Down Menu
@@ -139,5 +190,78 @@
     textarea {
       width: 47.5%;
     }
+  }
+
+  .title-description {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .description-container {
+    width: 50%;
+
+    .description {
+      margin-right: 0;
+      width: 100%;
+    }
+    .description-paragraph {
+      width: 300px;
+    }
+  }
+
+  .firstname-informations,
+  .lastname-informations {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .filled-infos {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .informations-row {
+    margin-right: 30%;
+  }
+}
+
+.btn-bottom-update {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-alternate {
+  display: flex;
+  width: 30%;
+  margin: 20px 0 50px 70%;
+}
+
+.activate-offer {
+  margin-bottom: 40px;
+}
+
+.firstname-informations {
+  margin-bottom: 20px;
+}
+.my-account-container {
+  .bottom {
+    margin: 20px 0 50px 0;
+    justify-content: flex-end;
+  }
+}
+
+.bulk {
+  width: 100%;
+  margin-right: 80px;
+}
+
+.oneline,
+.choose-category,
+.title-description {
+  margin: 30px 0 15px 0;
+  display: block;
+  h3 {
+    font-size: 1.3rem;
   }
 }

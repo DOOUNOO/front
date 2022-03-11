@@ -9,12 +9,28 @@
   margin-right: 15px;
 }
 
-.presentation-card-container .presentation-img-container img {
+.presentation-card-container .presentation-img-container img,
+.presentation-card-container .presentation-img-container .default-avatar-img-feed {
   width: 250px;
   height: 250px;
   border-radius: 10px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.presentation-card-container .presentation-img-container .default-avatar-img-feed {
+  background-color: indigo;
+  position: relative;
+}
+
+.presentation-card-container .presentation-img-container p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #f9f9f9;
+  font-size: 5rem;
 }
 
 .presentation-name-icon,
