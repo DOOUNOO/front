@@ -235,7 +235,7 @@ const FindExpert = ({ token, setUser }) => {
           <div className="main-expert-info">
             <div className="main-row">
               <div className="photo-col">
-                {data.account.avatarUrl ? (
+                {data.account.avatarURL ? (
                   <img
                     src={data.account.avatarURL}
                     alt="avatar"
