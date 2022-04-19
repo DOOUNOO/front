@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# 🧑‍🏫 DOOUNOO, MVP challenge — 10 days
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The DOOUNOO app allows an entrepreneur to meet an expert in a specific field to obtain the best advice for setting up his/her business.
 
-## Available Scripts
+This app was made by 4 junior developers: Alexandre Roux (as Lead-Developer), Emilie Leury (as Product Owner), Josh Rivas and Valentin Nguyen. It's the result of 10 days of work, and still a work in progress.
 
-In the project directory, you can run:
 
-### `yarn start`
+<img width="1612" alt="1" src="https://user-images.githubusercontent.com/96998011/164035404-a3493a2a-56cb-4032-8d6f-168d3a09348e.png">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Table of Contents
+ ### 🧐 What this app does
+ ### 👩🏾‍💻 Frontend  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  
 
-### `yarn test`
+## 🧐 What this app does
+• Create your entrepreneur profile 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+• Search for the expert you need with different filters (category, price, availability, etc.)
 
-### `yarn build`
+• See reviews of the expert and book a call with him/her
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+• As an expert, you can create your own profile and offer your advices in exchange for compensation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+![output_9y2E17](https://user-images.githubusercontent.com/96998011/164037584-882abf45-6591-4c55-bb5f-e2609655d12e.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 👩🏾‍💻 Frontend 
+ ### 1. The tech used:
+[<img width="45px" style="margin-right: 10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/>](https://fr.reactjs.org/)&emsp;
+[<img width="45px" style="margin-right: 10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg"/>](https://sass-lang.com/)&emsp;
+[<img width="45px" style="margin-right: 10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg"/>](https://www.mongodb.com/fr-fr)&emsp;
+[<img width="45px" style="margin-right: 10px" src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1649711015/Stack/Axios__computer_library__logo.svg_v22zbe.png"/>](https://axios-http.com/docs/intro)&emsp;
+[<img width="45px" style="margin-right: 10px" src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1649711492/Stack/Javascript_Logo_u2qgnb.png"/>](https://www.javascript.com)&emsp;
+<img width="45px" style="margin-right: 10px" src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1649711643/Stack/html-1_rkqezf.svg"/>&emsp;
+<img width="45px" style="margin-right: 10px" src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1649711787/Stack/CSS3_logo.svg_xrgnjc.png"/>&emsp;
+[<img width="45px" style="margin-right: 10px" src="https://cdn.worldvectorlogo.com/logos/netlify.svg"/>](https://www.netlify.com/)&emsp;
+[<img width="45px" style="margin-right: 10px" src="https://i.imgur.com/Dns5wR8.png"/>](https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwinvL2kouT2AhUDkGgJHUxDBa8YABAAGgJ3Zg&ae=2&ohost=www.google.com&cid=CAESbeD23mskK7WJc5I496zyIxMNz8PBJEayKj3gXcKvDRmSxScTK2dhJf_QAI2clNSmzS1y-aGel6o2LfD9kfQdlAhLNp-4Pl7IU2lyrctI0xgxoxrcvKjG6EJlsxchogyWUtkITQYY6eg2XsdM-po&sig=AOD64_3f6MI0kU_yx-KJnwxLxVPZmsvONw&q&adurl&ved=2ahUKEwjUjLWkouT2AhVDzIUKHSCVASUQ0Qx6BAgCEAE)&emsp;
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. Packages:
+```jsx
+yarn add react-router-dom sass swiper axios @fortawesome @stripe @testing-library bootstrap react-paginate react-scripts web-vitals js-cookies react-loader-spinner 
 
-## Learn More
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. The tools used:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[<img width="45px" style="margin-right: 10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"/>](https://code.visualstudio.com/)&emsp;
+[<img width="45px" style="margin-right: 10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/>](https://git-scm.com/)&emsp;
+[<img width="45px" style="margin-right: 10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"/>](https://www.figma.com/)&emsp;
+[<img width="45px" style="margin-right: 10px" src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1649710646/Stack/Notion_app_logo_rftwbo.png"/>](https://www.notion.so/)&emsp;
+[<img width="45px" style="margin-right: 10px" src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1649701372/Stack/Octicons-mark-github_murw77.svg"/>](https://github.com/)&emsp;
+[<img width="45px" style="margin-right: 10px" src="https://res.cloudinary.com/dn7zdnm89/image/upload/v1649710808/Stack/2893aede23f01bfcbd2319326bc96a6ed0524eba759745ed6d73405a3a8b67a8_jzjhwh.png"/>](https://www.postman.com/)&emsp;
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 4. Deployment
 
-### Analyzing the Bundle Size
+🔗 [Netlify](https://doounoo.netlify.app/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 5. Backend link
 
-### Making a Progressive Web App
+🔗 [Github](https://github.com/DOOUNOO/back)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
